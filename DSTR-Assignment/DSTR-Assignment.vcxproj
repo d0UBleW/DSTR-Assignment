@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="new.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="new.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="new.h" />

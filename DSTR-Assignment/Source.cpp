@@ -1,7 +1,5 @@
 #include <iostream>
 
-#include "new.h"
-
 int main() {
 	std::cout << "Hello" << '\n';
 	std::cout << "Another commit" << '\n';
@@ -11,6 +9,5 @@ int main() {
 	std::cout << "Joshua here" << '\n';
 	std::cout << "KOKFEENG THIRD COMMIT" << '\n';
 	std::cout << "hi again, joshua testing again" << '\n';
-  New::test();
 	return 0;
 }

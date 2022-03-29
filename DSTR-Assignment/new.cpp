@@ -3,7 +3,7 @@
 namespace New {
 
     int test() {
-        std::cout << "New file";
+        std::cout << "New file" << '\n';
         return 0;
     }
 }

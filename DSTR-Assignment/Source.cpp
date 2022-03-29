@@ -3,9 +3,9 @@
 #include "new.h"
 
 int main() {
-	std::cout << "Hello";
-	std::cout << "Another commit";
-	std::cout << "Hello World";
+	std::cout << "Hello" << '\n';
+	std::cout << "Another commit" << '\n';
+	std::cout << "Hello World" << '\n';
     New::test();
 	return 0;
 }

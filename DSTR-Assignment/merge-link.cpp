@@ -19,6 +19,9 @@ List<T>* BTToLL(BinaryTree<T>* bt);
 template <typename T>
 BinaryTree<T>* LLToBT(List<T>* ll, int (*CompareFn)(int, int), char order);
 
+template <typename T>
+Node<T>* findBottomLeft(Node<T>* t);
+
 int CompareNumeric(int, int);
 
 template <typename T>
@@ -38,6 +41,14 @@ template <typename T>
 struct List {
     Node<T>* head;
     size_t size;
+    List() {}
+    ~List() {
+        while (head != NULL) {
+            Node<T>* temp = head;
+            head = head->next;
+            delete temp;
+        }
+    }
     void InsertBeginning(Node<T>* n) {
         if (head == NULL) {
             head = n;
@@ -99,6 +110,8 @@ struct MyStack {
         ll = new List<T>();
         size = 0;
     }
+    ~MyStack() {
+    }
     void Push(Node<T>* paramN) {
         ll->InsertBeginning(paramN);
         size++;
@@ -121,6 +134,24 @@ struct MyStack {
 template <typename T>
 struct BinaryTree {
     Node<T>* root;
+    BinaryTree() {}
+    ~BinaryTree() {
+        /* delete root; */
+        /* if (root == NULL) return; */
+
+        /* Node<T>* bottomLeft = findBottomLeft(root); */
+
+        /* while (root != NULL) { */
+        /*     if (root->next != NULL) { */
+        /*         bottomLeft->prev = root->next; */
+        /*         bottomLeft = findBottomLeft(bottomLeft); */
+        /*     } */
+        /*     Node<T>* tmp = root; */
+        /*     root = root->prev; */
+        /*     delete tmp; */
+        /* } */
+        /* puts("des"); */
+    }
 };
 
 int CompareNumeric(int a, int b) {
@@ -219,23 +250,31 @@ List<T>* BTToLL(BinaryTree<T>* bt) {
             /* currNode = s.top(); */
             currNode = S->Top()->x;
             if (ptr == NULL) {
-                ll->head = currNode;
+                ll->head = new Node<T>(*currNode);
                 ptr = ll->head;
             }
             else {
-                ptr->next = currNode;
+                ptr->next = new Node<T>(*currNode);
                 ptr = ptr->next;
             }
             /* s.pop(); */
             S->Pop();
+            Node<T>* tmp = currNode;
             currNode = currNode->next;
+            delete tmp;
         }
+        /* S->Display(); */
     }
     ptr->next = NULL;
     delete S;
     return ll;
 }
 
+template <typename T>
+Node<T>* findBottomLeft(Node<T>* t) {
+    while (t->prev != NULL) t = t->prev;
+    return t;
+}
 
 int main() {
     List<int>* a = new List<int>();
@@ -243,6 +282,15 @@ int main() {
     a->Add(CreateNode(5));
     a->Add(CreateNode(4));
     a->Add(CreateNode(3));
+    a->Add(CreateNode(2));
+    a->Add(CreateNode(2));
+    a->Add(CreateNode(2));
+    a->Add(CreateNode(2));
+    a->Add(CreateNode(2));
+    a->Add(CreateNode(2));
+    a->Add(CreateNode(2));
+    a->Add(CreateNode(2));
+    a->Add(CreateNode(2));
     a->Add(CreateNode(2));
     a->InsertBeginning(CreateNode(6));
     a->InsertBeginning(CreateNode(1));

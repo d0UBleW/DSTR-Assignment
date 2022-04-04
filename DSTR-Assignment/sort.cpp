@@ -1,5 +1,6 @@
 #include <iostream>
-#include "data_type.h"
+
+#include "tutor.h"
 
 int CompareNumeric(int a, int b) {
   if (a > b)
@@ -26,4 +27,19 @@ int CompareString(std::string s1, std::string s2) {
         if (s1[i] > s2[i]) return 1;
     }
     return s1.length() - s2.length();
+}
+
+int CompareTutorID(Tutor* t1, Tutor* t2) {
+    int result = CompareString(t1->ID, t2->ID);
+    return result;
+}
+
+int CompareTutorPay(Tutor* t1, Tutor* t2) {
+    int result = CompareFloat(t1->payRate, t2->payRate);
+    return result;
+}
+
+int CompareTutorRating(Tutor* t1, Tutor* t2) {
+    int result = CompareFloat(t1->rating, t2->rating);
+    return result;
 }

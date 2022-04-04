@@ -1,16 +1,16 @@
-#ifndef STACKNODE_H_INCLUDED
-#define STACKNODE_H_INCLUDED
+#ifndef STACK_NODE_H_INCLUDED
+#define STACK_NODE_H_INCLUDED
 
 #include <iostream>
 
 #include "node.h"
 
 struct StackNode {
-    Node* node;
+    Node* data;
     StackNode* next;
     StackNode* prev;
     StackNode();
-    StackNode(Node* paramNode);
+    StackNode(Node* paramData);
     ~StackNode();
 };
 

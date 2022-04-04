@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "stacklist.h"
+#include "stack_list.h"
 
 StackList::StackList() {
 
@@ -10,21 +10,21 @@ StackList::~StackList() {
     while (head != NULL) {
         StackNode* temp = head;
         head = head->next;
-        delete temp->node;
+        delete temp->data;
         delete temp;
     }
 }
 
-void StackList::InsertBeginning(Node* n) {
-    StackNode* sn = new StackNode(n);
+void StackList::InsertBeginning(Node* data) {
+    StackNode* newStackNode = new StackNode(data);
     if (head == NULL) {
-        head = sn;
+        head = newStackNode;
         return;
     }
-    sn->next = head;
-    sn->prev = head->prev;
-    head->prev = sn;
-    head = sn;
+    newStackNode->next = head;
+    newStackNode->prev = head->prev;
+    head->prev = newStackNode;
+    head = newStackNode;
 }
 
 void StackList::DeleteBeginning() {

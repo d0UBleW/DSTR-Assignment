@@ -2,7 +2,7 @@
 #include <stack>
 
 #include "binary_tree.h"
-#include "mystack.h"
+#include "my_stack.h"
 #include "list.h"
 #include "node.h"
 
@@ -18,37 +18,51 @@ List* BinaryTree::BTToLL() {
     /*
      * Create a stack which stores a pointer to Node<T> (Node<T>*)
      */
-    /* std::stack<Node*> s; */
     MyStack* S = new MyStack();
-    Node* currNode = this->root;
+    Node* treeNodePtr = this->root;
     List* ll = new List();
-    Node* ptr = ll->head;
+    Node* listNodePtr = ll->head;
 
-    while (!S->Empty() || currNode != NULL) {
-        if (currNode != NULL) {
-            S->Push(currNode);
-            /* s.push(currNode); */
-            currNode = currNode->prev;
+    /*
+     * Iterative in-order traversal
+     */
+    while (!S->Empty() || treeNodePtr != NULL) {
+        if (treeNodePtr != NULL) {
+            /*
+             * Traverse the left sub-tree while keeping track of previous node
+             * with stack
+             */
+            S->Push(treeNodePtr);
+            treeNodePtr = treeNodePtr->prev;
         }
         else {
-            currNode = S->Top();
-            /* currNode = s.top(); */
-            if (ptr == NULL) {
-                ll->head = new Node(*currNode);
-                ptr = ll->head;
+            /*
+             * Reached end of left sub-tree, retrieve the parent (previous)
+             * node from the stack
+             */
+            treeNodePtr = S->Top();
+            /*
+             * Check if our linked list is empty
+             * Then build the linked list with deep copy of the tree node
+             */
+            if (listNodePtr == NULL) {
+                ll->head = new Node(*treeNodePtr);
+                listNodePtr = ll->head;
             }
             else {
-                ptr->next = new Node(*currNode);
-                ptr = ptr->next;
+                listNodePtr->next = new Node(*treeNodePtr);
+                listNodePtr = listNodePtr->next;
             }
             S->Pop();
-            /* s.pop(); */
-            Node* tmp = currNode;
-            currNode = currNode->next;
+            /*
+             * Store the unused tree node address to be deallocate
+             */
+            Node* tmp = treeNodePtr;
+            treeNodePtr = treeNodePtr->next;
             delete tmp;
         }
     }
-    ptr->next = NULL;
+    listNodePtr->next = NULL;
     delete S;
     return ll;
 }

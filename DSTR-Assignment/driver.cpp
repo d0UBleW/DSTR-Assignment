@@ -2,7 +2,7 @@
 
 #include "list.h"
 #include "node.h"
-#include "mystack.h"
+#include "my_stack.h"
 #include "binary_tree.h"
 #include "sort.h"
 #include "tutor.h"

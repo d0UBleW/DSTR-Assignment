@@ -1,7 +1,7 @@
 #include <iostream>
 
-#include "mystack.h"
-#include "stacklist.h"
+#include "my_stack.h"
+#include "stack_list.h"
 #include "list.h"
 #include "node.h"
 
@@ -20,7 +20,7 @@ void MyStack::Push(Node* data) {
 }
 
 Node* MyStack::Top() {
-    return ll->head->node;
+    return ll->head->data;
 }
 
 void MyStack::Pop() {

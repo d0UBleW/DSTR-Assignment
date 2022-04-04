@@ -4,11 +4,11 @@
 #include "type.h"
 
 struct Node {
-    Tutor* x;
+    Tutor* tutor;
     Node* next;
     Node* prev;
     Node();
-    Node(Tutor* paramX);
+    Node(Tutor* t);
     ~Node();
 };
 

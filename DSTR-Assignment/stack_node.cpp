@@ -1,13 +1,13 @@
 #include <iostream>
 
-#include "StackNode.h"
+#include "stack_node.h"
 
 StackNode::StackNode() {
 
 }
 
-StackNode::StackNode(Node* paramNode) {
-    node = paramNode;
+StackNode::StackNode(Node* paramData) {
+    data = paramData;
     next = NULL;
     prev = NULL;
 }

@@ -13,28 +13,28 @@ List::~List() {
     while (head != NULL) {
         Node* temp = head;
         head = head->next;
-        delete temp->x;
+        delete temp->tutor;
         delete temp;
     }
 }
 
-void List::InsertBeginning(Tutor* data) {
-    Node* n = new Node(data);
+void List::InsertBeginning(Tutor* tutor) {
+    Node* newNode = new Node(tutor);
     if (head == NULL) {
-        head = n;
+        head = newNode;
         return;
     }
-    n->next = head;
-    n->prev = head->prev;
-    head->prev = n;
-    head = n;
+    newNode->next = head;
+    newNode->prev = head->prev;
+    head->prev = newNode;
+    head = newNode;
 }
 
-void List::Add(Tutor* data) {
-    Node* n = new Node(data);
+void List::Add(Tutor* tutor) {
+    Node* newNode = new Node(tutor);
     size++;
     if (head == NULL) {
-        head = n;
+        head = newNode;
         return;
     }
 
@@ -42,31 +42,31 @@ void List::Add(Tutor* data) {
     while (ptr->next != NULL) {
         ptr = ptr->next;
     }
-    ptr->next = n;
+    ptr->next = newNode;
 }
 
 void List::Display() {
     puts("Tutor Display");
-    Node* ptr = head;
-    while (ptr != NULL) {
-        std::cout << "Addr: " << ptr->x << '\n';
-        std::cout << "Name: " << ptr->x->name << '\n';
-        std::cout << "ID: " << ptr->x->ID << '\n';
-        std::cout << "Pay: " << ptr->x->payRate << '\n';
-        std::cout << "Rating: " << ptr->x->rating << '\n';
+    Node* nodePtr = head;
+    while (nodePtr != NULL) {
+        std::cout << "Addr: " << nodePtr->tutor << '\n';
+        std::cout << "Name: " << nodePtr->tutor->name << '\n';
+        std::cout << "ID: " << nodePtr->tutor->ID << '\n';
+        std::cout << "Pay: " << nodePtr->tutor->payRate << '\n';
+        std::cout << "Rating: " << nodePtr->tutor->rating << '\n';
         puts("");
-        ptr = ptr->next;
+        nodePtr = nodePtr->next;
     }
     puts("");
 }
 
 void List::DeleteBeginning() {
-    Node* ptr = head;
+    Node* nodePtr = head;
     if (head->next != NULL) {
         head = head->next;
         head->prev = NULL;
     }
-    delete ptr;
+    delete nodePtr;
 }
 
 List* List::Sort(int (*CompareFn)(Tutor*, Tutor*), char order) {
@@ -79,73 +79,69 @@ List* List::Sort(int (*CompareFn)(Tutor*, Tutor*), char order) {
 BinaryTree* List::LLToBT(int (*CompareFn)(Tutor*, Tutor*), char order) {
     /* if (this == NULL) return NULL; */
 
-    Node* ptr = this->head;
+    Node* listNodePtr = this->head;
 
     BinaryTree* bt = new BinaryTree();
     bt->root = new Node();
-    bt->root->x = new Tutor(*(ptr->x));
+    bt->root->tutor = new Tutor(*(listNodePtr->tutor));
     bt->root->prev = NULL;
     bt->root->next = NULL;
-    ptr = ptr->next;
+    listNodePtr = listNodePtr->next;
 
-    while (ptr != NULL) {
-        Node* temp = bt->root;
+    while (listNodePtr != NULL) {
+        Node* treeNodePtr = bt->root;
         int result;
-        Node* prev;
-        while (temp != NULL) {
-            prev = temp;
-            Tutor* listData = ptr->x;
-            Tutor* treeData = temp->x;
+        Node* treeNodePtrParent = NULL;
+        while (treeNodePtr != NULL) {
+            treeNodePtrParent = treeNodePtr;
+            Tutor* listData = listNodePtr->tutor;
+            Tutor* treeData = treeNodePtr->tutor;
             result = (*CompareFn)(listData, treeData);
             if (order == 'a') {
                 if (result > 0) {
-                    temp = temp->next;
+                    treeNodePtr = treeNodePtr->next;
                 }
                 else {
-                    temp = temp->prev;
+                    treeNodePtr = treeNodePtr->prev;
                 }
             }
             else {
-                if (result > 0) temp = temp->prev;
-                else temp = temp->next;
+                if (result > 0) treeNodePtr = treeNodePtr->prev;
+                else treeNodePtr = treeNodePtr->next;
             }
         }
 
-        Tutor* t = ptr->x;
+        Tutor* t = listNodePtr->tutor;
 
         if (order == 'a') {
             if (result > 0) {
-                /* prev->next = new Node<T>(*ptr); */
-                prev->next = new Node();
-                prev->next->x = new Tutor(*t);
-                prev->next->next = NULL;
-                prev->next->prev = NULL;
+                treeNodePtrParent->next = new Node();
+                treeNodePtrParent->next->tutor = new Tutor(*t);
+                treeNodePtrParent->next->next = NULL;
+                treeNodePtrParent->next->prev = NULL;
             }
             else {
-                /* prev->prev = new Node<T>(*ptr); */
-                prev->prev = new Node();
-                prev->prev->x = new Tutor(*t);
-                prev->prev->next = NULL;
-                prev->prev->prev = NULL;
+                treeNodePtrParent->prev = new Node();
+                treeNodePtrParent->prev->tutor = new Tutor(*t);
+                treeNodePtrParent->prev->next = NULL;
+                treeNodePtrParent->prev->prev = NULL;
             }
         }
         else {
             if (result > 0) {
-                /* prev->prev = new Node<T>(*ptr); */
-                prev->prev = new Node();
-                prev->prev->x = new Tutor(*t);
-                prev->prev->next = NULL;
-                prev->prev->prev = NULL;
+                treeNodePtrParent->prev = new Node();
+                treeNodePtrParent->prev->tutor = new Tutor(*t);
+                treeNodePtrParent->prev->next = NULL;
+                treeNodePtrParent->prev->prev = NULL;
             }
             else {
-                /* prev->next = new Node<T>(*ptr); */
-                prev->next = new Node();
-                prev->next->x = new Tutor(*t);
-                prev->next->next = NULL;
-                prev->next->prev = NULL;
+                treeNodePtrParent->next = new Node();
+                treeNodePtrParent->next->tutor = new Tutor(*t);
+                treeNodePtrParent->next->next = NULL;
+                treeNodePtrParent->next->prev = NULL;
             }
         }
-        ptr = ptr->next;
+        listNodePtr = listNodePtr->next;
     }
     return bt;
 }

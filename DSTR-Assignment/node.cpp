@@ -11,7 +11,7 @@ Node::~Node() {
 }
 
 Node::Node(Tutor* t) {
-    this->x = t;
+    this->tutor = t;
     this->next = NULL;
     this->prev = NULL;
 }

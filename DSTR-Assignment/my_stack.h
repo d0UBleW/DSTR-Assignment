@@ -1,5 +1,5 @@
-#ifndef MYSTACK_H_INCLUDED
-#define MYSTACK_H_INCLUDED
+#ifndef MY_STACK_H_INCLUDED
+#define MY_STACK_H_INCLUDED
 
 #include <iostream>
 

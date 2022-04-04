@@ -1,6 +1,6 @@
 #include <iostream>
 
-int main() {
+int test() {
 	std::cout << "Hello" << '\n';
 	std::cout << "Another commit" << '\n';
 	std::cout << "Hello World" << '\n';

@@ -62,9 +62,10 @@ void List<T>::DeleteBeginning() {
 }
 
 template <typename T>
-List<T>* List<T>::Sort(int (*CompareFn)(int, int), char order) {
+template <typename U>
+List<T>* List<T>::Sort(int (*CompareFn)(U, U), char order) {
     /* BinaryTree<T>* bt = LLToBT<T>(this, (*CompareFn), order); */
-    BinaryTree<T>* bt = this->LLToBT((*CompareFn), order);
+    BinaryTree<T>* bt = this->LLToBT<U>((*CompareFn), order);
     /* List<T>* sortedLL = BTToLL<T>(bt); */
     List<T>* sortedLL = bt->BTToLL();
     delete bt;
@@ -72,7 +73,8 @@ List<T>* List<T>::Sort(int (*CompareFn)(int, int), char order) {
 }
 
 template <typename T>
-BinaryTree<T>* List<T>::LLToBT(int (*CompareFn)(int, int), char order) {
+template <typename U>
+BinaryTree<T>* List<T>::LLToBT(int (*CompareFn)(U, U), char order) {
     /* if (this == NULL) return NULL; */
 
     Node<T>* ptr = this->head;

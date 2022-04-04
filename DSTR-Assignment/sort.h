@@ -5,4 +5,8 @@
 
 int CompareNumeric(int, int);
 
+int CompareFloat(float, float);
+
+int CompareString(std::string, std::string);
+
 #endif

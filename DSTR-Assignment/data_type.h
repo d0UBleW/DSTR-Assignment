@@ -36,8 +36,10 @@ struct List {
     void Add(T n);
     void Display();
     void DeleteBeginning();
-    BinaryTree<T>* LLToBT(int (*CompareFn)(int, int), char order);
-    List<T>* Sort(int (*CompareFn)(int, int), char order);
+    template <typename U>
+    BinaryTree<T>* LLToBT(int (*CompareFn)(U, U), char order);
+    template <typename U>
+    List<T>* Sort(int (*CompareFn)(U, U), char order);
 };
 
 template <typename T>

@@ -2,30 +2,24 @@
 #include "data_type.h"
 #include "sort.h"
 
+using std::string;
+
 int main() {
-    List<int>* a = new List<int>();
-    a->InsertBeginning(1);
-    a->Add(5);
-    a->Add(4);
-    a->Add(3);
-    a->Add(2);
-    a->Add(2);
-    a->Add(2);
-    a->Add(2);
-    a->Add(2);
-    a->Add(2);
-    a->Add(2);
-    a->Add(2);
-    a->Add(2);
-    a->Add(2);
-    a->InsertBeginning(6);
-    a->InsertBeginning(1);
+    List<string>* a = new List<string>();
+    a->InsertBeginning("abc");
+    a->Add("abcd");
+    a->Add("ab");
+    a->Add("abcc");
+    a->Add("abce");
+    a->Add("abca");
+    a->InsertBeginning("bc");
+    a->InsertBeginning("abc");
     a->DeleteBeginning();
     a->Display();
     /* BinaryTree<int>* bt = LLToBT<int>(a, &CompareNumeric, 'a'); */
     /* std::cout << bt->root->x << '\n'; */
     /* std::cout << bt->root->prev->x << '\n'; */
-    List<int>* sortedLL = a->Sort(&CompareNumeric, 'a');
+    List<string>* sortedLL = a->Sort<string>(&CompareString, 'a');
     sortedLL->Display();
     a->Display();
     delete a;

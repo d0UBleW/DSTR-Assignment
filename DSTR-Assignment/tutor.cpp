@@ -3,7 +3,8 @@
 #include "tutor.h"
 
 Tutor::Tutor() {
-
+    payRate = 0;
+    rating = 0;
 }
 
 Tutor::Tutor(string paramName, string paramID, float paramPayRate, float paramRating) {

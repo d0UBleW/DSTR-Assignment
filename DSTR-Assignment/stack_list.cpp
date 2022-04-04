@@ -3,7 +3,8 @@
 #include "stack_list.h"
 
 StackList::StackList() {
-
+    head = NULL;
+    size = 0;
 }
 
 StackList::~StackList() {

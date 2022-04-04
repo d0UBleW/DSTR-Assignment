@@ -7,7 +7,7 @@
 #include "node.h"
 
 BinaryTree::BinaryTree() {
-
+    root = NULL;
 }
 
 BinaryTree::~BinaryTree() {

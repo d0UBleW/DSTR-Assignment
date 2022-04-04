@@ -6,6 +6,8 @@
 #include "tutor.h"
 
 List::List() {
+    head = NULL;
+    size = 0;
     /* puts("List constructed"); */
 }
 

@@ -3,7 +3,9 @@
 #include "node.h"
 
 Node::Node() {
-
+    tutor = NULL;
+    next = NULL;
+    prev = NULL;
 }
 
 Node::~Node() {

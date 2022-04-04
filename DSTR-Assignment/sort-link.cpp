@@ -1,5 +1,4 @@
 #include <iostream>
-#include <stack>
 
 template <typename T>
 struct Node;
@@ -18,9 +17,6 @@ List<T>* BTToLL(BinaryTree<T>* bt);
 
 template <typename T>
 BinaryTree<T>* LLToBT(List<T>* ll, int (*CompareFn)(int, int), char order);
-
-template <typename T>
-Node<T>* findBottomLeft(Node<T>* t);
 
 int CompareNumeric(int, int);
 
@@ -88,8 +84,8 @@ struct List {
         }
         delete ptr;
     }
-    static List<T>* Sort(List<T>* ll, int (*CompareFn)(int, int), char order) {
-        BinaryTree<T>* bt = LLToBT<T>(ll, (*CompareFn), order);
+    List<T>* Sort(int (*CompareFn)(int, int), char order) {
+        BinaryTree<T>* bt = LLToBT<T>(this, (*CompareFn), order);
         List<T>* sortedLL = BTToLL<T>(bt);
         delete bt;
         return sortedLL;
@@ -112,12 +108,13 @@ struct MyStack {
     }
     ~MyStack() {
     }
-    void Push(Node<T>* paramN) {
-        ll->InsertBeginning(paramN);
+    void Push(T paramN) {
+        Node<T>* newNode = new Node<T>(paramN);
+        ll->InsertBeginning(newNode);
         size++;
     }
-    Node<T>* Top() {
-        return ll->head;
+    T Top() {
+        return ll->head->x;
     }
     void Pop() {
         ll->DeleteBeginning();
@@ -135,23 +132,7 @@ template <typename T>
 struct BinaryTree {
     Node<T>* root;
     BinaryTree() {}
-    ~BinaryTree() {
-        /* delete root; */
-        /* if (root == NULL) return; */
-
-        /* Node<T>* bottomLeft = findBottomLeft(root); */
-
-        /* while (root != NULL) { */
-        /*     if (root->next != NULL) { */
-        /*         bottomLeft->prev = root->next; */
-        /*         bottomLeft = findBottomLeft(bottomLeft); */
-        /*     } */
-        /*     Node<T>* tmp = root; */
-        /*     root = root->prev; */
-        /*     delete tmp; */
-        /* } */
-        /* puts("des"); */
-    }
+    ~BinaryTree() {}
 };
 
 int CompareNumeric(int a, int b) {
@@ -225,30 +206,20 @@ BinaryTree<T>* LLToBT(List<T>* ll, int (*CompareFn)(int, int), char order) {
 template <typename T>
 List<T>* BTToLL(BinaryTree<T>* bt) {
     /*
-     * Since MyStack is made up of a linked list and we want the linked list
-     * to be made up of pointer to Node<T>, then the element of the linked list
-     * has the data type of Node<Node<T>*>
-     * Create a stack which stores a Node whose data is a pointer to Node<T>
-     * (Node<T>*)
+     * Create a stack which stores a pointer to Node<T> (Node<T>*)
      */
     MyStack<Node<T>*>* S = new MyStack<Node<T>*>();
-    /* std::stack<Node<T>*> s; */
     Node<T>* currNode = bt->root;
     List<T>* ll = new List<T>();
     Node<T>* ptr = ll->head;
 
     while (!S->Empty() || currNode != NULL) {
         if (currNode != NULL) {
-            /* s.push(currNode); */
-            Node<Node<T>*>* ptrToNodePtr = new Node<Node<T>*>();
-            ptrToNodePtr->x = currNode;
-            S->Push(ptrToNodePtr);
-            /* S->Push(new Node<Node<T>*>(&*currNode)); */
+            S->Push(currNode);
             currNode = currNode->prev;
         }
         else {
-            /* currNode = s.top(); */
-            currNode = S->Top()->x;
+            currNode = S->Top();
             if (ptr == NULL) {
                 ll->head = new Node<T>(*currNode);
                 ptr = ll->head;
@@ -257,23 +228,15 @@ List<T>* BTToLL(BinaryTree<T>* bt) {
                 ptr->next = new Node<T>(*currNode);
                 ptr = ptr->next;
             }
-            /* s.pop(); */
             S->Pop();
             Node<T>* tmp = currNode;
             currNode = currNode->next;
             delete tmp;
         }
-        /* S->Display(); */
     }
     ptr->next = NULL;
     delete S;
     return ll;
-}
-
-template <typename T>
-Node<T>* findBottomLeft(Node<T>* t) {
-    while (t->prev != NULL) t = t->prev;
-    return t;
 }
 
 int main() {
@@ -299,7 +262,7 @@ int main() {
     /* BinaryTree<int>* bt = LLToBT<int>(a, &CompareNumeric, 'a'); */
     /* std::cout << bt->root->x << '\n'; */
     /* std::cout << bt->root->prev->x << '\n'; */
-    List<int>* sortedLL = List<int>::Sort(a, &CompareNumeric, 'a');
+    List<int>* sortedLL = a->Sort(&CompareNumeric, 'a');
     sortedLL->Display();
     a->Display();
     delete a;

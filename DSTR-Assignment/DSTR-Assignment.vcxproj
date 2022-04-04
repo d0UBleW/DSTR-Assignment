@@ -151,7 +151,6 @@
     <ClCompile Include="tutor.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source.cpp" />
     <ClInclude Include="binary_tree.h" />
     <ClInclude Include="list.h" />
     <ClInclude Include="my_stack.h" />

@@ -36,10 +36,16 @@ struct List {
     void Add(T n);
     void Display();
     void DeleteBeginning();
-    template <typename U>
-    BinaryTree<T>* LLToBT(int (*CompareFn)(U, U), char order);
-    template <typename U>
-    List<T>* Sort(int (*CompareFn)(U, U), char order);
+    BinaryTree<T>* LLToBT(char order, std::string data);
+    List<T>* Sort(char order, std::string data);
+    /* template <typename U> */
+    /* BinaryTree<T>* LLToBT(int (*CompareFn)(U, U), char order); */
+    /* template <typename U> */
+    /* BinaryTree<T>* LLToBT(int (*CompareFn)(U, U), char order, std::string data); */
+    /* template <typename U> */
+    /* List<T>* Sort(int (*CompareFn)(U, U), char order); */
+    /* template <typename U> */
+    /* List<T>* Sort(int (*CompareFn)(U, U), char order, std::string data); */
 };
 
 template <typename T>

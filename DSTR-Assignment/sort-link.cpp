@@ -45,7 +45,8 @@ struct List {
             delete temp;
         }
     }
-    void InsertBeginning(Node<T>* n) {
+    void InsertBeginning(T data) {
+        Node<T>* n = new Node<T>(data);
         if (head == NULL) {
             head = n;
             return;
@@ -55,7 +56,8 @@ struct List {
         head->prev = n;
         head = n;
     }
-    void Add(Node<T>* n) {
+    void Add(T data) {
+        Node<T>* n = new Node<T>(data);
         size++;
         if (head == NULL) {
             head = n;
@@ -108,9 +110,9 @@ struct MyStack {
     }
     ~MyStack() {
     }
-    void Push(T paramN) {
-        Node<T>* newNode = new Node<T>(paramN);
-        ll->InsertBeginning(newNode);
+    void Push(T data) {
+        /* Node<T>* newNode = new Node<T>(paramN); */
+        ll->InsertBeginning(data);
         size++;
     }
     T Top() {
@@ -241,22 +243,22 @@ List<T>* BTToLL(BinaryTree<T>* bt) {
 
 int main() {
     List<int>* a = new List<int>();
-    a->InsertBeginning(CreateNode(1));
-    a->Add(CreateNode(5));
-    a->Add(CreateNode(4));
-    a->Add(CreateNode(3));
-    a->Add(CreateNode(2));
-    a->Add(CreateNode(2));
-    a->Add(CreateNode(2));
-    a->Add(CreateNode(2));
-    a->Add(CreateNode(2));
-    a->Add(CreateNode(2));
-    a->Add(CreateNode(2));
-    a->Add(CreateNode(2));
-    a->Add(CreateNode(2));
-    a->Add(CreateNode(2));
-    a->InsertBeginning(CreateNode(6));
-    a->InsertBeginning(CreateNode(1));
+    a->InsertBeginning(1);
+    a->Add(5);
+    a->Add(4);
+    a->Add(3);
+    a->Add(2);
+    a->Add(2);
+    a->Add(2);
+    a->Add(2);
+    a->Add(2);
+    a->Add(2);
+    a->Add(2);
+    a->Add(2);
+    a->Add(2);
+    a->Add(2);
+    a->InsertBeginning(6);
+    a->InsertBeginning(1);
     a->DeleteBeginning();
     a->Display();
     /* BinaryTree<int>* bt = LLToBT<int>(a, &CompareNumeric, 'a'); */

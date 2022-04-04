@@ -8,10 +8,10 @@ Tutor::Tutor() {
 }
 
 Tutor::Tutor(string paramName, string paramID, float paramPayRate, float paramRating) {
-        name = paramName;
-        ID = paramID;
-        payRate = paramPayRate;
-        rating = paramRating;
+    name = paramName;
+    ID = paramID;
+    payRate = paramPayRate;
+    rating = paramRating;
 }
 
 Tutor::~Tutor() {

@@ -7,7 +7,7 @@
 #include "my_stack.h"
 
 TutorList::TutorList() {
-    head = NULL;
+    head = nullptr;
     size = 0;
     /* puts("TutorList constructed"); */
 }
@@ -23,8 +23,8 @@ TutorList::TutorList(BinaryTree* bt) {
     /*
      * Iterative in-order traversal
      */
-    while (!S->Empty() || treeNodePtr != NULL) {
-        if (treeNodePtr != NULL) {
+    while (!S->Empty() || treeNodePtr != nullptr) {
+        if (treeNodePtr != nullptr) {
             /*
              * Traverse the left sub-tree while keeping track of previous node
              * with stack
@@ -42,7 +42,7 @@ TutorList::TutorList(BinaryTree* bt) {
              * Check if our linked list is empty
              * Then build the linked list with deep copy of the tree node
              */
-            if (listNodePtr == NULL) {
+            if (listNodePtr == nullptr) {
                 head = new TutorNode(*treeNodePtr);
                 listNodePtr = head;
             }
@@ -60,12 +60,12 @@ TutorList::TutorList(BinaryTree* bt) {
             delete tmp;
         }
     }
-    listNodePtr->next = NULL;
+    listNodePtr->next = nullptr;
     delete S;
 }
 
 TutorList::~TutorList() {
-    while (head != NULL) {
+    while (head != nullptr) {
         TutorNode* temp = head;
         head = head->next;
         delete temp->tutor;
@@ -75,7 +75,7 @@ TutorList::~TutorList() {
 
 void TutorList::InsertBeginning(Tutor* tutor) {
     TutorNode* newNode = new TutorNode(tutor);
-    if (head == NULL) {
+    if (head == nullptr) {
         head = newNode;
         return;
     }
@@ -88,13 +88,13 @@ void TutorList::InsertBeginning(Tutor* tutor) {
 void TutorList::Add(Tutor* tutor) {
     TutorNode* newNode = new TutorNode(tutor);
     size++;
-    if (head == NULL) {
+    if (head == nullptr) {
         head = newNode;
         return;
     }
 
     TutorNode* ptr = head;
-    while (ptr->next != NULL) {
+    while (ptr->next != nullptr) {
         ptr = ptr->next;
     }
     ptr->next = newNode;
@@ -103,7 +103,7 @@ void TutorList::Add(Tutor* tutor) {
 void TutorList::Display() {
     puts("Tutor Display");
     TutorNode* nodePtr = head;
-    while (nodePtr != NULL) {
+    while (nodePtr != nullptr) {
         std::cout << "Addr: " << nodePtr->tutor << '\n';
         std::cout << "Name: " << nodePtr->tutor->name << '\n';
         std::cout << "ID: " << nodePtr->tutor->ID << '\n';
@@ -117,9 +117,9 @@ void TutorList::Display() {
 
 void TutorList::DeleteBeginning() {
     TutorNode* nodePtr = head;
-    if (head->next != NULL) {
+    if (head->next != nullptr) {
         head = head->next;
-        head->prev = NULL;
+        head->prev = nullptr;
     }
     delete nodePtr;
 }

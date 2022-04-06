@@ -3,15 +3,15 @@
 #include "stack_node.h"
 
 StackNode::StackNode() {
-    data = NULL;
-    next = NULL;
-    prev = NULL;
+    data = nullptr;
+    next = nullptr;
+    prev = nullptr;
 }
 
 StackNode::StackNode(TutorNode* paramData) {
     data = paramData;
-    next = NULL;
-    prev = NULL;
+    next = nullptr;
+    prev = nullptr;
 }
 
 StackNode::~StackNode() {

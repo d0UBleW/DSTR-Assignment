@@ -3,9 +3,9 @@
 #include "tutor_node.h"
 
 TutorNode::TutorNode() {
-    tutor = NULL;
-    next = NULL;
-    prev = NULL;
+    tutor = nullptr;
+    next = nullptr;
+    prev = nullptr;
 }
 
 TutorNode::~TutorNode() {
@@ -14,6 +14,6 @@ TutorNode::~TutorNode() {
 
 TutorNode::TutorNode(Tutor* t) {
     this->tutor = t;
-    this->next = NULL;
-    this->prev = NULL;
+    this->next = nullptr;
+    this->prev = nullptr;
 }

@@ -8,7 +8,7 @@
 #include "tutor.h"
 
 BinaryTree::BinaryTree() {
-    root = NULL;
+    root = nullptr;
 }
 
 BinaryTree::~BinaryTree() {
@@ -16,21 +16,21 @@ BinaryTree::~BinaryTree() {
 }
 
 BinaryTree::BinaryTree(TutorList* ll, int (*CompareFn)(Tutor*, Tutor*), char order) {
-    if (ll == NULL) return;
+    if (ll == nullptr) return;
 
     TutorNode* listNodePtr = ll->head;
 
     root = new TutorNode();
     root->tutor = new Tutor(*(listNodePtr->tutor));
-    root->prev = NULL;
-    root->next = NULL;
+    root->prev = nullptr;
+    root->next = nullptr;
     listNodePtr = listNodePtr->next;
 
-    while (listNodePtr != NULL) {
+    while (listNodePtr != nullptr) {
         TutorNode* treeNodePtr = root;
         int result;
-        TutorNode* treeNodePtrParent = NULL;
-        while (treeNodePtr != NULL) {
+        TutorNode* treeNodePtrParent = nullptr;
+        while (treeNodePtr != nullptr) {
             treeNodePtrParent = treeNodePtr;
             Tutor* listData = listNodePtr->tutor;
             Tutor* treeData = treeNodePtr->tutor;
@@ -55,28 +55,28 @@ BinaryTree::BinaryTree(TutorList* ll, int (*CompareFn)(Tutor*, Tutor*), char ord
             if (result > 0) {
                 treeNodePtrParent->next = new TutorNode();
                 treeNodePtrParent->next->tutor = new Tutor(*t);
-                treeNodePtrParent->next->next = NULL;
-                treeNodePtrParent->next->prev = NULL;
+                treeNodePtrParent->next->next = nullptr;
+                treeNodePtrParent->next->prev = nullptr;
             }
             else {
                 treeNodePtrParent->prev = new TutorNode();
                 treeNodePtrParent->prev->tutor = new Tutor(*t);
-                treeNodePtrParent->prev->next = NULL;
-                treeNodePtrParent->prev->prev = NULL;
+                treeNodePtrParent->prev->next = nullptr;
+                treeNodePtrParent->prev->prev = nullptr;
             }
         }
         else {
             if (result > 0) {
                 treeNodePtrParent->prev = new TutorNode();
                 treeNodePtrParent->prev->tutor = new Tutor(*t);
-                treeNodePtrParent->prev->next = NULL;
-                treeNodePtrParent->prev->prev = NULL;
+                treeNodePtrParent->prev->next = nullptr;
+                treeNodePtrParent->prev->prev = nullptr;
             }
             else {
                 treeNodePtrParent->next = new TutorNode();
                 treeNodePtrParent->next->tutor = new Tutor(*t);
-                treeNodePtrParent->next->next = NULL;
-                treeNodePtrParent->next->prev = NULL;
+                treeNodePtrParent->next->next = nullptr;
+                treeNodePtrParent->next->prev = nullptr;
             }
         }
         listNodePtr = listNodePtr->next;

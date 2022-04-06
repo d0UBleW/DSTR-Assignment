@@ -3,12 +3,12 @@
 #include "stack_list.h"
 
 StackList::StackList() {
-    head = NULL;
+    head = nullptr;
     size = 0;
 }
 
 StackList::~StackList() {
-    while (head != NULL) {
+    while (head != nullptr) {
         StackNode* temp = head;
         head = head->next;
         delete temp->data;
@@ -18,7 +18,7 @@ StackList::~StackList() {
 
 void StackList::InsertBeginning(TutorNode* data) {
     StackNode* newStackNode = new StackNode(data);
-    if (head == NULL) {
+    if (head == nullptr) {
         head = newStackNode;
         return;
     }
@@ -30,9 +30,9 @@ void StackList::InsertBeginning(TutorNode* data) {
 
 void StackList::DeleteBeginning() {
     StackNode* ptr = head;
-    if (head->next != NULL) {
+    if (head->next != nullptr) {
         head = head->next;
-        head->prev = NULL;
+        head->prev = nullptr;
     }
     delete ptr;
 }

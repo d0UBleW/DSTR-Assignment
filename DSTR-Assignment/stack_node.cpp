@@ -8,7 +8,7 @@ StackNode::StackNode() {
     prev = NULL;
 }
 
-StackNode::StackNode(Node* paramData) {
+StackNode::StackNode(TutorNode* paramData) {
     data = paramData;
     next = NULL;
     prev = NULL;

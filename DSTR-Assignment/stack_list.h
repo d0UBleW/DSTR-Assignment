@@ -8,7 +8,7 @@ struct StackList {
     size_t size;
     StackList();
     ~StackList();
-    void InsertBeginning(Node* data);
+    void InsertBeginning(TutorNode* data);
     void DeleteBeginning();
 };
 

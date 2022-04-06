@@ -4,7 +4,7 @@
 #include "type.h"
 
 struct BinaryTree {
-    Node* root;
+    TutorNode* root;
     BinaryTree();
     ~BinaryTree();
     List* BTToLL();

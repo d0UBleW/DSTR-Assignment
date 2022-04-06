@@ -5,7 +5,7 @@ struct Date;
 struct Center;
 struct Subject;
 struct Tutor;
-struct Node;
+struct TutorNode;
 struct List;
 struct MyStack;
 struct BinaryTree;

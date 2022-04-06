@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "node.h"
+#include "tutor_node.h"
 #include "list.h"
 #include "binary_tree.h"
 #include "tutor.h"
@@ -13,7 +13,7 @@ List::List() {
 
 List::~List() {
     while (head != NULL) {
-        Node* temp = head;
+        TutorNode* temp = head;
         head = head->next;
         delete temp->tutor;
         delete temp;
@@ -21,7 +21,7 @@ List::~List() {
 }
 
 void List::InsertBeginning(Tutor* tutor) {
-    Node* newNode = new Node(tutor);
+    TutorNode* newNode = new TutorNode(tutor);
     if (head == NULL) {
         head = newNode;
         return;
@@ -33,14 +33,14 @@ void List::InsertBeginning(Tutor* tutor) {
 }
 
 void List::Add(Tutor* tutor) {
-    Node* newNode = new Node(tutor);
+    TutorNode* newNode = new TutorNode(tutor);
     size++;
     if (head == NULL) {
         head = newNode;
         return;
     }
 
-    Node* ptr = head;
+    TutorNode* ptr = head;
     while (ptr->next != NULL) {
         ptr = ptr->next;
     }
@@ -49,7 +49,7 @@ void List::Add(Tutor* tutor) {
 
 void List::Display() {
     puts("Tutor Display");
-    Node* nodePtr = head;
+    TutorNode* nodePtr = head;
     while (nodePtr != NULL) {
         std::cout << "Addr: " << nodePtr->tutor << '\n';
         std::cout << "Name: " << nodePtr->tutor->name << '\n';
@@ -63,7 +63,7 @@ void List::Display() {
 }
 
 void List::DeleteBeginning() {
-    Node* nodePtr = head;
+    TutorNode* nodePtr = head;
     if (head->next != NULL) {
         head = head->next;
         head->prev = NULL;
@@ -81,19 +81,19 @@ List* List::Sort(int (*CompareFn)(Tutor*, Tutor*), char order) {
 BinaryTree* List::LLToBT(int (*CompareFn)(Tutor*, Tutor*), char order) {
     /* if (this == NULL) return NULL; */
 
-    Node* listNodePtr = this->head;
+    TutorNode* listNodePtr = this->head;
 
     BinaryTree* bt = new BinaryTree();
-    bt->root = new Node();
+    bt->root = new TutorNode();
     bt->root->tutor = new Tutor(*(listNodePtr->tutor));
     bt->root->prev = NULL;
     bt->root->next = NULL;
     listNodePtr = listNodePtr->next;
 
     while (listNodePtr != NULL) {
-        Node* treeNodePtr = bt->root;
+        TutorNode* treeNodePtr = bt->root;
         int result;
-        Node* treeNodePtrParent = NULL;
+        TutorNode* treeNodePtrParent = NULL;
         while (treeNodePtr != NULL) {
             treeNodePtrParent = treeNodePtr;
             Tutor* listData = listNodePtr->tutor;
@@ -117,13 +117,13 @@ BinaryTree* List::LLToBT(int (*CompareFn)(Tutor*, Tutor*), char order) {
 
         if (order == 'a') {
             if (result > 0) {
-                treeNodePtrParent->next = new Node();
+                treeNodePtrParent->next = new TutorNode();
                 treeNodePtrParent->next->tutor = new Tutor(*t);
                 treeNodePtrParent->next->next = NULL;
                 treeNodePtrParent->next->prev = NULL;
             }
             else {
-                treeNodePtrParent->prev = new Node();
+                treeNodePtrParent->prev = new TutorNode();
                 treeNodePtrParent->prev->tutor = new Tutor(*t);
                 treeNodePtrParent->prev->next = NULL;
                 treeNodePtrParent->prev->prev = NULL;
@@ -131,13 +131,13 @@ BinaryTree* List::LLToBT(int (*CompareFn)(Tutor*, Tutor*), char order) {
         }
         else {
             if (result > 0) {
-                treeNodePtrParent->prev = new Node();
+                treeNodePtrParent->prev = new TutorNode();
                 treeNodePtrParent->prev->tutor = new Tutor(*t);
                 treeNodePtrParent->prev->next = NULL;
                 treeNodePtrParent->prev->prev = NULL;
             }
             else {
-                treeNodePtrParent->next = new Node();
+                treeNodePtrParent->next = new TutorNode();
                 treeNodePtrParent->next->tutor = new Tutor(*t);
                 treeNodePtrParent->next->next = NULL;
                 treeNodePtrParent->next->prev = NULL;

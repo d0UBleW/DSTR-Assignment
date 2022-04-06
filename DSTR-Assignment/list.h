@@ -6,7 +6,7 @@
 #include "type.h"
 
 struct List {
-    Node* head;
+    TutorNode* head;
     size_t size;
     List();
     ~List();

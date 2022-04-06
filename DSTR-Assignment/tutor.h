@@ -16,6 +16,7 @@ struct Tutor {
     Date* joinDate;
     Date* terminateDate;
     Tutor();
+    Tutor(string paramName, string paramID, float paramPayRate, float paramRating);
     Tutor(string paramID, string paramName, Date* paramJoinDate,
             Date* paramTerminateDate, float paramPayRate, string paramPhone,
             string paramAddress, Center* paramCenter, Subject* paramSubject,

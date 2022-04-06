@@ -3,14 +3,14 @@
 
 #include <iostream>
 
-#include "node.h"
+#include "tutor_node.h"
 
 struct StackNode {
-    Node* data;
+    TutorNode* data;
     StackNode* next;
     StackNode* prev;
     StackNode();
-    StackNode(Node* paramData);
+    StackNode(TutorNode* paramData);
     ~StackNode();
 };
 

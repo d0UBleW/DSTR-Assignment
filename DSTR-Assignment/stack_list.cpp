@@ -16,7 +16,7 @@ StackList::~StackList() {
     }
 }
 
-void StackList::InsertBeginning(Node* data) {
+void StackList::InsertBeginning(TutorNode* data) {
     StackNode* newStackNode = new StackNode(data);
     if (head == NULL) {
         head = newStackNode;

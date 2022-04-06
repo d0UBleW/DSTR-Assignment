@@ -1,18 +1,18 @@
 #include <iostream>
 
-#include "node.h"
+#include "tutor_node.h"
 
-Node::Node() {
+TutorNode::TutorNode() {
     tutor = NULL;
     next = NULL;
     prev = NULL;
 }
 
-Node::~Node() {
+TutorNode::~TutorNode() {
 
 }
 
-Node::Node(Tutor* t) {
+TutorNode::TutorNode(Tutor* t) {
     this->tutor = t;
     this->next = NULL;
     this->prev = NULL;

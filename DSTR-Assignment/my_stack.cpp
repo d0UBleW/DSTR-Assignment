@@ -3,7 +3,7 @@
 #include "my_stack.h"
 #include "stack_list.h"
 #include "list.h"
-#include "node.h"
+#include "tutor_node.h"
 
 MyStack::MyStack() {
     ll = new StackList();
@@ -13,13 +13,13 @@ MyStack::MyStack() {
 MyStack::~MyStack() {
 }
 
-void MyStack::Push(Node* data) {
+void MyStack::Push(TutorNode* data) {
     /* Node<T>* newNode = new Node<T>(paramN); */
     ll->InsertBeginning(data);
     size++;
 }
 
-Node* MyStack::Top() {
+TutorNode* MyStack::Top() {
     return ll->head->data;
 }
 

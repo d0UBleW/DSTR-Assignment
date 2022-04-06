@@ -10,8 +10,8 @@ struct MyStack {
     size_t size;
     MyStack();
     ~MyStack();
-    void Push(Node* data);
-    Node* Top();
+    void Push(TutorNode* data);
+    TutorNode* Top();
     void Pop();
     /* void Display(); */
     bool Empty();

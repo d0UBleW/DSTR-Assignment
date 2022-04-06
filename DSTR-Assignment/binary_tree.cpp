@@ -4,7 +4,7 @@
 #include "binary_tree.h"
 #include "my_stack.h"
 #include "list.h"
-#include "node.h"
+#include "tutor_node.h"
 
 BinaryTree::BinaryTree() {
     root = NULL;
@@ -19,9 +19,9 @@ List* BinaryTree::BTToLL() {
      * Create a stack which stores a pointer to Node<T> (Node<T>*)
      */
     MyStack* S = new MyStack();
-    Node* treeNodePtr = this->root;
+    TutorNode* treeNodePtr = this->root;
     List* ll = new List();
-    Node* listNodePtr = ll->head;
+    TutorNode* listNodePtr = ll->head;
 
     /*
      * Iterative in-order traversal
@@ -46,18 +46,18 @@ List* BinaryTree::BTToLL() {
              * Then build the linked list with deep copy of the tree node
              */
             if (listNodePtr == NULL) {
-                ll->head = new Node(*treeNodePtr);
+                ll->head = new TutorNode(*treeNodePtr);
                 listNodePtr = ll->head;
             }
             else {
-                listNodePtr->next = new Node(*treeNodePtr);
+                listNodePtr->next = new TutorNode(*treeNodePtr);
                 listNodePtr = listNodePtr->next;
             }
             S->Pop();
             /*
              * Store the unused tree node address to be deallocate
              */
-            Node* tmp = treeNodePtr;
+            TutorNode* tmp = treeNodePtr;
             treeNodePtr = treeNodePtr->next;
             delete tmp;
         }

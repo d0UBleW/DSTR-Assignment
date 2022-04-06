@@ -10,8 +10,8 @@ struct TutorList {
     size_t size;
     TutorList();
     ~TutorList();
-    void InsertBeginning(Tutor* n);
-    void Add(Tutor* n);
+    void InsertBeginning(Tutor* tutor);
+    void Add(Tutor* tutor);
     void Display();
     void DeleteBeginning();
 

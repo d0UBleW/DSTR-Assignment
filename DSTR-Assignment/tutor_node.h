@@ -8,7 +8,7 @@ struct TutorNode {
     TutorNode* next;
     TutorNode* prev;
     TutorNode();
-    TutorNode(Tutor* t);
+    TutorNode(Tutor* paramTutor);
     ~TutorNode();
 };
 

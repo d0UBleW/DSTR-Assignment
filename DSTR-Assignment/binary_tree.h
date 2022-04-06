@@ -7,6 +7,7 @@ struct BinaryTree {
     TutorNode* root;
     BinaryTree();
     ~BinaryTree();
+    BinaryTree(TutorList* ll, int (*CompareFn)(Tutor*, Tutor*), char order);
     TutorList* BTToLL();
 };
 

@@ -2,7 +2,7 @@
 
 #include "my_stack.h"
 #include "stack_list.h"
-#include "list.h"
+#include "tutor_list.h"
 #include "tutor_node.h"
 
 MyStack::MyStack() {

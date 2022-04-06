@@ -7,7 +7,7 @@ struct BinaryTree {
     TutorNode* root;
     BinaryTree();
     ~BinaryTree();
-    List* BTToLL();
+    TutorList* BTToLL();
 };
 
 #endif

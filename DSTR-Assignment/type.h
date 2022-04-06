@@ -6,7 +6,7 @@ struct Center;
 struct Subject;
 struct Tutor;
 struct TutorNode;
-struct List;
+struct TutorList;
 struct MyStack;
 struct BinaryTree;
 struct StackList;

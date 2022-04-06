@@ -1,17 +1,17 @@
 #include <iostream>
 
 #include "tutor_node.h"
-#include "list.h"
+#include "tutor_list.h"
 #include "binary_tree.h"
 #include "tutor.h"
 
-List::List() {
+TutorList::TutorList() {
     head = NULL;
     size = 0;
-    /* puts("List constructed"); */
+    /* puts("TutorList constructed"); */
 }
 
-List::~List() {
+TutorList::~TutorList() {
     while (head != NULL) {
         TutorNode* temp = head;
         head = head->next;
@@ -20,7 +20,7 @@ List::~List() {
     }
 }
 
-void List::InsertBeginning(Tutor* tutor) {
+void TutorList::InsertBeginning(Tutor* tutor) {
     TutorNode* newNode = new TutorNode(tutor);
     if (head == NULL) {
         head = newNode;
@@ -32,7 +32,7 @@ void List::InsertBeginning(Tutor* tutor) {
     head = newNode;
 }
 
-void List::Add(Tutor* tutor) {
+void TutorList::Add(Tutor* tutor) {
     TutorNode* newNode = new TutorNode(tutor);
     size++;
     if (head == NULL) {
@@ -47,7 +47,7 @@ void List::Add(Tutor* tutor) {
     ptr->next = newNode;
 }
 
-void List::Display() {
+void TutorList::Display() {
     puts("Tutor Display");
     TutorNode* nodePtr = head;
     while (nodePtr != NULL) {
@@ -62,7 +62,7 @@ void List::Display() {
     puts("");
 }
 
-void List::DeleteBeginning() {
+void TutorList::DeleteBeginning() {
     TutorNode* nodePtr = head;
     if (head->next != NULL) {
         head = head->next;
@@ -71,14 +71,14 @@ void List::DeleteBeginning() {
     delete nodePtr;
 }
 
-List* List::Sort(int (*CompareFn)(Tutor*, Tutor*), char order) {
+TutorList* TutorList::Sort(int (*CompareFn)(Tutor*, Tutor*), char order) {
     BinaryTree* bt = this->LLToBT((*CompareFn), order);
-    List* sortedLL = bt->BTToLL();
+    TutorList* sortedLL = bt->BTToLL();
     delete bt;
     return sortedLL;
 }
 
-BinaryTree* List::LLToBT(int (*CompareFn)(Tutor*, Tutor*), char order) {
+BinaryTree* TutorList::LLToBT(int (*CompareFn)(Tutor*, Tutor*), char order) {
     /* if (this == NULL) return NULL; */
 
     TutorNode* listNodePtr = this->head;

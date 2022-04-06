@@ -3,7 +3,7 @@
 
 #include "binary_tree.h"
 #include "my_stack.h"
-#include "list.h"
+#include "tutor_list.h"
 #include "tutor_node.h"
 
 BinaryTree::BinaryTree() {
@@ -14,13 +14,13 @@ BinaryTree::~BinaryTree() {
 
 }
 
-List* BinaryTree::BTToLL() {
+TutorList* BinaryTree::BTToLL() {
     /*
      * Create a stack which stores a pointer to Node<T> (Node<T>*)
      */
     MyStack* S = new MyStack();
     TutorNode* treeNodePtr = this->root;
-    List* ll = new List();
+    TutorList* ll = new TutorList();
     TutorNode* listNodePtr = ll->head;
 
     /*

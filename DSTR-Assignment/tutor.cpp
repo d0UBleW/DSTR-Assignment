@@ -15,7 +15,9 @@ Tutor::Tutor(string paramName, string paramID, float paramPayRate, float paramRa
 }
 
 Tutor::~Tutor() {
-
+    /*
+     * TODO: delete Date
+     */
 }
 
 Tutor* CreateTutor(string name, string ID, float payRate, float rating) {

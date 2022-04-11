@@ -124,9 +124,10 @@ void TutorList::DeleteBeginning() {
     delete nodePtr;
 }
 
-/* TutorList* TutorList::Sort(int (*CompareFn)(Tutor*, Tutor*), char order) { */
-/*     BinaryTree* bt = new BinaryTree(this, (*CompareFn), order); */
-/*     TutorList* sortedLL = bt->BTToLL(); */
-/*     delete bt; */
-/*     return sortedLL; */
-/* } */
+void TutorList::Sort(int (*CompareFn)(Tutor*, Tutor*), char order) {
+    BinaryTree* bt = new BinaryTree(this, (*CompareFn), order);
+    TutorList* sortedLL = new TutorList(bt);
+    delete bt;
+    sortedLL->Display();
+    delete sortedLL;
+}

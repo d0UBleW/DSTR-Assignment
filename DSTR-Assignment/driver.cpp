@@ -13,6 +13,7 @@ int main() {
     a->Add(CreateTutor("alice", "T02", 90.3, 3));
     a->InsertBeginning(CreateTutor("bob", "T03", 70, 5));
     a->Display();
+    a->Sort(CompareTutorID, 'a');
     delete a;
 
     size_t size = 3;

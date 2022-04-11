@@ -46,10 +46,11 @@ int CompareTutorRating(Tutor* t1, Tutor* t2) {
     return result;
 }
 
-TutorList* sortTutorList(TutorList* ll, int (*CompareFn)(Tutor*, Tutor*),
-        char order) {
-    BinaryTree* bt = new BinaryTree(ll, (*CompareFn), order);
-    TutorList* sortedLL = new TutorList(bt);
-    delete bt;
-    return sortedLL;
-}
+/* void sortTutorList(TutorList* ll, int (*CompareFn)(Tutor*, Tutor*), */
+/*         char order) { */
+/*     BinaryTree* bt = new BinaryTree(ll, (*CompareFn), order); */
+/*     TutorList* sortedLL = new TutorList(bt); */
+/*     delete bt; */
+/*     sortedLL->Display(); */
+/*     delete sortedLL; */
+/* } */

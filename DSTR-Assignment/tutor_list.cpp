@@ -9,10 +9,12 @@
 TutorList::TutorList() {
     head = nullptr;
     size = 0;
+    copy = false;
     /* puts("TutorList constructed"); */
 }
 
 TutorList::TutorList(BinaryTree* bt) {
+    copy = false;
     /*
      * Create a stack which stores a pointer to Node<T> (Node<T>*)
      */
@@ -40,21 +42,28 @@ TutorList::TutorList(BinaryTree* bt) {
             treeNodePtr = S->Top();
             /*
              * Check if our linked list is empty
-             * Then build the linked list with deep copy of the tree node
              */
             if (listNodePtr == nullptr) {
-                head = new TutorNode(*treeNodePtr);
+                /* head = new TutorNode(*treeNodePtr); */
+                head = new TutorNode();
+                head->tutor = treeNodePtr->tutor;
+                std::cout << head->tutor << '\n';
                 listNodePtr = head;
             }
             else {
-                listNodePtr->next = new TutorNode(*treeNodePtr);
+                /* listNodePtr->next = new TutorNode(*treeNodePtr); */
+                listNodePtr->next = new TutorNode();
+                listNodePtr->next->tutor = treeNodePtr->tutor;
                 listNodePtr = listNodePtr->next;
+                std::cout << listNodePtr->tutor << '\n';
             }
+            size++;
             S->Pop();
             /*
              * Store the unused tree node address to be deallocate
              * before moving to the next node (right sub-tree)
              */
+            std::cout << treeNodePtr->tutor << '\n';
             TutorNode* tmp = treeNodePtr;
             treeNodePtr = treeNodePtr->next;
             delete tmp;
@@ -68,7 +77,8 @@ TutorList::~TutorList() {
     while (head != nullptr) {
         TutorNode* temp = head;
         head = head->next;
-        delete temp->tutor;
+        if (!copy)
+            delete temp->tutor;
         delete temp;
     }
 }
@@ -127,6 +137,7 @@ void TutorList::DeleteBeginning() {
 void TutorList::Sort(int (*CompareFn)(Tutor*, Tutor*), char order) {
     BinaryTree* bt = new BinaryTree(this, (*CompareFn), order);
     TutorList* sortedLL = new TutorList(bt);
+    sortedLL->copy = true;
     delete bt;
     sortedLL->Display();
     delete sortedLL;

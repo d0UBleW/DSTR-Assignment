@@ -8,6 +8,7 @@
 struct TutorList {
     TutorNode* head;
     size_t size;
+    bool copy;
     TutorList();
     TutorList(BinaryTree* bt);
     ~TutorList();

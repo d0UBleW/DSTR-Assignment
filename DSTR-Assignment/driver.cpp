@@ -14,6 +14,7 @@ int main() {
     a->InsertBeginning(CreateTutor("bob", "T03", 70, 5));
     a->Display();
     a->Sort(CompareTutorID, 'a');
+    a->Display();
     delete a;
 
     size_t size = 3;

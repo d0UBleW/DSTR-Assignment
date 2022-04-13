@@ -21,16 +21,13 @@
     <ClCompile Include="binary_tree.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="date.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="driver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="list.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="my_stack.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="node.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="sort.cpp">
@@ -45,18 +42,21 @@
     <ClCompile Include="tutor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="tutor_list.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tutor_node.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="binary_tree.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="list.h">
+    <ClInclude Include="date.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="my_stack.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="node.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="sort.h">
@@ -69,6 +69,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="tutor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tutor_list.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tutor_node.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="type.h">

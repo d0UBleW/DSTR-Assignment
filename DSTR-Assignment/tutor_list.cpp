@@ -14,6 +14,8 @@ TutorList::TutorList() {
 }
 
 TutorList::TutorList(BinaryTree* bt) {
+    head = nullptr;
+    size = 0;
     copy = false;
     /*
      * Create a stack which stores a pointer to Node<T> (Node<T>*)
@@ -69,7 +71,9 @@ TutorList::TutorList(BinaryTree* bt) {
             delete tmp;
         }
     }
-    listNodePtr->next = nullptr;
+    if (listNodePtr != nullptr) {
+		listNodePtr->next = nullptr;
+    }
     delete S;
 }
 

@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "stack_list.h"
+#include "stack_node.h"
 
 StackList::StackList() {
     head = nullptr;

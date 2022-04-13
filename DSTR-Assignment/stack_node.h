@@ -1,8 +1,7 @@
 #ifndef STACK_NODE_H_INCLUDED
 #define STACK_NODE_H_INCLUDED
 
-#include <iostream>
-
+#include "type.h"
 #include "tutor_node.h"
 
 struct StackNode {

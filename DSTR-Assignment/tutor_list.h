@@ -1,8 +1,6 @@
 #ifndef TUTOR_LIST_H_INCLUDED
 #define TUTOR_LIST_H_INCLUDED
 
-#include <iostream>
-
 #include "type.h"
 
 struct TutorList {

@@ -1,6 +1,7 @@
 #ifndef STACK_LIST_H_INCLUDED
 #define STACK_LIST_H_INCLUDED
 
+#include "type.h"
 #include "stack_node.h"
 
 struct StackList {

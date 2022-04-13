@@ -9,7 +9,7 @@ struct TutorNode;
 struct TutorList;
 struct MyStack;
 struct BinaryTree;
-struct StackList;
 struct StackNode;
+struct StackList;
 
 #endif

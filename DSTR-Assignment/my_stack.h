@@ -1,8 +1,6 @@
 #ifndef MY_STACK_H_INCLUDED
 #define MY_STACK_H_INCLUDED
 
-#include <iostream>
-
 #include "type.h"
 
 struct MyStack {

@@ -4,7 +4,6 @@
 #include <iostream>
 
 #include "type.h"
-#include "date.h"
 
 using std::string;
 

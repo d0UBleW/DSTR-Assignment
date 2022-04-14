@@ -1,5 +1,4 @@
 #include <iostream>
-#include <stack>
 
 #include "binary_tree.h"
 #include "my_stack.h"
@@ -16,6 +15,7 @@ BinaryTree::~BinaryTree() {
 }
 
 BinaryTree::BinaryTree(TutorList* ll, int (*CompareFn)(Tutor*, Tutor*), char order) {
+    root = nullptr;
     if (ll == nullptr) return;
 
     TutorNode* listNodePtr = ll->head;

@@ -49,7 +49,6 @@ TutorList::TutorList(BinaryTree* bt) {
                 /* head = new TutorNode(*treeNodePtr); */
                 head = new TutorNode();
                 head->tutor = treeNodePtr->tutor;
-                std::cout << head->tutor << '\n';
                 listNodePtr = head;
             }
             else {
@@ -57,7 +56,6 @@ TutorList::TutorList(BinaryTree* bt) {
                 listNodePtr->next = new TutorNode();
                 listNodePtr->next->tutor = treeNodePtr->tutor;
                 listNodePtr = listNodePtr->next;
-                std::cout << listNodePtr->tutor << '\n';
             }
             size++;
             S->Pop();
@@ -65,7 +63,6 @@ TutorList::TutorList(BinaryTree* bt) {
              * Store the unused tree node address to be deallocate
              * before moving to the next node (right sub-tree)
              */
-            std::cout << treeNodePtr->tutor << '\n';
             TutorNode* tmp = treeNodePtr;
             treeNodePtr = treeNodePtr->next;
             delete tmp;

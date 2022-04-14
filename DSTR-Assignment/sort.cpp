@@ -46,11 +46,48 @@ int CompareTutorRating(Tutor* t1, Tutor* t2) {
     return result;
 }
 
-/* void sortTutorList(TutorList* ll, int (*CompareFn)(Tutor*, Tutor*), */
-/*         char order) { */
-/*     BinaryTree* bt = new BinaryTree(ll, (*CompareFn), order); */
-/*     TutorList* sortedLL = new TutorList(bt); */
-/*     delete bt; */
-/*     sortedLL->Display(); */
-/*     delete sortedLL; */
-/* } */
+void SortMenu(TutorList* lst) {
+    std::cout << "Sort by:" << '\n';
+    std::cout << "1. ID\n";
+    std::cout << "2. Pay Rate\n";
+    std::cout << "3. Rating\n";
+    int opt = 0;
+    bool valid = false;
+    int (*CompareFn)(Tutor*, Tutor*) = nullptr;
+    while (!valid) {
+        std::cout << "Option: ";
+		std::cin >> opt;
+		switch (opt) {
+		case 1:
+            CompareFn = &CompareTutorID;
+            valid = true;
+			break;
+		case 2:
+            CompareFn = &CompareTutorPay;
+            valid = true;
+			break;
+		case 3:
+            CompareFn = &CompareTutorRating;
+            valid = true;
+			break;
+		default:
+            std::cout << "Invalid option\n";
+            continue;
+		}
+        int orderChoice = 0;
+        std::cout << "Order: 1. Asc\t2.Desc\n";
+        std::cin >> orderChoice;
+        char order = 0;
+        switch (orderChoice) {
+        case 1:
+            order = 'a';
+            break;
+        case 2:
+            order = 'd';
+            break;
+        default:
+            order = 'a';
+        }
+        lst->Sort((*CompareFn), order);
+    }
+}

@@ -2,6 +2,7 @@
 #define SORT_H_INCLUDED
 
 #include "tutor.h"
+#include "tutor_list.h"
 
 int CompareNumeric(int, int);
 
@@ -15,7 +16,6 @@ int CompareTutorPay(Tutor*, Tutor*);
 
 int CompareTutorRating(Tutor*, Tutor*);
 
-TutorList* sortTutorList(TutorList* ll, int (*CompareFn)(Tutor*, Tutor*),
-        char order);
+void SortMenu(TutorList*);
 
 #endif

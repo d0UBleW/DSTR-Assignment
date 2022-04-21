@@ -11,17 +11,16 @@ MyStack::MyStack() {
 }
 
 MyStack::~MyStack() {
+    if (size > 0) delete ll;
 }
 
-void MyStack::Push(TutorNode* data) {
+void MyStack::Push(TutorNode *data) {
     /* Node<T>* newNode = new Node<T>(paramN); */
     ll->InsertBeginning(data);
     size++;
 }
 
-TutorNode* MyStack::Top() {
-    return ll->head->data;
-}
+TutorNode *MyStack::Top() { return ll->head->data; }
 
 void MyStack::Pop() {
     ll->DeleteBeginning();
@@ -32,6 +31,4 @@ void MyStack::Pop() {
 /*     ll->Display(); */
 /* } */
 
-bool MyStack::Empty() {
-    return (size > 0) ? false: true;
-}
+bool MyStack::Empty() { return (size > 0) ? false : true; }

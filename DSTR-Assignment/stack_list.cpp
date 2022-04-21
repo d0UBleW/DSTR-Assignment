@@ -10,15 +10,15 @@ StackList::StackList() {
 
 StackList::~StackList() {
     while (head != nullptr) {
-        StackNode* temp = head;
+        StackNode *temp = head;
         head = head->next;
         delete temp->data;
         delete temp;
     }
 }
 
-void StackList::InsertBeginning(TutorNode* data) {
-    StackNode* newStackNode = new StackNode(data);
+void StackList::InsertBeginning(TutorNode *data) {
+    StackNode *newStackNode = new StackNode(data);
     if (head == nullptr) {
         head = newStackNode;
         return;
@@ -30,7 +30,7 @@ void StackList::InsertBeginning(TutorNode* data) {
 }
 
 void StackList::DeleteBeginning() {
-    StackNode* ptr = head;
+    StackNode *ptr = head;
     if (head->next != nullptr) {
         head = head->next;
         head->prev = nullptr;

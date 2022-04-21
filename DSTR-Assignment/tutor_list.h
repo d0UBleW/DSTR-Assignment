@@ -1,10 +1,13 @@
 #ifndef TUTOR_LIST_H_INCLUDED
 #define TUTOR_LIST_H_INCLUDED
 
+#include <iostream>
+
 #include "type.h"
 
 struct TutorList {
     TutorNode* head;
+    TutorNode* tail;
     size_t size;
     bool copy;
     TutorList();

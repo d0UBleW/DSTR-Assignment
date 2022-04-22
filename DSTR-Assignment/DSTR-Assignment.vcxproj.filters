@@ -15,10 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source.cpp">
+    <ClCompile Include="binary_tree.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="binary_tree.cpp">
+    <ClCompile Include="center.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="date.cpp">
@@ -33,10 +33,7 @@
     <ClCompile Include="sort.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="stack_list.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="stack_node.cpp">
+    <ClCompile Include="subject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="tutor.cpp">
@@ -53,6 +50,9 @@
     <ClInclude Include="binary_tree.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="center.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="date.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -62,11 +62,8 @@
     <ClInclude Include="sort.h">
         <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="stack_list.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="stack_node.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="subject.h">
+        <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="tutor.h">
       <Filter>Header Files</Filter>

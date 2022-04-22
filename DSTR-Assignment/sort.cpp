@@ -1,25 +1,25 @@
 #include <iostream>
 
+#include "binary_tree.h"
 #include "tutor.h"
 #include "tutor_list.h"
-#include "binary_tree.h"
 
 int CompareNumeric(int a, int b) {
-  if (a > b)
-    return 1;
-  else if (a < b)
-    return -1;
-  else
-    return 0;
+    if (a > b)
+        return 1;
+    else if (a < b)
+        return -1;
+    else
+        return 0;
 }
 
 int CompareFloat(float a, float b) {
-  if (a > b)
-    return 1;
-  else if (a < b)
-    return -1;
-  else
-    return 0;
+    if (a > b)
+        return 1;
+    else if (a < b)
+        return -1;
+    else
+        return 0;
 }
 
 int CompareString(std::string s1, std::string s2) {
@@ -31,49 +31,49 @@ int CompareString(std::string s1, std::string s2) {
     return s1.length() - s2.length();
 }
 
-int CompareTutorID(Tutor* t1, Tutor* t2) {
+int CompareTutorID(Tutor *t1, Tutor *t2) {
     int result = CompareString(t1->ID, t2->ID);
     return result;
 }
 
-int CompareTutorPay(Tutor* t1, Tutor* t2) {
+int CompareTutorPay(Tutor *t1, Tutor *t2) {
     int result = CompareFloat(t1->payRate, t2->payRate);
     return result;
 }
 
-int CompareTutorRating(Tutor* t1, Tutor* t2) {
+int CompareTutorRating(Tutor *t1, Tutor *t2) {
     int result = CompareFloat(t1->rating, t2->rating);
     return result;
 }
 
-void SortMenu(TutorList* lst) {
+void SortMenu(TutorList &lst) {
     std::cout << "Sort by:" << '\n';
     std::cout << "1. ID\n";
     std::cout << "2. Pay Rate\n";
     std::cout << "3. Rating\n";
     int opt = 0;
     bool valid = false;
-    int (*CompareFn)(Tutor*, Tutor*) = nullptr;
+    int (*CompareFn)(Tutor *, Tutor *) = nullptr;
     while (!valid) {
         std::cout << "Option: ";
-		std::cin >> opt;
-		switch (opt) {
-		case 1:
+        std::cin >> opt;
+        switch (opt) {
+        case 1:
             CompareFn = &CompareTutorID;
             valid = true;
-			break;
-		case 2:
+            break;
+        case 2:
             CompareFn = &CompareTutorPay;
             valid = true;
-			break;
-		case 3:
+            break;
+        case 3:
             CompareFn = &CompareTutorRating;
             valid = true;
-			break;
-		default:
+            break;
+        default:
             std::cout << "Invalid option\n";
             continue;
-		}
+        }
         int orderChoice = 0;
         std::cout << "Order: 1. Asc\t2.Desc\n";
         std::cin >> orderChoice;
@@ -88,6 +88,6 @@ void SortMenu(TutorList* lst) {
         default:
             order = 'a';
         }
-        lst->Sort((*CompareFn), order);
+        lst.Sort((*CompareFn), order);
     }
 }

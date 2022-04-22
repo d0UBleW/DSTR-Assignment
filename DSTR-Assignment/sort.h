@@ -10,12 +10,12 @@ int CompareFloat(float, float);
 
 int CompareString(std::string, std::string);
 
-int CompareTutorID(Tutor*, Tutor*);
+int CompareTutorID(Tutor *, Tutor *);
 
-int CompareTutorPay(Tutor*, Tutor*);
+int CompareTutorPay(Tutor *, Tutor *);
 
-int CompareTutorRating(Tutor*, Tutor*);
+int CompareTutorRating(Tutor *, Tutor *);
 
-void SortMenu(TutorList*);
+void SortMenu(TutorList &);
 
 #endif

@@ -1,14 +1,15 @@
 #ifndef BINARY_TREE_H_INCLUDED
 #define BINARY_TREE_H_INCLUDED
 
-#include "type.h"
+#include "tutor_list.h"
+#include "tutor_node.h"
 
 struct BinaryTree {
-    TutorNode* root;
+    TutorNode *root;
     BinaryTree();
     ~BinaryTree();
-    BinaryTree(TutorList* ll, int (*CompareFn)(Tutor*, Tutor*), char order);
-    TutorList* BTToLL();
+    BinaryTree(TutorList &ll, int (*CompareFn)(Tutor *, Tutor *), char order);
+    TutorList ToLinkedList();
 };
 
 #endif

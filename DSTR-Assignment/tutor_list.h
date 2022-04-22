@@ -3,21 +3,21 @@
 
 #include <iostream>
 
-#include "type.h"
+#include "tutor.h"
+#include "tutor_node.h"
 
 struct TutorList {
-    TutorNode* head;
-    TutorNode* tail;
+    TutorNode *head;
+    TutorNode *tail;
     size_t size;
     bool copy;
     TutorList();
-    TutorList(BinaryTree* bt);
     ~TutorList();
-    void InsertBeginning(Tutor* tutor);
-    void Add(Tutor* tutor);
+    void InsertBeginning(Tutor *tutor);
+    void Add(Tutor *tutor);
     void Display();
     void DeleteBeginning();
-    void Sort(int (*CompareFn)(Tutor*, Tutor*), char order);
+    void Sort(int (*CompareFn)(Tutor *, Tutor *), char order);
 };
 
 #endif

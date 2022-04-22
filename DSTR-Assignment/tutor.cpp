@@ -3,25 +3,26 @@
 #include "tutor.h"
 
 Tutor::Tutor() {
+    ID = "";
+    name = "";
     payRate = 0;
     rating = 0;
+    center = nullptr;
+    subject = nullptr;
 }
 
-Tutor::Tutor(string paramName, string paramID, float paramPayRate, float paramRating) {
+Tutor::Tutor(string paramName, string paramID, float paramPayRate,
+             float paramRating) {
     name = paramName;
     ID = paramID;
     payRate = paramPayRate;
     rating = paramRating;
 }
 
-Tutor::~Tutor() {
-    /*
-     * TODO: delete Date
-     */
-}
+Tutor::~Tutor() {}
 
-Tutor* CreateTutor(string name, string ID, float payRate, float rating) {
-    Tutor* newTutor = new Tutor(name, ID, payRate, rating);
+Tutor *CreateTutor(string name, string ID, float payRate, float rating) {
+    Tutor *newTutor = new Tutor(name, ID, payRate, rating);
     return newTutor;
 }
 

@@ -1,9 +1,11 @@
 #ifndef TUTOR_H_INCLUDED
 #define TUTOR_H_INCLUDED
 
-#include <iostream>
+#include <string>
 
-#include "type.h"
+#include "center.h"
+#include "date.h"
+#include "subject.h"
 
 using std::string;
 
@@ -12,17 +14,16 @@ struct Tutor {
     string name;
     float payRate;
     float rating;
-    Date* joinDate;
-    Date* terminateDate;
+    Date joinDate;
+    Date terminateDate;
+    Center *center;
+    Subject *subject;
     Tutor();
-    Tutor(string paramName, string paramID, float paramPayRate, float paramRating);
-    Tutor(string paramID, string paramName, Date* paramJoinDate,
-            Date* paramTerminateDate, float paramPayRate, string paramPhone,
-            string paramAddress, Center* paramCenter, Subject* paramSubject,
-            float paramRating);
+    Tutor(string paramName, string paramID, float paramPayRate,
+          float paramRating);
     ~Tutor();
 };
 
-Tutor* CreateTutor(string name, string ID, float payRate, float rating);
+Tutor *CreateTutor(string name, string ID, float payRate, float rating);
 
 #endif

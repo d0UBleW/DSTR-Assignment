@@ -1,34 +1,61 @@
 #include <iostream>
 
 #include "my_stack.h"
-#include "stack_list.h"
 #include "tutor_list.h"
 #include "tutor_node.h"
 
-MyStack::MyStack() {
-    ll = new StackList();
-    size = 0;
+StackNode::StackNode() {
+    data = nullptr;
+    next = nullptr;
 }
 
-MyStack::~MyStack() {
-    if (size > 0) delete ll;
+StackNode::StackNode(TutorNode *paramData) {
+    data = paramData;
+    next = nullptr;
 }
 
-void MyStack::Push(TutorNode *data) {
-    /* Node<T>* newNode = new Node<T>(paramN); */
-    ll->InsertBeginning(data);
-    size++;
+StackNode::~StackNode() {}
+
+StackList::StackList() { head = nullptr; }
+
+StackList::~StackList() {
+    while (head != nullptr) {
+        StackNode *temp = head;
+        head = head->next;
+        delete temp;
+    }
 }
 
-TutorNode *MyStack::Top() { return ll->head->data; }
-
-void MyStack::Pop() {
-    ll->DeleteBeginning();
-    size--;
+void StackList::InsertBeginning(TutorNode *data) {
+    StackNode *newStackNode = new StackNode(data);
+    if (head == nullptr) {
+        head = newStackNode;
+        return;
+    }
+    newStackNode->next = head;
+    head = newStackNode;
 }
 
-/* void MyStack::Display() { */
-/*     ll->Display(); */
-/* } */
+void StackList::DeleteBeginning() {
+    StackNode *ptr = head;
+    if (head->next != nullptr) {
+        head = head->next;
+    }
+    if (head == ptr) head = nullptr;
+    delete ptr;
+}
 
-bool MyStack::Empty() { return (size > 0) ? false : true; }
+MyStack::MyStack() {}
+
+MyStack::~MyStack() {}
+
+void MyStack::Push(TutorNode *data) { ll.InsertBeginning(data); }
+
+TutorNode *MyStack::Top() {
+    if (Empty()) return nullptr;
+    return ll.head->data;
+}
+
+void MyStack::Pop() { ll.DeleteBeginning(); }
+
+bool MyStack::Empty() { return (ll.head == nullptr) ? true : false; }

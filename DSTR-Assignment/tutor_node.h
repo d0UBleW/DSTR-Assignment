@@ -1,14 +1,14 @@
 #ifndef TUTOR_NODE_H_INCLUDED
 #define TUTOR_NODE_H_INCLUDED
 
-#include "type.h"
+#include "tutor.h"
 
 struct TutorNode {
-    Tutor* tutor;
-    TutorNode* next;
-    TutorNode* prev;
+    Tutor *tutor;
+    TutorNode *next;
+    TutorNode *prev;
     TutorNode();
-    TutorNode(Tutor* paramTutor);
+    TutorNode(Tutor *paramTutor);
     ~TutorNode();
 };
 

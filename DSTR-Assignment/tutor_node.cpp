@@ -8,12 +8,10 @@ TutorNode::TutorNode() {
     prev = nullptr;
 }
 
-TutorNode::~TutorNode() {
+TutorNode::~TutorNode() {}
 
-}
-
-TutorNode::TutorNode(Tutor* t) {
-    this->tutor = t;
-    this->next = nullptr;
-    this->prev = nullptr;
+TutorNode::TutorNode(Tutor *t) {
+    tutor = t;
+    next = nullptr;
+    prev = nullptr;
 }

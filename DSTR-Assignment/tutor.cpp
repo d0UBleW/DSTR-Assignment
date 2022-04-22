@@ -1,5 +1,8 @@
 #include <iostream>
 
+#include "center.h"
+#include "date.h"
+#include "subject.h"
 #include "tutor.h"
 
 Tutor::Tutor() {

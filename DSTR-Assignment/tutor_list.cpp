@@ -1,7 +1,6 @@
 #include <iostream>
 
 #include "binary_tree.h"
-#include "my_stack.h"
 #include "tutor.h"
 #include "tutor_list.h"
 #include "tutor_node.h"

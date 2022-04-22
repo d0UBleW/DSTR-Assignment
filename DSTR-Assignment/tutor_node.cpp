@@ -1,6 +1,5 @@
-#include <iostream>
-
 #include "tutor_node.h"
+#include "tutor.h"
 
 TutorNode::TutorNode() {
     tutor = nullptr;

@@ -1,7 +1,6 @@
 #include <iostream>
 
 #include "my_stack.h"
-#include "tutor_list.h"
 #include "tutor_node.h"
 
 StackNode::StackNode() {

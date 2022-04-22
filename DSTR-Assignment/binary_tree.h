@@ -1,6 +1,7 @@
 #ifndef BINARY_TREE_H_INCLUDED
 #define BINARY_TREE_H_INCLUDED
 
+#include "tutor.h"
 #include "tutor_list.h"
 #include "tutor_node.h"
 

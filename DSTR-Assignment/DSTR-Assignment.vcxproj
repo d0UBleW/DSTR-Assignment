@@ -160,7 +160,6 @@
     <ClInclude Include="tutor.h" />
     <ClInclude Include="tutor_list.h" />
     <ClInclude Include="tutor_node.h" />
-    <ClInclude Include="type.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

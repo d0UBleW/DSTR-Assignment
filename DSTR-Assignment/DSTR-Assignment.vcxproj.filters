@@ -74,8 +74,5 @@
     <ClInclude Include="tutor_node.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="type.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

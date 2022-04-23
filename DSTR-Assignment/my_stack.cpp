@@ -19,9 +19,7 @@ StackList::StackList() { head = nullptr; }
 
 StackList::~StackList() {
     while (head != nullptr) {
-        StackNode *temp = head;
-        head = head->next;
-        delete temp;
+        DeleteBeginning();
     }
 }
 
@@ -36,11 +34,14 @@ void StackList::InsertBeginning(TutorNode *data) {
 }
 
 void StackList::DeleteBeginning() {
+    if (head == nullptr) return;
+
     StackNode *ptr = head;
     if (head->next != nullptr) {
         head = head->next;
+    } else {
+        head = nullptr;
     }
-    if (head == ptr) head = nullptr;
     delete ptr;
 }
 

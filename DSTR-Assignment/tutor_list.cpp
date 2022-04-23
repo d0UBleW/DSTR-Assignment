@@ -63,10 +63,14 @@ void TutorList::Display() {
 }
 
 void TutorList::DeleteBeginning() {
+    if (head == nullptr) return;
+
     TutorNode *nodePtr = head;
     if (head->next != nullptr) {
         head = head->next;
         head->prev = nullptr;
+    } else {
+        head = nullptr;
     }
     delete nodePtr;
 }
@@ -76,3 +80,5 @@ void TutorList::Sort(int (*CompareFn)(Tutor *, Tutor *), char order) {
     TutorList sortedLL = bt.ToLinkedList();
     sortedLL.Display();
 }
+
+bool TutorList::Empty() { return (head == nullptr) ? true : false; }

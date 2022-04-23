@@ -7,7 +7,7 @@
 
 using std::string;
 
-int main() {
+int test() {
     TutorList a;
     a.InsertBeginning(CreateTutor("andy", "T01", 90.3, 4));
     a.Add(CreateTutor("alice", "T02", 90.3, 3));

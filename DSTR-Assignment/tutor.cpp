@@ -10,8 +10,10 @@ Tutor::Tutor() {
     name = "";
     payRate = 0;
     rating = 0;
+    phone = "";
     center = nullptr;
     subject = nullptr;
+    countRate = 0;
 }
 
 Tutor::Tutor(string paramName, string paramID, float paramPayRate,

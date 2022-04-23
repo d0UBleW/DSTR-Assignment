@@ -14,10 +14,12 @@ struct Tutor {
     string name;
     float payRate;
     float rating;
+    string phone;
     Date joinDate;
     Date terminateDate;
     Center *center;
     Subject *subject;
+    size_t countRate;
     Tutor();
     Tutor(string paramName, string paramID, float paramPayRate,
           float paramRating);

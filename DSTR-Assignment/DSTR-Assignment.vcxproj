@@ -139,23 +139,30 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="admin.cpp" />
     <ClCompile Include="binary_tree.cpp" />
     <ClCompile Include="center.cpp" />
     <ClCompile Include="date.cpp" />
     <ClCompile Include="driver.cpp" />
+    <ClCompile Include="file2struct.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="my_stack.cpp" />
     <ClCompile Include="sort.cpp" />
+    <ClCompile Include="student.cpp" />
     <ClCompile Include="subject.cpp" />
     <ClCompile Include="tutor.cpp" />
     <ClCompile Include="tutor_list.cpp" />
     <ClCompile Include="tutor_node.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="admin.h" />
     <ClInclude Include="binary_tree.h" />
     <ClInclude Include="center.h" />
     <ClInclude Include="date.h" />
+    <ClInclude Include="file2struct.h" />
     <ClInclude Include="my_stack.h" />
     <ClInclude Include="sort.h" />
+    <ClInclude Include="student.h" />
     <ClInclude Include="subject.h" />
     <ClInclude Include="tutor.h" />
     <ClInclude Include="tutor_list.h" />

@@ -7,6 +7,7 @@
 
 TutorList::TutorList() {
     head = nullptr;
+    tail = nullptr;
     size = 0;
     copy = false;
 }

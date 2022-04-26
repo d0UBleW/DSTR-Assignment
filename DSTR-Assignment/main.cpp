@@ -3,6 +3,8 @@
 #include "center.h"
 #include "file2struct.h"
 #include "subject.h"
+#include "display.h"
+#include "admin_menu.h"
 
 const std::string TUTOR_FILE = "./tutor.txt";
 const std::string SUBJECT_FILE = "./subject.txt";
@@ -32,7 +34,12 @@ int main() {
         fileToTutor(tutorL, TUTOR_FILE);
     }
 
-    tutorL.Display();
+    /*tutorL.Display();*/
+    /*DisplayTutor(tutorL);*/
+    /*DisplayTutor(tutorL.head,tutorL.tail);*/
+    startMenu(tutorL);
+    
+    
 
     return 0;
 }

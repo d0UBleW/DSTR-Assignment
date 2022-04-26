@@ -3,10 +3,13 @@
 
 #include "admin_menu.h"
 #include "validation.h"
+#include "display.h"
+#include "tutor_list.h"
+#include "tutor.h"
 
 using namespace std;
 
-void startMenu()
+void startMenu(TutorList &tutorL)
 {
     while (true)
     {
@@ -29,7 +32,7 @@ void startMenu()
                 return;
 
             case 1:
-                //code here
+                adminMainMenu(tutorL);
                 break;
             case 2:
                 //code here
@@ -80,7 +83,7 @@ void modifyMenu()
         }
     }*/
 }
-void adminMainMenu()
+void adminMainMenu(TutorList &tutorL)
 {
     while (true)
     {
@@ -107,7 +110,7 @@ void adminMainMenu()
                 //code here
                 break;
             case 2:
-                //code here
+                DisplayTutor(tutorL.head, tutorL.tail);
                 break;
             case 3:
                 //code here
@@ -292,7 +295,3 @@ void deleteMenu()
     }
 }
 
-void clearScreen()
-{
-    system("cls || clear");
-}

@@ -69,6 +69,8 @@ void initTutor() {
     Tutor *t8 = new Tutor();
     Tutor *t9 = new Tutor();
     Tutor *t10 = new Tutor();
+    Tutor* t11 = new Tutor();
+    Tutor* t12 = new Tutor();
     t1->ID = "T01";
     t1->name = "Andy";
     t1->payRate = 40;
@@ -169,6 +171,29 @@ void initTutor() {
     t10->center = getCenterByID(_CENTER, "C01");
     t10->subject = getSubjectByID(_SUBJECT, "S01");
     t10->countRate = 0;
+
+    t11->ID = "T11";
+    t11->name = "Julio";
+    t11->payRate = 60;
+    t11->rating = 0;
+    t11->phone = "0184038501";
+    t11->joinDate = *new Date("1/1/2022");
+    t11->terminateDate = *new Date("-");
+    t11->center = getCenterByID(_CENTER, "C01");
+    t11->subject = getSubjectByID(_SUBJECT, "S01");
+    t11->countRate = 0;
+
+
+    t12->ID = "T12";
+    t12->name = "Julio";
+    t12->payRate = 60;
+    t12->rating = 0;
+    t12->phone = "0184038501";
+    t12->joinDate = *new Date("1/1/2022");
+    t12->terminateDate = *new Date("-");
+    t12->center = getCenterByID(_CENTER, "C01");
+    t12->subject = getSubjectByID(_SUBJECT, "S01");
+    t12->countRate = 0;
     puts("0");
     tutorL.Add(t1);
     puts("1");
@@ -190,6 +215,10 @@ void initTutor() {
     puts("9");
     tutorL.Add(t10);
     puts("10");
+    tutorL.Add(t11);
+    tutorL.Add(t12);
+
+
     tutorToFile(tutorL, TUTOR_FILE);
 }
 
@@ -233,8 +262,8 @@ void fileToSubject(SubjectList &subjectL, const std::string filename) {
         s->ID = data.at(0);
         s->name = data.at(1);
         subjectL.Add(s);
-        subjectL.Display();
-        puts("");
+        /*subjectL.Display();*/
+        /*puts("");*/
     }
     fileHandler.close();
 }

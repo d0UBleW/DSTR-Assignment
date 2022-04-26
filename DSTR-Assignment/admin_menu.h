@@ -2,14 +2,14 @@
 #include <iostream>
 
 #include "tutor.h"
+#include "tutor_list.h"
 
 using namespace std;
 
 extern const std::string TUTOR_FILE;
-void startMenu();
-void adminMainMenu();
+void startMenu(TutorList &tutorL);
+void adminMainMenu(TutorList &tutorL);
 void addMenu();
 void sortMenu();
 void searchMenu();
 void deleteMenu();
-void clearScreen();

@@ -45,7 +45,10 @@ void TutorList::Add(Tutor *tutor) {
     while (ptr->next != nullptr) {
         ptr = ptr->next;
     }
+    newNode->prev = ptr; //kf added here
     ptr->next = newNode;
+    tail = newNode;
+    
 }
 
 void TutorList::Display() {

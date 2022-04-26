@@ -143,7 +143,6 @@
     <ClCompile Include="binary_tree.cpp" />
     <ClCompile Include="center.cpp" />
     <ClCompile Include="date.cpp" />
-    <ClCompile Include="driver.cpp" />
     <ClCompile Include="file2struct.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="my_stack.cpp" />

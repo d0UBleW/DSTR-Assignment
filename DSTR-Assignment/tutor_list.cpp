@@ -51,6 +51,24 @@ void TutorList::Add(Tutor *tutor) {
     
 }
 
+void TutorList::AddToFront(Tutor* tutor) {
+    TutorNode* newNode = new TutorNode(tutor);
+    size++;
+    if (head == nullptr) {
+        head = newNode;
+        return;
+    }
+
+    TutorNode* ptr = head;
+
+    newNode->next = ptr; //kf added here
+    ptr->prev = newNode;
+    head = newNode;
+
+}
+
+
+
 void TutorList::Display() {
     puts("Tutor Display");
     TutorNode *nodePtr = head;

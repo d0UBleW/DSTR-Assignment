@@ -5,6 +5,7 @@
 #include "subject.h"
 #include "tutor.h"
 
+
 Tutor::Tutor() {
     ID = "";
     name = "";
@@ -30,4 +31,6 @@ Tutor *CreateTutor(string name, string ID, float payRate, float rating) {
     Tutor *newTutor = new Tutor(name, ID, payRate, rating);
     return newTutor;
 }
+
+
 

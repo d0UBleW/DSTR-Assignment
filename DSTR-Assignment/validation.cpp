@@ -2,9 +2,63 @@
 
 #include "validation.h"
 #include "date.h"
+#include "tutor_node.h"
+#include "tutor.h"
+#include "tutor_list.h"
+#include "center.h"
+#include "subject.h"
 
 using namespace std;
 
+bool isTutorIDExisted(TutorList &tutorL, std::string ID)
+{
+    TutorNode* nodePtr = tutorL.head;
+    while (nodePtr != nullptr)
+    {
+        
+        if (nodePtr->tutor->ID == ID) {
+            cout << "Tutor ID already existed, please enter again" << endl;
+            return true;
+            
+        }
+        nodePtr = nodePtr->next;
+    }
+    return false;
+    /*Tutor* tutor = getTutorByID(tutorL, ID);
+    if (tutor == nullptr) { return false; }
+    return true;*/
+}
+
+
+
+bool isTutorIDFormatCorrect(std::string ID)
+{
+    if (ID.length() == 3 && ID[0] == 'T' && (ID[1] >= '0' && ID[1] <= '9') && (ID[2] >= '0' && ID[2] <= '9'))
+    {
+        return true;
+    }
+    std::cout << "TutorID Format is wrong please insert as \"TXX\" \n";
+    return false;
+}
+
+
+bool isCenterExisted(std::string cid)
+{
+
+    
+    if (getCenterByID(_CENTER, cid) != nullptr) return true;
+    std::cout << "Center ID is not valid, please enter again\n";
+    return false;
+}
+
+bool isSubjectExisted(std::string sid)
+{
+    
+    Subject* s = getSubjectByID(_SUBJECT, sid);
+    if (s != nullptr) return true;
+    std::cout << "Subject ID is not valid, please enter again\n";
+    return false;
+}
 
 bool isDateValid(string d)
 {

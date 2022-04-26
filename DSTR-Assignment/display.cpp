@@ -12,7 +12,6 @@ using namespace std;
 
 void DisplayTutor(TutorNode* head,TutorNode* tail,bool isAdmin)
 {
-	
 	TutorNode* nodePtr = head;
 	size_t end = 5;
 	if (isAdmin) { end = 3; };
@@ -24,7 +23,6 @@ void DisplayTutor(TutorNode* head,TutorNode* tail,bool isAdmin)
 	}
 	int choice = 0;
 	bool isTail = false;
-	
 	while (true)
 	{
 		int step = 0;
@@ -112,6 +110,32 @@ void SubDisplay(Tutor* tutor, bool isAdmin)
     cout << "Subject Name: " << tutor->subject->name << endl;
     cout << endl;
     
+}
+
+void DisplayCenter()
+{
+	CenterNode* nodePtr = _CENTER.head;
+	while (nodePtr != nullptr)
+	{
+		cout << "CenterID: " << nodePtr->center->ID<<endl;
+		cout << "Center Name: " << nodePtr->center->name<<endl<<endl;
+		nodePtr = nodePtr->next;
+	}
+	return;
+}
+
+
+void DisplaySubject()
+{
+	SubjectNode* nodePtr = _SUBJECT.head;
+	while (nodePtr != nullptr)
+	{
+		cout << "SubjectID: " << nodePtr->subject->ID <<endl;
+		cout << "Subject Name: " << nodePtr->subject->name<<endl<<endl;
+		nodePtr = nodePtr->next;
+	}
+	return;
+
 }
 
 void clearScreen()

@@ -1,8 +1,55 @@
 #pragma once
 #include <iostream>
+#include "admin.h"
+#include "center.h"
+#include "date.h"
+#include "student.h"
+#include "subject.h"
+#include "tutor.h"
+#include "tutor_list.h"
 
+
+extern CenterList _CENTER;
+extern SubjectList _SUBJECT;
 using namespace std;
 
+
+/**
+ * @brief Verify if supplied Tutor ID exists or not
+ *
+ * @param arr specifies the object of Tutors to be checked
+ * @param ID specifies the ID to be verified
+ *
+ * @return true if exists, else false
+ */
+bool isTutorIDExisted(TutorList &tutorL, std::string ID);
+
+/**
+ * @brief Verify if supplied Tutor ID matches the required format
+ *
+ * @param ID specifies the ID to be verified
+ *
+ * @return true if matches, else false
+ */
+bool isTutorIDFormatCorrect(std::string ID);
+
+/**
+ * @brief Verify if supplied pointer to Center object exists or not
+ *
+ * @param c specifies pointer to the Center object to be verified
+ *
+ * @return true if exists, else false
+ */
+bool isCenterExisted(std::string cid);
+
+/**
+ * @brief Verify if supplied pointer Subject object exists or not
+ *
+ * @param s specifies pointer to the Subject object to be verified
+ *
+ * @return true if exists, else false
+ */
+bool isSubjectExisted(std::string sid);
 bool isDateValid(std::string date);
 
 /**

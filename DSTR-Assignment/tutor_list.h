@@ -15,6 +15,7 @@ struct TutorList {
     ~TutorList();
     void InsertBeginning(Tutor *tutor);
     void Add(Tutor *tutor);
+    void AddToFront(Tutor* tutor);
     void Display();
     void DeleteBeginning();
     void Sort(int (*CompareFn)(Tutor *, Tutor *), char order);

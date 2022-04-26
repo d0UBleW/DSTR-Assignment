@@ -6,6 +6,8 @@
 #include "center.h"
 #include "date.h"
 #include "subject.h"
+#include "tutor.h"
+
 
 using std::string;
 
@@ -26,6 +28,7 @@ struct Tutor {
     ~Tutor();
 };
 
-Tutor *CreateTutor(string name, string ID, float payRate, float rating);
+Tutor* CreateTutor(string name, string ID, float payRate, float rating);
+
 
 #endif

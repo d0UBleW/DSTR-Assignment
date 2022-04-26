@@ -6,10 +6,12 @@
 
 using namespace std;
 
+
+
 extern const std::string TUTOR_FILE;
 void startMenu(TutorList &tutorL);
 void adminMainMenu(TutorList &tutorL);
-void addMenu();
+void addMenu(TutorList& tutorL);
 void sortMenu();
 void searchMenu();
 void deleteMenu();

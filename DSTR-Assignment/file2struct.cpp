@@ -197,7 +197,7 @@ void initTutor() {
     puts("0");
     tutorL.Add(t1);
     puts("1");
-    tutorL.Add(t2);
+    tutorL.AddToFront(t2);
     puts("2");
     tutorL.Add(t3);
     puts("3");

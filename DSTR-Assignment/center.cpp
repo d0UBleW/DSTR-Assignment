@@ -75,6 +75,7 @@ Center *getCenterByID(CenterList &centerL, std::string ID) {
         if (ID == c.ID) {
             return ptr->center;
         }
+      
         ptr = ptr->next;
     }
     return nullptr;

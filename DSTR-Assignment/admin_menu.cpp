@@ -6,6 +6,8 @@
 #include "display.h"
 #include "tutor_list.h"
 #include "tutor.h"
+#include "add.h"
+#include "file2struct.h"
 
 using namespace std;
 
@@ -107,7 +109,7 @@ void adminMainMenu(TutorList &tutorL)
                 return;
 
             case 1:
-                //code here
+                addMenu(tutorL);
                 break;
             case 2:
                 DisplayTutor(tutorL.head, tutorL.tail);
@@ -132,7 +134,7 @@ void adminMainMenu(TutorList &tutorL)
     }
 }
 
-void addMenu()
+void addMenu(TutorList &tutorL)
 {
 
     while (true)
@@ -154,10 +156,14 @@ void addMenu()
                 return;
 
             case 1:
-                //code here
+                tutor = addingInterface(tutorL);
+                tutorL.AddToFront(tutor);
+                tutorToFile(tutorL, TUTOR_FILE);
                 break;
             case 2:
-                //code here
+                tutor = addingInterface(tutorL);
+                tutorL.Add(tutor);
+                tutorToFile(tutorL, TUTOR_FILE);
                 break;
             }
         }

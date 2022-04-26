@@ -5,15 +5,18 @@
 #include "tutor_list.h"
 #include "tutor_node.h"
 
-TutorList::TutorList() {
+TutorList::TutorList()
+{
     head = nullptr;
     tail = nullptr;
     size = 0;
     copy = false;
 }
 
-TutorList::~TutorList() {
-    while (head != nullptr) {
+TutorList::~TutorList()
+{
+    while (head != nullptr)
+    {
         TutorNode *temp = head;
         head = head->next;
         if (!copy) delete temp->tutor;
@@ -21,9 +24,11 @@ TutorList::~TutorList() {
     }
 }
 
-void TutorList::InsertBeginning(Tutor *tutor) {
+void TutorList::InsertBeginning(Tutor *tutor)
+{
     TutorNode *newNode = new TutorNode(tutor);
-    if (head == nullptr) {
+    if (head == nullptr)
+    {
         head = newNode;
         return;
     }
@@ -33,46 +38,49 @@ void TutorList::InsertBeginning(Tutor *tutor) {
     head = newNode;
 }
 
-void TutorList::Add(Tutor *tutor) {
+void TutorList::Add(Tutor *tutor)
+{
     TutorNode *newNode = new TutorNode(tutor);
     size++;
-    if (head == nullptr) {
+    if (head == nullptr)
+    {
         head = newNode;
         return;
     }
 
     TutorNode *ptr = head;
-    while (ptr->next != nullptr) {
+    while (ptr->next != nullptr)
+    {
         ptr = ptr->next;
     }
-    newNode->prev = ptr; //kf added here
+    newNode->prev = ptr; // kf added here
     ptr->next = newNode;
     tail = newNode;
-    
 }
 
-void TutorList::AddToFront(Tutor* tutor) {
-    TutorNode* newNode = new TutorNode(tutor);
+void TutorList::AddToFront(Tutor *tutor)
+{
+    TutorNode *newNode = new TutorNode(tutor);
     size++;
-    if (head == nullptr) {
+    if (head == nullptr)
+    {
         head = newNode;
         return;
     }
 
-    TutorNode* ptr = head;
+    TutorNode *ptr = head;
 
-    newNode->next = ptr; //kf added here
+    newNode->next = ptr; // kf added here
     ptr->prev = newNode;
     head = newNode;
-
 }
 
-
-
-void TutorList::Display() {
+void TutorList::Display()
+{
     puts("Tutor Display");
     TutorNode *nodePtr = head;
-    while (nodePtr != nullptr) {
+    while (nodePtr != nullptr)
+    {
         std::cout << "Addr: " << nodePtr->tutor << '\n';
         std::cout << "Name: " << nodePtr->tutor->name << '\n';
         std::cout << "ID: " << nodePtr->tutor->ID << '\n';
@@ -84,23 +92,31 @@ void TutorList::Display() {
     puts("");
 }
 
-void TutorList::DeleteBeginning() {
+void TutorList::DeleteBeginning()
+{
     if (head == nullptr) return;
 
     TutorNode *nodePtr = head;
-    if (head->next != nullptr) {
+    if (head->next != nullptr)
+    {
         head = head->next;
         head->prev = nullptr;
-    } else {
+    }
+    else
+    {
         head = nullptr;
     }
     delete nodePtr;
 }
 
-void TutorList::Sort(int (*CompareFn)(Tutor *, Tutor *), char order) {
+TutorList TutorList::Sort(int (*CompareFn)(Tutor *, Tutor *), char order)
+{
     BinaryTree bt(*this, (*CompareFn), order);
     TutorList sortedLL = bt.ToLinkedList();
-    sortedLL.Display();
+    return sortedLL;
 }
 
-bool TutorList::Empty() { return (head == nullptr) ? true : false; }
+bool TutorList::Empty()
+{
+    return (head == nullptr) ? true : false;
+}

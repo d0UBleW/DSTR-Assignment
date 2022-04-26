@@ -6,7 +6,8 @@
 #include "tutor.h"
 #include "tutor_node.h"
 
-struct TutorList {
+struct TutorList
+{
     TutorNode *head;
     TutorNode *tail;
     size_t size;
@@ -18,7 +19,7 @@ struct TutorList {
     void AddToFront(Tutor* tutor);
     void Display();
     void DeleteBeginning();
-    void Sort(int (*CompareFn)(Tutor *, Tutor *), char order);
+    TutorList Sort(int (*CompareFn)(Tutor *, Tutor *), char order);
     bool Empty();
 };
 

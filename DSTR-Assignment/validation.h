@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 
-using namespace string;
+using namespace std;
 
 bool isDateValid(std::string date);
 

@@ -54,6 +54,18 @@
     <ClCompile Include="student.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="admin_menu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="student_menu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="authentication.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="validation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="admin.h">
@@ -90,6 +102,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="tutor_node.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="admin_menu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="student_menu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="authentication.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="validation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

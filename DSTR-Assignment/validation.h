@@ -1,1 +1,81 @@
 #pragma once
+#include <iostream>
+
+using namespace string;
+
+bool isDateValid(std::string date);
+
+/**
+ * @brief Verify if supplied phone string valids or not
+ *
+ * @param phone specifies the phone string to be verified
+ *
+ * @return true if valids, else false
+ */
+bool isPhoneFormatValid(std::string phone);
+
+/**
+ * @brief Verify if supplied pay rate falls in between 40 and 80
+ *
+ * @param payRate specifies the value to be verified
+ *
+ * @return true if valids, else false
+ */
+bool isPayRateRangeValid(float payRate);
+
+/**
+ * @brief Verify if supplied rating falls between 1 and 5
+ *
+ * @param rate specifies the value to be verified
+ *
+ * @return true if valids, else false
+ */
+bool isRatingRateRangeValid(float rate);
+
+/**
+ * @brief Function to only accept integer input
+ *
+ * @param sentence specifies the input prompt
+ *
+ * @return integer input
+ */
+int getIntInput(std::string sentence);
+
+/**
+ * @brief Function to only accept float input
+ *
+ * @param sentence specifies the input prompt
+ *
+ * @return float input
+ */
+float getFloatInput(std::string sentence);
+
+/**
+ * @brief To clear input buffer after scanning numeric input
+ */
+void clearInputBuffer();
+
+/**
+ * @brief Verify if supplied choice is between 0 and the parameter `end`
+ *
+ * @param choice specifies the value to be verified
+ * @param end specifies the end boundary
+ *
+ * @return true if valids, else false
+ */
+bool isChoiceInMenuRange(int choice, int end);
+
+/**
+ * @brief Verify if supplied year is a leap year
+ *
+ * @param year specifies the value to be verified
+ *
+ * @return true if leap year, else false
+ */
+bool isLeap(int year);
+
+/**
+ * @brief Use to ask user to press enter after giving invalid input
+ */
+void Enter();
+bool isSpaceExisted(string s);

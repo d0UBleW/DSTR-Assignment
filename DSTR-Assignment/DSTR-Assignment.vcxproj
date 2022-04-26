@@ -140,6 +140,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="admin.cpp" />
+    <ClCompile Include="admin_menu.cpp" />
+    <ClCompile Include="authentication.cpp" />
     <ClCompile Include="binary_tree.cpp" />
     <ClCompile Include="center.cpp" />
     <ClCompile Include="date.cpp" />
@@ -148,13 +150,17 @@
     <ClCompile Include="my_stack.cpp" />
     <ClCompile Include="sort.cpp" />
     <ClCompile Include="student.cpp" />
+    <ClCompile Include="student_menu.cpp" />
     <ClCompile Include="subject.cpp" />
     <ClCompile Include="tutor.cpp" />
     <ClCompile Include="tutor_list.cpp" />
     <ClCompile Include="tutor_node.cpp" />
+    <ClCompile Include="validation.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="admin.h" />
+    <ClInclude Include="admin_menu.h" />
+    <ClInclude Include="authentication.h" />
     <ClInclude Include="binary_tree.h" />
     <ClInclude Include="center.h" />
     <ClInclude Include="date.h" />
@@ -162,10 +168,12 @@
     <ClInclude Include="my_stack.h" />
     <ClInclude Include="sort.h" />
     <ClInclude Include="student.h" />
+    <ClInclude Include="student_menu.h" />
     <ClInclude Include="subject.h" />
     <ClInclude Include="tutor.h" />
     <ClInclude Include="tutor_list.h" />
     <ClInclude Include="tutor_node.h" />
+    <ClInclude Include="validation.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

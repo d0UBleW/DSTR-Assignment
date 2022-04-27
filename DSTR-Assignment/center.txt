@@ -1,3 +1,0 @@
-C03|Three
-C02|Two
-C01|One

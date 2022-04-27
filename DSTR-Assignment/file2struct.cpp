@@ -81,98 +81,117 @@ void initTutor()
     t1->payRate = 40;
     t1->rating = 0;
     t1->phone = "0193480480";
-    t1->joinDate = *new Date("1/1/2022");
-    t1->terminateDate = *new Date("-");
+    t1->address = "TPM";
+    t1->joinDate = Date("1/1/2022");
+    t1->terminateDate = Date("-");
     t1->center = getCenterByID(_CENTER, "C01");
     t1->subject = getSubjectByID(_SUBJECT, "S01");
     t1->countRate = 0;
+
     t2->ID = "T02";
     t2->name = "Bob";
     t2->payRate = 80;
     t2->rating = 0;
     t2->phone = "0128734193";
-    t2->joinDate = *new Date("1/1/2022");
-    t2->terminateDate = *new Date("-");
+    t2->address = "TPM";
+    t2->joinDate = Date("1/1/2022");
+    t2->terminateDate = Date("-");
     t2->center = getCenterByID(_CENTER, "C02");
     t2->subject = getSubjectByID(_SUBJECT, "S02");
     t2->countRate = 0;
+
     t3->ID = "T03";
     t3->name = "Charlie";
     t3->payRate = 45;
     t3->rating = 0;
     t3->phone = "0120398148";
-    t3->joinDate = *new Date("1/1/2022");
-    t3->terminateDate = *new Date("-");
+    t3->address = "TPM";
+    t3->joinDate = Date("1/1/2022");
+    t3->terminateDate = Date("-");
     t3->center = getCenterByID(_CENTER, "C03");
     t3->subject = getSubjectByID(_SUBJECT, "S03");
     t3->countRate = 0;
+
     t4->ID = "T04";
     t4->name = "Danny";
     t4->payRate = 75;
     t4->rating = 0;
     t4->phone = "0720427031";
-    t4->joinDate = *new Date("1/1/2022");
-    t4->terminateDate = *new Date("-");
+    t4->address = "TPM";
+    t4->joinDate = Date("1/1/2022");
+    t4->terminateDate = Date("-");
     t4->center = getCenterByID(_CENTER, "C01");
     t4->subject = getSubjectByID(_SUBJECT, "S01");
     t4->countRate = 0;
+
     t5->ID = "T05";
     t5->name = "Emma";
     t5->payRate = 50;
     t5->rating = 0;
     t5->phone = "0149874198";
-    t5->joinDate = *new Date("1/1/2022");
-    t5->terminateDate = *new Date("-");
+    t5->address = "TPM";
+    t5->joinDate = Date("1/1/2022");
+    t5->terminateDate = Date("-");
     t5->center = getCenterByID(_CENTER, "C02");
     t5->subject = getSubjectByID(_SUBJECT, "S02");
     t5->countRate = 0;
+
     t6->ID = "T06";
     t6->name = "Frank";
     t6->payRate = 70;
     t6->rating = 0;
     t6->phone = "0147969143";
-    t6->joinDate = *new Date("1/1/2022");
-    t6->terminateDate = *new Date("-");
+    t6->address = "TPM";
+    t6->joinDate = Date("1/1/2022");
+    t6->terminateDate = Date("-");
     t6->center = getCenterByID(_CENTER, "C03");
     t6->subject = getSubjectByID(_SUBJECT, "S03");
     t6->countRate = 0;
+
     t7->ID = "T07";
     t7->name = "Gilbert";
     t7->payRate = 55;
     t7->rating = 0;
     t7->phone = "01893479571";
-    t7->joinDate = *new Date("1/1/2022");
-    t7->terminateDate = *new Date("-");
+    t7->address = "TPM";
+    t7->joinDate = Date("1/1/2022");
+    t7->terminateDate = Date("-");
     t7->center = getCenterByID(_CENTER, "C01");
     t7->subject = getSubjectByID(_SUBJECT, "S01");
     t7->countRate = 0;
+
     t8->ID = "T08";
     t8->name = "Howard";
     t8->payRate = 65;
     t8->rating = 0;
     t8->phone = "01039481947";
-    t8->joinDate = *new Date("1/1/2022");
-    t8->terminateDate = *new Date("-");
+    t8->address = "TPM";
+    t8->joinDate = Date("1/1/2022");
+    t8->terminateDate = Date("-");
     t8->center = getCenterByID(_CENTER, "C02");
     t8->subject = getSubjectByID(_SUBJECT, "S02");
     t8->countRate = 0;
+
     t9->ID = "T09";
     t9->name = "Ian";
     t9->payRate = 60;
     t9->rating = 0;
     t9->phone = "0348798111";
-    t9->joinDate = *new Date("1/1/2022");
-    t9->terminateDate = *new Date("-");
+    t9->address = "TPM";
+    t9->joinDate = Date("1/1/2022");
+    t9->terminateDate = Date("-");
     t9->center = getCenterByID(_CENTER, "C03");
     t9->subject = getSubjectByID(_SUBJECT, "S03");
     t9->countRate = 0;
+
     t10->ID = "T10";
     t10->name = "Julio";
     t10->payRate = 60;
     t10->rating = 0;
     t10->phone = "0184038501";
-    t10->joinDate = *new Date("1/1/2022");
-    t10->terminateDate = *new Date("-");
+    t10->address = "TPM";
+    t10->joinDate = Date("1/1/2022");
+    t10->terminateDate = Date("-");
     t10->center = getCenterByID(_CENTER, "C01");
     t10->subject = getSubjectByID(_SUBJECT, "S01");
     t10->countRate = 0;
@@ -182,8 +201,9 @@ void initTutor()
     t11->payRate = 60;
     t11->rating = 0;
     t11->phone = "0184038501";
-    t11->joinDate = *new Date("1/1/2022");
-    t11->terminateDate = *new Date("-");
+    t11->address = "TPM";
+    t11->joinDate = Date("1/1/2022");
+    t11->terminateDate = Date("-");
     t11->center = getCenterByID(_CENTER, "C01");
     t11->subject = getSubjectByID(_SUBJECT, "S01");
     t11->countRate = 0;
@@ -193,32 +213,23 @@ void initTutor()
     t12->payRate = 60;
     t12->rating = 0;
     t12->phone = "0184038501";
-    t12->joinDate = *new Date("1/1/2022");
-    t12->terminateDate = *new Date("-");
+    t12->address = "TPM";
+    t12->joinDate = Date("1/1/2022");
+    t12->terminateDate = Date("-");
     t12->center = getCenterByID(_CENTER, "C01");
     t12->subject = getSubjectByID(_SUBJECT, "S01");
     t12->countRate = 0;
-    puts("0");
+
     tutorL.AddToLast(t1);
-    puts("1");
     tutorL.AddToFront(t2);
-    puts("2");
     tutorL.AddToLast(t3);
-    puts("3");
     tutorL.AddToLast(t4);
-    puts("4");
     tutorL.AddToLast(t5);
-    puts("5");
     tutorL.AddToLast(t6);
-    puts("6");
     tutorL.AddToLast(t7);
-    puts("7");
     tutorL.AddToLast(t8);
-    puts("8");
     tutorL.AddToLast(t9);
-    puts("9");
     tutorL.AddToLast(t10);
-    puts("10");
     tutorL.AddToLast(t11);
     tutorL.AddToLast(t12);
 
@@ -247,11 +258,12 @@ void fileToTutor(TutorList &tutorL, const std::string filename)
         t->payRate = std::stof(data.at(2));
         t->rating = std::stof(data.at(3));
         t->phone = data.at(4);
-        t->joinDate = Date(data.at(5));
-        t->terminateDate = Date(data.at(6));
-        t->center = getCenterByID(_CENTER, data.at(7));
-        t->subject = getSubjectByID(_SUBJECT, data.at(8));
-        t->countRate = std::stoul(data.at(9));
+        t->address = data.at(5);
+        t->joinDate = Date(data.at(6));
+        t->terminateDate = Date(data.at(7));
+        t->center = getCenterByID(_CENTER, data.at(8));
+        t->subject = getSubjectByID(_SUBJECT, data.at(9));
+        t->countRate = std::stoul(data.at(10));
         tutorL.AddToLast(t);
     }
     fileHandler.close();
@@ -270,8 +282,6 @@ void fileToSubject(SubjectList &subjectL, const std::string filename)
         s->ID = data.at(0);
         s->name = data.at(1);
         subjectL.Add(s);
-        /*subjectL.Display();*/
-        /*puts("");*/
     }
     fileHandler.close();
 }
@@ -308,13 +318,15 @@ void tutorToFile(TutorList &tutorL, std::string filename)
         std::string payRate = float_to_str_prec(t.payRate);
         std::string rating = float_to_str_prec(t.rating);
         std::string phone = t.phone;
+        std::string address = t.address;
         std::string joinDate = t.joinDate.ToString();
         std::string terminateDate = t.terminateDate.ToString();
         std::string center = t.center->ID;
         std::string subject = t.subject->ID;
         std::string countRate = std::to_string(t.countRate);
-        std::string line = ID + delim + name + delim + payRate + delim + rating + delim + phone + delim + joinDate +
-                           delim + terminateDate + delim + center + delim + subject + delim + countRate;
+        std::string line = ID + delim + name + delim + payRate + delim + rating + delim + phone + delim + address +
+                           delim + joinDate + delim + terminateDate + delim + center + delim + subject + delim +
+                           countRate;
         fileHandler << line << '\n';
         ptr = ptr->next;
     }

@@ -74,7 +74,7 @@ void TutorList::Display(TutorNode *ptr, size_t count, bool isAdmin)
         std::cout << "Pay Rate: " << tutor->payRate << '\n';
         std::cout << "Rating: " << tutor->rating << '\n';
         std::cout << "Phone Number: " << tutor->phone << '\n';
-
+        std::cout << "Address: " << tutor->address << '\n';
         std::cout << "Joined Date: " << tutor->joinDate.ToString() << '\n';
         std::cout << "Termination Date: " << tutor->terminateDate.ToString() << '\n';
         std::cout << "Center ID: " << tutor->center->ID << '\n';

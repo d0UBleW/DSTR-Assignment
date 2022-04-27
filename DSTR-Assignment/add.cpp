@@ -62,8 +62,8 @@ Tutor *addingInterface(TutorList &tutorL)
         break;
     }
 
-    /*   cout << "Address: ";
-       getline(cin, tutor->address);*/
+    cout << "Address: ";
+    getline(cin, tutor->address);
 
     while (true)
     {

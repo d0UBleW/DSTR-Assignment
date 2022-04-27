@@ -41,8 +41,8 @@ void DisplayTutor(TutorList &tutorL, bool isAdmin)
         else
         {
             /**
-             * Keep track of the first address of the group in case we are reaching
-             * the very last group
+             * Keep track of the first address of the group in case we are
+             * reaching the very last group
              */
             TutorNode *temp = ptr;
             for (size_t i = 0; i < step; i++)
@@ -59,8 +59,8 @@ void DisplayTutor(TutorList &tutorL, bool isAdmin)
                 }
             }
             /**
-             * When we reach the very last group reset ptr to the first address of the
-             * group
+             * When we reach the very last group reset ptr to the first
+             * address of the group
              */
             if (ptr == nullptr) ptr = temp;
         }

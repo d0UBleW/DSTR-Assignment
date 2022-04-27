@@ -74,8 +74,8 @@ void initTutor()
     Tutor *t8 = new Tutor();
     Tutor *t9 = new Tutor();
     Tutor *t10 = new Tutor();
-    Tutor* t11 = new Tutor();
-    Tutor* t12 = new Tutor();
+    Tutor *t11 = new Tutor();
+    Tutor *t12 = new Tutor();
     t1->ID = "T01";
     t1->name = "Andy";
     t1->payRate = 40;
@@ -188,7 +188,6 @@ void initTutor()
     t11->subject = getSubjectByID(_SUBJECT, "S01");
     t11->countRate = 0;
 
-
     t12->ID = "T12";
     t12->name = "Julio";
     t12->payRate = 60;
@@ -200,29 +199,28 @@ void initTutor()
     t12->subject = getSubjectByID(_SUBJECT, "S01");
     t12->countRate = 0;
     puts("0");
-    tutorL.Add(t1);
+    tutorL.AddToLast(t1);
     puts("1");
     tutorL.AddToFront(t2);
     puts("2");
-    tutorL.Add(t3);
+    tutorL.AddToLast(t3);
     puts("3");
-    tutorL.Add(t4);
+    tutorL.AddToLast(t4);
     puts("4");
-    tutorL.Add(t5);
+    tutorL.AddToLast(t5);
     puts("5");
-    tutorL.Add(t6);
+    tutorL.AddToLast(t6);
     puts("6");
-    tutorL.Add(t7);
+    tutorL.AddToLast(t7);
     puts("7");
-    tutorL.Add(t8);
+    tutorL.AddToLast(t8);
     puts("8");
-    tutorL.Add(t9);
+    tutorL.AddToLast(t9);
     puts("9");
-    tutorL.Add(t10);
+    tutorL.AddToLast(t10);
     puts("10");
-    tutorL.Add(t11);
-    tutorL.Add(t12);
-
+    tutorL.AddToLast(t11);
+    tutorL.AddToLast(t12);
 
     tutorToFile(tutorL, TUTOR_FILE);
 }
@@ -254,7 +252,7 @@ void fileToTutor(TutorList &tutorL, const std::string filename)
         t->center = getCenterByID(_CENTER, data.at(7));
         t->subject = getSubjectByID(_SUBJECT, data.at(8));
         t->countRate = std::stoul(data.at(9));
-        tutorL.Add(t);
+        tutorL.AddToLast(t);
     }
     fileHandler.close();
 }

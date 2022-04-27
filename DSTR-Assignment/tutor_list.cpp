@@ -25,37 +25,19 @@ TutorList::~TutorList()
     }
 }
 
-void TutorList::InsertBeginning(Tutor *tutor)
-{
-    TutorNode *newNode = new TutorNode(tutor);
-    if (head == nullptr)
-    {
-        head = newNode;
-        return;
-    }
-    newNode->next = head;
-    newNode->prev = head->prev;
-    head->prev = newNode;
-    head = newNode;
-}
-
-void TutorList::Add(Tutor *tutor)
+void TutorList::AddToLast(Tutor *tutor)
 {
     TutorNode *newNode = new TutorNode(tutor);
     size++;
     if (head == nullptr)
     {
         head = newNode;
+        tail = newNode;
         return;
     }
 
-    TutorNode *ptr = head;
-    while (ptr->next != nullptr)
-    {
-        ptr = ptr->next;
-    }
-    newNode->prev = ptr; // kf added here
-    ptr->next = newNode;
+    tail->next = newNode;
+    newNode->prev = tail;
     tail = newNode;
 }
 
@@ -69,10 +51,9 @@ void TutorList::AddToFront(Tutor *tutor)
         return;
     }
 
-    TutorNode *ptr = head;
-
-    newNode->next = ptr; // kf added here
-    ptr->prev = newNode;
+    newNode->next = head;
+    newNode->prev = head->prev;
+    head->prev = newNode;
     head = newNode;
 }
 

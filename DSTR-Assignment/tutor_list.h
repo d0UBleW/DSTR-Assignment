@@ -14,10 +14,9 @@ struct TutorList
     bool copy;
     TutorList();
     ~TutorList();
-    void InsertBeginning(Tutor *tutor);
-    void Add(Tutor *tutor);
+    void AddToLast(Tutor *tutor);
     void AddToFront(Tutor *tutor);
-    void Display(TutorNode *, size_t, bool isAdmin = true);
+    void Display(TutorNode *tutorL, size_t step, bool isAdmin = true);
     void DeleteBeginning();
     TutorList Sort(int (*CompareFn)(Tutor *, Tutor *), char order);
     bool Empty();

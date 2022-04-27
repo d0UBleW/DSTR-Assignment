@@ -1,18 +1,18 @@
 #include <iostream>
-#include "tutor_list.h"
-#include "tutor.h"
+
 #include "center.h"
-#include "subject.h"
-#include "validation.h"
 #include "display.h"
+#include "subject.h"
+#include "tutor.h"
+#include "tutor_list.h"
+#include "validation.h"
 
 using namespace std;
 
-
-Tutor* addingInterface(TutorList& tutorL)
+Tutor *addingInterface(TutorList &tutorL)
 {
     string date;
-    Tutor* tutor = new Tutor();
+    Tutor *tutor = new Tutor();
 
     cout << "Please enter information below" << endl;
     while (true)
@@ -62,8 +62,8 @@ Tutor* addingInterface(TutorList& tutorL)
         break;
     }
 
- /*   cout << "Address: ";
-    getline(cin, tutor->address);*/
+    /*   cout << "Address: ";
+       getline(cin, tutor->address);*/
 
     while (true)
     {

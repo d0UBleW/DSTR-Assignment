@@ -166,7 +166,7 @@ void addMenu(TutorList &tutorL)
                 break;
             case 2:
                 tutor = addingInterface(tutorL);
-                tutorL.Add(tutor);
+                tutorL.AddToLast(tutor);
                 tutorToFile(tutorL, TUTOR_FILE);
                 cout << "Succesfully added to back" << endl;
                 Enter();

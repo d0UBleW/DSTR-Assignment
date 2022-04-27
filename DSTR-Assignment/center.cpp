@@ -78,5 +78,6 @@ Center *getCenterByID(CenterList &centerL, std::string ID) {
       
         ptr = ptr->next;
     }
+   
     return nullptr;
 }

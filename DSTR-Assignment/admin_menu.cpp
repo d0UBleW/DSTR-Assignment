@@ -1,13 +1,13 @@
 #include <iostream>
 
-
-#include "admin_menu.h"
-#include "validation.h"
-#include "display.h"
-#include "tutor_list.h"
-#include "tutor.h"
 #include "add.h"
+#include "admin_menu.h"
+#include "display.h"
 #include "file2struct.h"
+#include "sort.h"
+#include "tutor.h"
+#include "tutor_list.h"
+#include "validation.h"
 
 using namespace std;
 
@@ -37,16 +37,17 @@ void startMenu(TutorList &tutorL)
                 adminMainMenu(tutorL);
                 break;
             case 2:
-                //code here
+                // code here
                 break;
             case 3:
-                //code here
+                // code here
                 break;
             }
         }
     }
 }
-void modifyMenu()
+
+void modifyMenu(TutorList &tutorL)
 {
     return;
     /*while (true)
@@ -112,22 +113,23 @@ void adminMainMenu(TutorList &tutorL)
                 addMenu(tutorL);
                 break;
             case 2:
-                DisplayTutor(tutorL.head, tutorL.tail);
+                DisplayTutor(tutorL);
                 break;
             case 3:
-                //code here
+                // code here
+                sortMenu(tutorL);
                 break;
             case 4:
-                //code here
+                // code here
                 break;
             case 5:
-                //code here
+                // code here
                 break;
             case 6:
-                //code here
+                // code here
                 break;
             case 7:
-                //code here
+                // code here
                 break;
             }
         }
@@ -140,7 +142,7 @@ void addMenu(TutorList &tutorL)
     while (true)
     {
         clearScreen();
-        Tutor* tutor;
+        Tutor *tutor;
         cout << "Where you want to add?" << endl;
         cout << "1) Add to First" << endl;
         cout << "2) Add to Last" << endl;
@@ -170,7 +172,7 @@ void addMenu(TutorList &tutorL)
     }
 }
 
-void sortMenu()
+void sortMenu(TutorList &tutorL)
 {
     while (true)
     {
@@ -184,17 +186,19 @@ void sortMenu()
         int choice = getIntInput(sentence);
         if (isChoiceInMenuRange(choice, 3))
         {
-            int (*CompareFn)(Tutor&, Tutor&) = nullptr;
+            int (*CompareFn)(Tutor *, Tutor *) = nullptr;
             switch (choice)
             {
             case 1:
-                //code here
+                CompareFn = &CompareTutorID;
                 break;
             case 2:
-                //code here
+                CompareFn = &CompareTutorPay;
+                // code here
                 break;
             case 3:
-                //code here
+                CompareFn = &CompareTutorRating;
+                // code here
                 break;
             case 0:
                 return;
@@ -204,7 +208,7 @@ void sortMenu()
             cout << "2) Descending order\n";
             cout << "0) Back\n";
             bool valid = false;
-            /*while (!valid)
+            while (!valid)
             {
                 int option = getIntInput("Enter your choice: ");
                 if (isChoiceInMenuRange(option, 2))
@@ -223,15 +227,15 @@ void sortMenu()
                     {
                         order = 'd';
                     }
-                    std::vector<Tutor*> sortedTutorV = sortTutor(tutorV, (*CompareFn), order);
-                    DisplayTutor(sortedTutorV);
+                    TutorList sortedTutorL = tutorL.Sort((*CompareFn), order);
+                    DisplayTutor(sortedTutorL);
                 }
-            }*/
+            }
         }
     }
 }
 
-void searchMenu()
+void searchMenu(TutorList &tutorL)
 {
     while (true)
     {
@@ -244,7 +248,7 @@ void searchMenu()
         if (isChoiceInMenuRange(choice, 2))
         {
             Tutor query;
-            int (*CompareFn)(Tutor&, Tutor&) = nullptr;
+            int (*CompareFn)(Tutor &, Tutor &) = nullptr;
             if (choice == 0)
             {
                 break;
@@ -266,7 +270,7 @@ void searchMenu()
     }
 }
 
-void deleteMenu()
+void deleteMenu(TutorList &tutorL)
 {
     while (true)
     {
@@ -279,13 +283,13 @@ void deleteMenu()
         if (isChoiceInMenuRange(choice, 2))
         {
             //// code here
-            //Tutor query;
-            //int (*CompareFn)(Tutor&, Tutor&) = nullptr;
-            //if (choice == 1)
+            // Tutor query;
+            // int (*CompareFn)(Tutor&, Tutor&) = nullptr;
+            // if (choice == 1)
             //{
             //}
 
-            //else if (choice == 2)
+            // else if (choice == 2)
             //{
             //    std::cout << "Enter Tutor ID (TXX): ";
             //    std::getline(std::cin, query.ID);
@@ -293,7 +297,7 @@ void deleteMenu()
             //    std::vector<Tutor*> result = searchTutor(tutorV, query, (*CompareFn));
             //    // Display(result);
             //}
-            //else if (choice == 0)
+            // else if (choice == 0)
             //{
             //    return;
             //}

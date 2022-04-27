@@ -13,7 +13,8 @@
 #include "subject.h"
 #include "tutor.h"
 
-void initCenter() {
+void initCenter()
+{
     CenterList centerL;
     centerL.Add(new Center("C01", "One"));
     centerL.Add(new Center("C02", "Two"));
@@ -24,7 +25,8 @@ void initCenter() {
 
     CenterNode *ptr = centerL.head;
 
-    while (ptr != nullptr) {
+    while (ptr != nullptr)
+    {
         Center c = *(ptr->center);
         std::string ID = c.ID;
         std::string name = c.name;
@@ -35,7 +37,8 @@ void initCenter() {
     fileHandler.close();
 }
 
-void initSubject() {
+void initSubject()
+{
     SubjectList subjectL;
     subjectL.Add(new Subject("S01", "One"));
     subjectL.Add(new Subject("S02", "Two"));
@@ -46,7 +49,8 @@ void initSubject() {
 
     SubjectNode *ptr = subjectL.head;
 
-    while (ptr != nullptr) {
+    while (ptr != nullptr)
+    {
         Subject s = *(ptr->subject);
         std::string ID = s.ID;
         std::string name = s.name;
@@ -57,7 +61,8 @@ void initSubject() {
     fileHandler.close();
 }
 
-void initTutor() {
+void initTutor()
+{
     TutorList tutorL;
     Tutor *t1 = new Tutor();
     Tutor *t2 = new Tutor();
@@ -222,18 +227,21 @@ void initTutor() {
     tutorToFile(tutorL, TUTOR_FILE);
 }
 
-void initAdmin() {
+void initAdmin()
+{
     AdminList adminL;
     adminL.Add(new Admin("admin", "password"));
     /* adminToFile(adminL, ADMIN_FILE); */
 }
 
-void fileToTutor(TutorList &tutorL, const std::string filename) {
+void fileToTutor(TutorList &tutorL, const std::string filename)
+{
     std::fstream fileHandler(filename, std::ios::in);
     std::string line = "";
     std::string delim = "|";
 
-    while (!getline(fileHandler, line).eof() && line.length() != 0) {
+    while (!getline(fileHandler, line).eof() && line.length() != 0)
+    {
         std::vector<std::string> data = splitString(line, delim);
         Tutor *t = new Tutor();
         t->ID = data.at(0);
@@ -251,12 +259,14 @@ void fileToTutor(TutorList &tutorL, const std::string filename) {
     fileHandler.close();
 }
 
-void fileToSubject(SubjectList &subjectL, const std::string filename) {
+void fileToSubject(SubjectList &subjectL, const std::string filename)
+{
     std::fstream fileHandler(filename, std::ios::in);
     std::string line = "";
     std::string delim = "|";
 
-    while (!getline(fileHandler, line).eof() && line.length() != 0) {
+    while (!getline(fileHandler, line).eof() && line.length() != 0)
+    {
         std::vector<std::string> data = splitString(line, delim);
         Subject *s = new Subject();
         s->ID = data.at(0);
@@ -268,12 +278,14 @@ void fileToSubject(SubjectList &subjectL, const std::string filename) {
     fileHandler.close();
 }
 
-void fileToCenter(CenterList &centerL, const std::string filename) {
+void fileToCenter(CenterList &centerL, const std::string filename)
+{
     std::fstream fileHandler(filename, std::ios::in);
     std::string line = "";
     std::string delim = "|";
 
-    while (!getline(fileHandler, line).eof() && line.length() != 0) {
+    while (!getline(fileHandler, line).eof() && line.length() != 0)
+    {
         std::vector<std::string> data = splitString(line, delim);
         Center *c = new Center();
         c->ID = data.at(0);
@@ -283,13 +295,15 @@ void fileToCenter(CenterList &centerL, const std::string filename) {
     fileHandler.close();
 }
 
-void tutorToFile(TutorList &tutorL, std::string filename) {
+void tutorToFile(TutorList &tutorL, std::string filename)
+{
     std::fstream fileHandler(filename, std::ios::out);
     std::string delim = "|";
 
     TutorNode *ptr = tutorL.head;
 
-    while (ptr != nullptr) {
+    while (ptr != nullptr)
+    {
         Tutor t = *(ptr->tutor);
         std::string ID = t.ID;
         std::string name = t.name;
@@ -301,22 +315,22 @@ void tutorToFile(TutorList &tutorL, std::string filename) {
         std::string center = t.center->ID;
         std::string subject = t.subject->ID;
         std::string countRate = std::to_string(t.countRate);
-        std::string line = ID + delim + name + delim + payRate + delim +
-                           rating + delim + phone + delim + joinDate + delim +
-                           terminateDate + delim + center + delim + subject +
-                           delim + countRate;
+        std::string line = ID + delim + name + delim + payRate + delim + rating + delim + phone + delim + joinDate +
+                           delim + terminateDate + delim + center + delim + subject + delim + countRate;
         fileHandler << line << '\n';
         ptr = ptr->next;
     }
     fileHandler.close();
 }
 
-void fileToStudent(StudentList &studentL, std::string filename) {
+void fileToStudent(StudentList &studentL, std::string filename)
+{
     std::fstream fileHandler(filename, std::ios::in);
     std::string line = "";
     std::string delim = "|";
 
-    while (!getline(fileHandler, line).eof() && line.length() != 0) {
+    while (!getline(fileHandler, line).eof() && line.length() != 0)
+    {
         std::vector<std::string> data = splitString(line, delim);
         Student *stu = new Student();
         stu->username = data.at(0);
@@ -326,13 +340,15 @@ void fileToStudent(StudentList &studentL, std::string filename) {
     fileHandler.close();
 }
 
-void studentToFile(StudentList &studentL, std::string filename) {
+void studentToFile(StudentList &studentL, std::string filename)
+{
     std::fstream fileHandler(filename, std::ios::out);
     std::string delim = "|";
 
     StudentNode *ptr = studentL.head;
 
-    while (ptr != nullptr) {
+    while (ptr != nullptr)
+    {
         Student stu = *(ptr->student);
         std::string username = stu.username;
         std::string password = stu.password;
@@ -342,12 +358,14 @@ void studentToFile(StudentList &studentL, std::string filename) {
     fileHandler.close();
 }
 
-void fileToAdmin(AdminList &adminL, std::string filename) {
+void fileToAdmin(AdminList &adminL, std::string filename)
+{
     std::fstream fileHandler(filename, std::ios::in);
     std::string line = "";
     std::string delim = "|";
 
-    while (!getline(fileHandler, line).eof() && line.length() != 0) {
+    while (!getline(fileHandler, line).eof() && line.length() != 0)
+    {
         std::vector<std::string> data = splitString(line, delim);
         Admin *adm = new Admin();
         adm->username = data.at(0);
@@ -357,13 +375,15 @@ void fileToAdmin(AdminList &adminL, std::string filename) {
     fileHandler.close();
 }
 
-void adminToFile(AdminList &adminL, std::string filename) {
+void adminToFile(AdminList &adminL, std::string filename)
+{
     std::fstream fileHandler(filename, std::ios::out);
     std::string delim = "|";
 
     AdminNode *ptr = adminL.head;
 
-    while (ptr != nullptr) {
+    while (ptr != nullptr)
+    {
         Admin adm = *(ptr->admin);
         std::string username = adm.username;
         std::string password = adm.password;
@@ -373,11 +393,13 @@ void adminToFile(AdminList &adminL, std::string filename) {
     fileHandler.close();
 }
 
-std::vector<std::string> splitString(std::string str, std::string delim) {
+std::vector<std::string> splitString(std::string str, std::string delim)
+{
     std::vector<std::string> data;
     size_t start = 0;
     size_t end = str.find(delim);
-    while (end != std::string::npos) {
+    while (end != std::string::npos)
+    {
         data.push_back(str.substr(start, end - start));
         start = end + delim.length();
         end = str.find(delim, start);
@@ -386,7 +408,8 @@ std::vector<std::string> splitString(std::string str, std::string delim) {
     return data;
 }
 
-std::string float_to_str_prec(float f, int n) {
+std::string float_to_str_prec(float f, int n)
+{
     std::ostringstream out;
     out.precision(n);
     out << std::fixed << f;

@@ -88,7 +88,7 @@ Tutor* addingInterface(TutorList& tutorL)
         cout << "Center ID: ";
         getline(cin, ID);
         tutor->center = getCenterByID(_CENTER, ID);
-        if (!(isCenterExisted(tutor->center->ID)))
+        if (!(isCenterExisted(tutor->center)))
         {
             continue;
         }
@@ -103,7 +103,7 @@ Tutor* addingInterface(TutorList& tutorL)
         cout << "Subject ID: ";
         getline(cin, ID);
         tutor->subject = getSubjectByID(_SUBJECT, ID);
-        if (!(isSubjectExisted(tutor->subject->ID)))
+        if (!(isSubjectExisted(tutor->subject)))
         {
             continue;
         }

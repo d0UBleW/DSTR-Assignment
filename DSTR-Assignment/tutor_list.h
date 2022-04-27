@@ -6,7 +6,8 @@
 #include "tutor.h"
 #include "tutor_node.h"
 
-struct TutorList {
+struct TutorList
+{
     TutorNode *head;
     TutorNode *tail;
     size_t size;
@@ -15,10 +16,10 @@ struct TutorList {
     ~TutorList();
     void InsertBeginning(Tutor *tutor);
     void Add(Tutor *tutor);
-    void AddToFront(Tutor* tutor);
-    void Display();
+    void AddToFront(Tutor *tutor);
+    void Display(TutorNode *&, size_t, std::string nav, bool isAdmin = true);
     void DeleteBeginning();
-    void Sort(int (*CompareFn)(Tutor *, Tutor *), char order);
+    TutorList Sort(int (*CompareFn)(Tutor *, Tutor *), char order);
     bool Empty();
 };
 

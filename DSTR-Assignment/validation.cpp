@@ -42,19 +42,16 @@ bool isTutorIDFormatCorrect(std::string ID)
 }
 
 
-bool isCenterExisted(std::string cid)
+bool isCenterExisted(Center *c)
 {
-
-    
-    if (getCenterByID(_CENTER, cid) != nullptr) return true;
+    if (c != nullptr) return true;
     std::cout << "Center ID is not valid, please enter again\n";
     return false;
 }
 
-bool isSubjectExisted(std::string sid)
+bool isSubjectExisted(Subject *s)
 {
     
-    Subject* s = getSubjectByID(_SUBJECT, sid);
     if (s != nullptr) return true;
     std::cout << "Subject ID is not valid, please enter again\n";
     return false;

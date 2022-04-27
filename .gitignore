@@ -397,3 +397,9 @@ FodyWeavers.xsd
 
 # Backup
 *.bak
+
+admin.txt
+student.txt
+tutor.txt
+subject.txt
+center.txt

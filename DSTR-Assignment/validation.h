@@ -40,7 +40,7 @@ bool isTutorIDFormatCorrect(std::string ID);
  *
  * @return true if exists, else false
  */
-bool isCenterExisted(std::string cid);
+bool isCenterExisted(Center *c);
 
 /**
  * @brief Verify if supplied pointer Subject object exists or not
@@ -49,7 +49,7 @@ bool isCenterExisted(std::string cid);
  *
  * @return true if exists, else false
  */
-bool isSubjectExisted(std::string sid);
+bool isSubjectExisted(Subject *s);
 bool isDateValid(std::string date);
 
 /**

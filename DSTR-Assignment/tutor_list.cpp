@@ -76,40 +76,11 @@ void TutorList::AddToFront(Tutor *tutor)
     head = newNode;
 }
 
-void TutorList::Display(TutorNode *&ptr, size_t count, std::string nav, bool isAdmin)
+void TutorList::Display(TutorNode *ptr, size_t count, bool isAdmin)
 {
-    /**
-     * Keep track of the first address of the group in case we are reaching
-     * the very last group
-     */
-    TutorNode *temp = ptr;
-    for (size_t i = 0; i < count; i++)
+    for (size_t i = 0; i < count && ptr != nullptr; i++, ptr = ptr->next)
     {
-        if (nav == "prev")
-        {
-            if (ptr == head) break;
-            ptr = ptr->prev;
-        }
-        else if (nav == "next")
-        {
-            if (ptr == nullptr) break;
-            ptr = ptr->next;
-        }
-    }
-
-    /**
-     * When we reach the very last group reset ptr to the first address of the
-     * group, else update our first address to be the new first address of the
-     * group
-     */
-    if (ptr == nullptr)
-        ptr = temp;
-    else
-        temp = ptr;
-
-    for (size_t i = 0; i < count && temp != nullptr; i++, temp = temp->next)
-    {
-        Tutor *tutor = temp->tutor;
+        Tutor *tutor = ptr->tutor;
         std::cout << "Tutor ID: " << tutor->ID << '\n';
         std::cout << "Tutor Name: " << tutor->name << '\n';
         // if its not admin then only show

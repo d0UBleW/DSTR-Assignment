@@ -113,7 +113,7 @@ void adminMainMenu(TutorList &tutorL)
                 addMenu(tutorL);
                 break;
             case 2:
-                DisplayTutor(tutorL.head, tutorL.tail);
+                DisplayTutor(tutorL);
                 break;
             case 3:
                 // code here
@@ -228,8 +228,7 @@ void sortMenu(TutorList &tutorL)
                         order = 'd';
                     }
                     TutorList sortedTutorL = tutorL.Sort((*CompareFn), order);
-                    sortedTutorL.Display();
-                    Enter();
+                    DisplayTutor(sortedTutorL);
                 }
             }
         }

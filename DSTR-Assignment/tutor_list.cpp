@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "binary_tree.h"
+#include "my_stack.h"
 #include "tutor.h"
 #include "tutor_list.h"
 #include "tutor_node.h"
@@ -75,21 +76,61 @@ void TutorList::AddToFront(Tutor *tutor)
     head = newNode;
 }
 
-void TutorList::Display()
+void TutorList::Display(TutorNode *&ptr, size_t count, std::string nav, bool isAdmin)
 {
-    puts("Tutor Display");
-    TutorNode *nodePtr = head;
-    while (nodePtr != nullptr)
+    /**
+     * Keep track of the first address of the group in case we are reaching
+     * the very last group
+     */
+    TutorNode *temp = ptr;
+    for (size_t i = 0; i < count; i++)
     {
-        std::cout << "Addr: " << nodePtr->tutor << '\n';
-        std::cout << "Name: " << nodePtr->tutor->name << '\n';
-        std::cout << "ID: " << nodePtr->tutor->ID << '\n';
-        std::cout << "Pay: " << nodePtr->tutor->payRate << '\n';
-        std::cout << "Rating: " << nodePtr->tutor->rating << '\n';
-        puts("");
-        nodePtr = nodePtr->next;
+        if (nav == "prev")
+        {
+            if (ptr == head) break;
+            ptr = ptr->prev;
+        }
+        else if (nav == "next")
+        {
+            if (ptr == nullptr) break;
+            ptr = ptr->next;
+        }
     }
-    puts("");
+
+    /**
+     * When we reach the very last group reset ptr to the first address of the
+     * group, else update our first address to be the new first address of the
+     * group
+     */
+    if (ptr == nullptr)
+        ptr = temp;
+    else
+        temp = ptr;
+
+    for (size_t i = 0; i < count && temp != nullptr; i++, temp = temp->next)
+    {
+        Tutor *tutor = temp->tutor;
+        std::cout << "Tutor ID: " << tutor->ID << '\n';
+        std::cout << "Tutor Name: " << tutor->name << '\n';
+        // if its not admin then only show
+        // tutor id and name
+        if (!isAdmin)
+        {
+            std::cout << '\n';
+            continue;
+        }
+        std::cout << "Pay Rate: " << tutor->payRate << '\n';
+        std::cout << "Rating: " << tutor->rating << '\n';
+        std::cout << "Phone Number: " << tutor->phone << '\n';
+
+        std::cout << "Joined Date: " << tutor->joinDate.ToString() << '\n';
+        std::cout << "Termination Date: " << tutor->terminateDate.ToString() << '\n';
+        std::cout << "Center ID: " << tutor->center->ID << '\n';
+        std::cout << "Center Name: " << tutor->center->name << '\n';
+        std::cout << "Subject ID: " << tutor->subject->ID << '\n';
+        std::cout << "Subject Name: " << tutor->subject->name << '\n';
+        std::cout << '\n';
+    }
 }
 
 void TutorList::DeleteBeginning()

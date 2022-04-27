@@ -38,9 +38,6 @@ int main()
         fileToTutor(tutorL, TUTOR_FILE);
     }
 
-    /*tutorL.Display();*/
-    /*DisplayTutor(tutorL);*/
-    /*DisplayTutor(tutorL.head,tutorL.tail);*/
     startMenu(tutorL);
 
     return 0;

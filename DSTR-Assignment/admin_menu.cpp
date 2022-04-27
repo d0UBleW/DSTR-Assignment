@@ -161,11 +161,15 @@ void addMenu(TutorList &tutorL)
                 tutor = addingInterface(tutorL);
                 tutorL.AddToFront(tutor);
                 tutorToFile(tutorL, TUTOR_FILE);
+                cout << "Succesfully added to front" << endl;
+                Enter();
                 break;
             case 2:
                 tutor = addingInterface(tutorL);
                 tutorL.Add(tutor);
                 tutorToFile(tutorL, TUTOR_FILE);
+                cout << "Succesfully added to back" << endl;
+                Enter();
                 break;
             }
         }

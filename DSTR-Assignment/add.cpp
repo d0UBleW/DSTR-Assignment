@@ -15,70 +15,70 @@ Tutor* addingInterface(TutorList& tutorL)
     Tutor* tutor = new Tutor();
 
     cout << "Please enter information below" << endl;
- //   while (true)
- //   {
+    while (true)
+    {
 
- //       cout << "Tutor ID (TXX): ";
- //       getline(cin, tutor->ID);
- //       if (!isTutorIDFormatCorrect(tutor->ID))
- //       {
- //           continue;
- //       }
- //       if (isTutorIDExisted(tutorL, tutor->ID))
- //       {
- //           continue;
- //       }
- //       break;
- //   }
+        cout << "Tutor ID (TXX): ";
+        getline(cin, tutor->ID);
+        if (!isTutorIDFormatCorrect(tutor->ID))
+        {
+            continue;
+        }
+        if (isTutorIDExisted(tutorL, tutor->ID))
+        {
+            continue;
+        }
+        break;
+    }
 
- //   cout << "Tutor Name: ";
+    cout << "Tutor Name: ";
 
- //   // use getline to get name with spaces
- //   getline(cin, tutor->name);
+    // use getline to get name with spaces
+    getline(cin, tutor->name);
 
- //   while (true)
- //   {
- //       string setence = "Pay Rate (40 ~ 80): ";
- //       tutor->payRate = getFloatInput(setence);
- //       if (!isPayRateRangeValid(tutor->payRate))
- //       {
- //           continue;
- //       }
- //       break;
- //   }
+    while (true)
+    {
+        string setence = "Pay Rate (40 ~ 80): ";
+        tutor->payRate = getFloatInput(setence);
+        if (!isPayRateRangeValid(tutor->payRate))
+        {
+            continue;
+        }
+        break;
+    }
 
- //   tutor->rating = 0;
- //   tutor->countRate = 0;
+    tutor->rating = 0;
+    tutor->countRate = 0;
 
- //   while (true)
- //   {
- //       cout << "Phone Number(10~11 digits): ";
- //       getline(cin, tutor->phone);
+    while (true)
+    {
+        cout << "Phone Number(10~11 digits): ";
+        getline(cin, tutor->phone);
 
- //       if (!isPhoneFormatValid(tutor->phone))
- //       {
- //           continue;
- //       }
- //       break;
- //   }
+        if (!isPhoneFormatValid(tutor->phone))
+        {
+            continue;
+        }
+        break;
+    }
 
- ///*   cout << "Address: ";
- //   getline(cin, tutor->address);*/
+ /*   cout << "Address: ";
+    getline(cin, tutor->address);*/
 
- //   while (true)
- //   {
+    while (true)
+    {
 
- //       cout << "Join Date (dd/MM/yyyy): ";
- //       getline(cin, date);
+        cout << "Join Date (dd/MM/yyyy): ";
+        getline(cin, date);
 
- //       if (!isDateValid(date))
- //       {
- //           continue;
- //       }
- //       tutor->joinDate = date;
- //       break;
- //   }
- //   tutor->terminateDate = Date("-");
+        if (!isDateValid(date))
+        {
+            continue;
+        }
+        tutor->joinDate = date;
+        break;
+    }
+    tutor->terminateDate = Date("-");
 
     while (true)
     {

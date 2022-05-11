@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -150,6 +150,7 @@
     <ClCompile Include="file2struct.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="my_stack.cpp" />
+    <ClCompile Include="search.cpp" />
     <ClCompile Include="sort.cpp" />
     <ClCompile Include="student.cpp" />
     <ClCompile Include="student_menu.cpp" />
@@ -170,6 +171,7 @@
     <ClInclude Include="display.h" />
     <ClInclude Include="file2struct.h" />
     <ClInclude Include="my_stack.h" />
+    <ClInclude Include="search.h" />
     <ClInclude Include="sort.h" />
     <ClInclude Include="student.h" />
     <ClInclude Include="student_menu.h" />

@@ -5,6 +5,6 @@
 
 #include<vector>
 
-void studentRatingMenu() {}
+void studentRatingMenu(TutorList &);
 
-void studentSearchingTutorMenu(){}
+void studentSearchingTutorMenu(TutorList &);

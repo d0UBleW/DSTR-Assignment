@@ -31,7 +31,6 @@ StudentNode::~StudentNode() {
 StudentList::StudentList() { head = nullptr; }
 
 StudentList::~StudentList() {
-    puts("Decon sublist");
     while (head != nullptr) {
         Delete();
     }
@@ -72,7 +71,7 @@ void StudentList::Display() {
 
 bool StudentList::Empty() { return (head == nullptr) ? true : false; }
 
-Student *getStudentByID(StudentList &studentL, std::string username) {
+Student *getStudentByUsername(StudentList &studentL, std::string username) {
     StudentNode *ptr = studentL.head;
     while (ptr != nullptr) {
         Student adm = *(ptr->student);

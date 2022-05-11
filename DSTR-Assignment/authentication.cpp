@@ -6,7 +6,6 @@
 #include "file2struct.h"
 #include "student.h"
 #include "validation.h"
-#include "admin.cpp"
 
 
 

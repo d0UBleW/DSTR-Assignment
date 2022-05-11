@@ -8,7 +8,4 @@
 #include "tutor_node.h"
 #include "sort.h"
 
-TutorList linearSearch(TutorList& ll, int (*CompareFn)(Tutor*, Tutor*), Tutor t){}
-
-
-
+TutorList searchTutor(TutorList& ll, int (*CompareFn)(Tutor*, Tutor*), Tutor *t);

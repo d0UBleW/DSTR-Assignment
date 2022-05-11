@@ -31,7 +31,6 @@ AdminNode::~AdminNode() {
 AdminList::AdminList() { head = nullptr; }
 
 AdminList::~AdminList() {
-    puts("Decon sublist");
     while (head != nullptr) {
         Delete();
     }
@@ -72,7 +71,7 @@ void AdminList::Display() {
 
 bool AdminList::Empty() { return (head == nullptr) ? true : false; }
 
-Admin *getAdminByID(AdminList &adminL, std::string username) {
+Admin *getAdminByUsername(AdminList &adminL, std::string username) {
     AdminNode *ptr = adminL.head;
     while (ptr != nullptr) {
         Admin adm = *(ptr->admin);

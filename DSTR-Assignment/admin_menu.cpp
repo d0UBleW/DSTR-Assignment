@@ -4,6 +4,7 @@
 #include "admin_menu.h"
 #include "display.h"
 #include "file2struct.h"
+#include "search.h"
 #include "sort.h"
 #include "tutor.h"
 #include "tutor_list.h"
@@ -121,6 +122,7 @@ void adminMainMenu(TutorList &tutorL)
                 break;
             case 4:
                 // code here
+                searchMenu(tutorL);
                 break;
             case 5:
                 // code here
@@ -251,8 +253,8 @@ void searchMenu(TutorList &tutorL)
         int choice = getIntInput("Enter your choice: ");
         if (isChoiceInMenuRange(choice, 2))
         {
-            Tutor query;
-            int (*CompareFn)(Tutor &, Tutor &) = nullptr;
+            Tutor *query = new Tutor();
+            int (*CompareFn)(Tutor *, Tutor *) = nullptr;
             if (choice == 0)
             {
                 break;
@@ -260,16 +262,16 @@ void searchMenu(TutorList &tutorL)
             else if (choice == 1)
             {
                 std::cout << "Enter Tutor ID (TXX): ";
-                std::getline(std::cin, query.ID);
-                /*CompareFn = &CompareTutorID;*/
+                std::getline(std::cin, query->ID);
+                CompareFn = &CompareTutorID;
             }
             else if (choice == 2)
             {
-                query.rating = getFloatInput("Enter Tutor rating: ");
-                /*CompareFn = &CompareTutorRating;*/
+                query->rating = getFloatInput("Enter Tutor rating: ");
+                CompareFn = &CompareTutorRating;
             }
-            /*std::vector<Tutor*> result = searchTutor(tutorV, query, (*CompareFn));
-            DisplayTutor(result);*/
+            TutorList result = searchTutor(tutorL, (*CompareFn), query);
+            DisplayTutor(result);
         }
     }
 }

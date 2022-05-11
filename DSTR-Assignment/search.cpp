@@ -1,30 +1,27 @@
-#include<vector>
-#include<string>
+#include <string>
+#include <vector>
 
-#include "search.h"
 #include "display.h"
+#include "search.h"
 
 using namespace std;
 
-TutorList linearSearch(TutorList& ll, int (*CompareFn)(Tutor*, Tutor*), Tutor *t)
+TutorList searchTutor(TutorList &ll, int (*CompareFn)(Tutor *, Tutor *), Tutor *t)
 {
 	TutorNode *temp = ll.head;
 	TutorList tempList;
 
-	if (ll.head == NULL) {
-		printf("List is empty\n");
-		return;
-	}
-	
-	while (temp != nullptr) {
+	while (temp != nullptr)
+	{
 		int result = (*CompareFn)(temp->tutor, t);
-		if (result == 0) {
+		if (result == 0)
+		{
 			tempList.AddToLast(temp->tutor);
 		}
 
 		temp = temp->next;
-
 	}
+	tempList.copy = true;
 
 	return tempList;
 }

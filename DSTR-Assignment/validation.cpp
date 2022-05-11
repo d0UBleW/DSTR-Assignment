@@ -237,3 +237,34 @@ bool isSpaceExisted(string s)
     }
     return false;
 }
+
+bool isAdminUsernameExisted(AdminList& adminL, std::string usrname)
+{
+    AdminNode* nodePtr = adminL.head;
+    while (nodePtr != nullptr)
+    {
+        if (nodePtr->admin->username == usrname)
+        {
+            cout << "Admin Username already Existed, Please Enter Again" << endl;
+            return true;
+        }
+        nodePtr = nodePtr->next;
+    }
+    return false;
+}
+
+
+bool isStudentUsernameExisted(StudentList& studentL, std::string usrname)
+{
+    StudentNode* nodePtr = studentL.head;
+    while (nodePtr != nullptr)
+    {
+        if (nodePtr->student->username == usrname)
+        {
+            cout << "Student Username already Existed, Please Enter Again" << endl;
+            return true;
+        }
+        nodePtr = nodePtr->next;
+    }
+    return false;
+}

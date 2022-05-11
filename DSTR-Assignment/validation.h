@@ -126,3 +126,22 @@ bool isLeap(int year);
  */
 void Enter();
 bool isSpaceExisted(string s);
+
+bool isAdminUsernameExisted(AdminList& adminL, std::string usrname);
+
+/**
+ * @brief Verify if supplied Student Username exists or not
+ *
+ * @param arr specifies the object of Student to be checked
+ * @param Usrname specifies the Usrname to be verified
+ *
+ * @return true if exists, else false
+ */
+bool isStudentUsernameExisted(StudentList& studentL, std::string usrname);
+/**
+ * @brief Verify if supplied Tutor ID matches the required format
+ *
+ * @param ID specifies the ID to be verified
+ *
+ * @return true if matches, else false
+ * */

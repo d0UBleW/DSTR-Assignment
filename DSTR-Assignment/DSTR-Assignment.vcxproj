@@ -78,6 +78,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(ProjectDir)include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -139,51 +140,51 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="add.cpp" />
-    <ClCompile Include="admin.cpp" />
-    <ClCompile Include="admin_menu.cpp" />
-    <ClCompile Include="authentication.cpp" />
-    <ClCompile Include="binary_tree.cpp" />
-    <ClCompile Include="center.cpp" />
-    <ClCompile Include="date.cpp" />
-    <ClCompile Include="delete.cpp" />
-    <ClCompile Include="display.cpp" />
-    <ClCompile Include="file2struct.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="modify.cpp" />
-    <ClCompile Include="my_stack.cpp" />
-    <ClCompile Include="search.cpp" />
-    <ClCompile Include="sort.cpp" />
-    <ClCompile Include="student.cpp" />
-    <ClCompile Include="student_menu.cpp" />
-    <ClCompile Include="subject.cpp" />
-    <ClCompile Include="tutor.cpp" />
-    <ClCompile Include="tutor_list.cpp" />
-    <ClCompile Include="tutor_node.cpp" />
-    <ClCompile Include="validation.cpp" />
+    <ClCompile Include="src/add.cpp" />
+    <ClCompile Include="src/admin.cpp" />
+    <ClCompile Include="src/admin_menu.cpp" />
+    <ClCompile Include="src/authentication.cpp" />
+    <ClCompile Include="src/binary_tree.cpp" />
+    <ClCompile Include="src/center.cpp" />
+    <ClCompile Include="src/date.cpp" />
+    <ClCompile Include="src/delete.cpp" />
+    <ClCompile Include="src/display.cpp" />
+    <ClCompile Include="src/file2struct.cpp" />
+    <ClCompile Include="src/main.cpp" />
+    <ClCompile Include="src/modify.cpp" />
+    <ClCompile Include="src/my_stack.cpp" />
+    <ClCompile Include="src/search.cpp" />
+    <ClCompile Include="src/sort.cpp" />
+    <ClCompile Include="src/student.cpp" />
+    <ClCompile Include="src/student_menu.cpp" />
+    <ClCompile Include="src/subject.cpp" />
+    <ClCompile Include="src/tutor.cpp" />
+    <ClCompile Include="src/tutor_list.cpp" />
+    <ClCompile Include="src/tutor_node.cpp" />
+    <ClCompile Include="src/validation.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="add.h" />
-    <ClInclude Include="admin.h" />
-    <ClInclude Include="admin_menu.h" />
-    <ClInclude Include="authentication.h" />
-    <ClInclude Include="binary_tree.h" />
-    <ClInclude Include="center.h" />
-    <ClInclude Include="date.h" />
-    <ClInclude Include="delete.h" />
-    <ClInclude Include="display.h" />
-    <ClInclude Include="file2struct.h" />
-    <ClInclude Include="modify.h" />
-    <ClInclude Include="my_stack.h" />
-    <ClInclude Include="search.h" />
-    <ClInclude Include="sort.h" />
-    <ClInclude Include="student.h" />
-    <ClInclude Include="student_menu.h" />
-    <ClInclude Include="subject.h" />
-    <ClInclude Include="tutor.h" />
-    <ClInclude Include="tutor_list.h" />
-    <ClInclude Include="tutor_node.h" />
-    <ClInclude Include="validation.h" />
+    <ClInclude Include="include/add.h" />
+    <ClInclude Include="include/admin.h" />
+    <ClInclude Include="include/admin_menu.h" />
+    <ClInclude Include="include/authentication.h" />
+    <ClInclude Include="include/binary_tree.h" />
+    <ClInclude Include="include/center.h" />
+    <ClInclude Include="include/date.h" />
+    <ClInclude Include="include/delete.h" />
+    <ClInclude Include="include/display.h" />
+    <ClInclude Include="include/file2struct.h" />
+    <ClInclude Include="include/modify.h" />
+    <ClInclude Include="include/my_stack.h" />
+    <ClInclude Include="include/search.h" />
+    <ClInclude Include="include/sort.h" />
+    <ClInclude Include="include/student.h" />
+    <ClInclude Include="include/student_menu.h" />
+    <ClInclude Include="include/subject.h" />
+    <ClInclude Include="include/tutor.h" />
+    <ClInclude Include="include/tutor_list.h" />
+    <ClInclude Include="include/tutor_node.h" />
+    <ClInclude Include="include/validation.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

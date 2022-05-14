@@ -7,6 +7,9 @@ struct TutorNode {
     Tutor *tutor;
     TutorNode *next;
     TutorNode *prev;
+    Subject *subject;
+    Center *center;
+    size_t countRate;
     TutorNode();
     TutorNode(Tutor *paramTutor);
     ~TutorNode();

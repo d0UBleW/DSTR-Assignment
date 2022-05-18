@@ -6,11 +6,11 @@
 #include "tutor_node.h"
 
 struct BinaryTree {
-    TutorNode *root;
-    BinaryTree();
-    ~BinaryTree();
-    BinaryTree(TutorList &ll, int (*CompareFn)(Tutor *, Tutor *), char order);
-    TutorList ToLinkedList();
+  TutorNode *root;
+  BinaryTree();
+  ~BinaryTree();
+  BinaryTree(TutorList &ll, int (*CompareFn)(Tutor *, Tutor *), char order);
+  TutorList ToLinkedList();
 };
 
 #endif

@@ -4,12 +4,12 @@
 #include "tutor.h"
 
 struct TutorNode {
-    Tutor *tutor;
-    TutorNode *next;
-    TutorNode *prev;
-    TutorNode();
-    TutorNode(Tutor *paramTutor);
-    ~TutorNode();
+  Tutor *tutor;
+  TutorNode *next;
+  TutorNode *prev;
+  TutorNode();
+  TutorNode(Tutor *paramTutor);
+  ~TutorNode();
 };
 
 #endif

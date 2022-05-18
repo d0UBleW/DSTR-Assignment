@@ -1,5 +1,4 @@
 #pragma once
-#include <iostream>
 #include "admin.h"
 #include "center.h"
 #include "date.h"
@@ -7,12 +6,11 @@
 #include "subject.h"
 #include "tutor.h"
 #include "tutor_list.h"
-
+#include <iostream>
 
 extern CenterList _CENTER;
 extern SubjectList _SUBJECT;
 using namespace std;
-
 
 /**
  * @brief Verify if supplied Tutor ID exists or not
@@ -127,7 +125,7 @@ bool isLeap(int year);
 void Enter();
 bool isSpaceExisted(string s);
 
-bool isAdminUsernameExisted(AdminList& adminL, std::string usrname);
+bool isAdminUsernameExisted(AdminList &adminL, std::string usrname);
 
 /**
  * @brief Verify if supplied Student Username exists or not
@@ -137,7 +135,7 @@ bool isAdminUsernameExisted(AdminList& adminL, std::string usrname);
  *
  * @return true if exists, else false
  */
-bool isStudentUsernameExisted(StudentList& studentL, std::string usrname);
+bool isStudentUsernameExisted(StudentList &studentL, std::string usrname);
 /**
  * @brief Verify if supplied Tutor ID matches the required format
  *

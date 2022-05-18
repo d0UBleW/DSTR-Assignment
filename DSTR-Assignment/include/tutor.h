@@ -9,22 +9,22 @@
 
 using std::string;
 
-struct Tutor
-{
-    string ID;
-    string name;
-    float payRate;
-    float rating;
-    string phone;
-    string address;
-    Date joinDate;
-    Date terminateDate;
-    Center *center;
-    Subject *subject;
-    size_t countRate;
-    Tutor();
-    Tutor(string paramName, string paramID, float paramPayRate, float paramRating);
-    ~Tutor();
+struct Tutor {
+  string ID;
+  string name;
+  float payRate;
+  float rating;
+  string phone;
+  string address;
+  Date joinDate;
+  Date terminateDate;
+  Center *center;
+  Subject *subject;
+  size_t countRate;
+  Tutor();
+  Tutor(string paramName, string paramID, float paramPayRate,
+        float paramRating);
+  ~Tutor();
 };
 
 Tutor *CreateTutor(string name, string ID, float payRate, float rating);

@@ -4,30 +4,30 @@
 #include "tutor_node.h"
 
 struct StackNode {
-    TutorNode *data;
-    StackNode *next;
-    StackNode();
-    StackNode(TutorNode *paramData);
-    ~StackNode();
+  TutorNode *data;
+  StackNode *next;
+  StackNode();
+  StackNode(TutorNode *paramData);
+  ~StackNode();
 };
 
 struct StackList {
-    StackNode *head;
-    StackList();
-    ~StackList();
-    void InsertBeginning(TutorNode *data);
-    void DeleteBeginning();
-    bool Empty();
+  StackNode *head;
+  StackList();
+  ~StackList();
+  void InsertBeginning(TutorNode *data);
+  void DeleteBeginning();
+  bool Empty();
 };
 
 struct MyStack {
-    StackList ll;
-    MyStack();
-    ~MyStack();
-    void Push(TutorNode *data);
-    TutorNode *Top();
-    void Pop();
-    bool Empty();
+  StackList ll;
+  MyStack();
+  ~MyStack();
+  void Push(TutorNode *data);
+  TutorNode *Top();
+  void Pop();
+  bool Empty();
 };
 
 #endif

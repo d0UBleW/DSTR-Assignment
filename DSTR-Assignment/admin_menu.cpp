@@ -2,10 +2,12 @@
 
 #include "add.h"
 #include "admin_menu.h"
+#include "authentication.h"
 #include "display.h"
 #include "file2struct.h"
 #include "search.h"
 #include "sort.h"
+#include "student_menu.h"
 #include "tutor.h"
 #include "tutor_list.h"
 #include "validation.h"
@@ -35,13 +37,18 @@ void startMenu(TutorList &tutorL)
                 return;
 
             case 1:
-                adminMainMenu(tutorL);
+                if (adminLogin())
+                {
+                    adminMainMenu(tutorL);
+                }
                 break;
             case 2:
-                // code here
+                if (studentLogin()) {
+                    studentRatingMenu(tutorL);
+                }
                 break;
             case 3:
-                // code here
+                registerStudent();
                 break;
             }
         }
@@ -131,7 +138,7 @@ void adminMainMenu(TutorList &tutorL)
                 // code here
                 break;
             case 7:
-                // code here
+                registerAdmin();
                 break;
             }
         }

@@ -18,29 +18,28 @@ AdminList _ADMIN;
 StudentList _STUDENT;
 
 
-
 //registering new admin
-void resgiterAdmin()
+void registerAdmin()
 {
-	Admin admin;
+	Admin *admin = new Admin();
 	cout << "Please insert information below" << endl;
 	while (true)
 	{
 		cout << "Username: ";
-		getline(cin, admin.username);
-		if (isAdminUsernameExisted(_ADMIN, admin.username))
+		getline(cin, admin->username);
+		if (isAdminUsernameExisted(_ADMIN, admin->username))
 		{
 			cout << "Username is already in used\n";
 			continue;
 		}
 		cout << "Password: ";
-		getline(cin, admin.password);
-		if (isSpaceExisted(admin.password))
+		getline(cin, admin->password);
+		if (isSpaceExisted(admin->password))
 		{
 			cout << "Password cannot contain space(s)" << endl;
 			continue;
 		}
-		_ADMIN.Add(new Admin("admin", "password"));
+		_ADMIN.Add(admin);
 		adminToFile(_ADMIN, ADMIN_FILE);
 		cout << "Register Successful" << endl;
 		Enter();
@@ -51,26 +50,26 @@ void resgiterAdmin()
 //register new student
 void registerStudent()
 {
-	Student student;
+	Student *student = new Student();
 	cout << "Please insert information below" << endl;
 	while (true)
 	{
 
 		cout << "Username: ";
-		getline(cin, student.username);
-		if (isStudentUsernameExisted(_STUDENT, student.username))
+		getline(cin, student->username);
+		if (isStudentUsernameExisted(_STUDENT, student->username))
 		{
 			cout << "Username is already in use\n";
 			continue;
 		}
 		cout << "Password: ";
-		getline(cin, student.password);
-		if (isSpaceExisted(student.password))
+		getline(cin, student->password);
+		if (isSpaceExisted(student->password))
 		{
 			cout << "Password cannot contain space(s)" << endl;
 			continue;
 		}
-		_STUDENT.Add(new Student("student", "password"));
+		_STUDENT.Add(student);
 		studentToFile(_STUDENT, STUDENT_FILE);
 		cout << "Register Succesful" << endl;
 		Enter();
@@ -114,6 +113,7 @@ bool adminLogin()
 {
 	if (_ADMIN.Empty())
 	{
+		puts("empty");
 		initAdmin();
 		fileToAdmin(_ADMIN, ADMIN_FILE);
 	}

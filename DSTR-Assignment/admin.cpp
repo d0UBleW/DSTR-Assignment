@@ -24,7 +24,6 @@ AdminNode::AdminNode(Admin *paramAdmin) {
 }
 
 AdminNode::~AdminNode() {
-    std::cout << admin << '\n';
     delete admin;
 }
 

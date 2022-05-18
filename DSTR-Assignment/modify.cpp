@@ -16,7 +16,7 @@
 
 using namespace std;
 
-void modifyTutor(TutorList& tutorL, bool isAdmin = true)
+void modifyTutor(TutorList& tutorL, bool isAdmin)
 {
 	TutorNode* tutor = tutorL.head;
 	TutorList templist;

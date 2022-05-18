@@ -24,7 +24,6 @@ StudentNode::StudentNode(Student *paramStudent) {
 }
 
 StudentNode::~StudentNode() {
-    std::cout << student << '\n';
     delete student;
 }
 

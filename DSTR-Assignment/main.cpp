@@ -12,8 +12,13 @@ const std::string CENTER_FILE = "./center.txt";
 SubjectList _SUBJECT;
 CenterList _CENTER;
 
+extern AdminList _ADMIN;
+extern StudentList _STUDENT;
+
 int main()
 {
+    fileToAdmin(_ADMIN, ADMIN_FILE);
+    fileToStudent(_STUDENT, STUDENT_FILE);
     fileToSubject(_SUBJECT, SUBJECT_FILE);
     fileToCenter(_CENTER, CENTER_FILE);
 

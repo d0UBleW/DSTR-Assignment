@@ -16,8 +16,9 @@ struct TutorList
     ~TutorList();
     void AddToLast(Tutor *tutor);
     void AddToFront(Tutor *tutor);
-    void Display(TutorNode *tutorL, size_t step, bool isAdmin = true);
+    void Display(TutorNode *tutorN, size_t step, bool isAdmin = true);
     void DeleteBeginning();
+    void DeleteNode(TutorNode *);
     TutorList Sort(int (*CompareFn)(Tutor *, Tutor *), char order);
     bool Empty();
 };

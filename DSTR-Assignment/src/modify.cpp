@@ -45,43 +45,36 @@ void modifyTutor(TutorList &tutorL, bool isAdmin) {
         std::cout << "2. Address\n";
         std::cout << "3. Termination Date\n";
         std::cout << "0. Back\n";
-        bool valid = false;
-        while (!valid) {
+        while (true) {
             int option = getIntInput("Choose what to be modified: ");
-            if (isChoiceInMenuRange(option, 3)) {
-                if (option == 1) {
-                    string phone;
-                    while (true) {
-                        std::cout << "New phone number: ";
-                        std::getline(std::cin, phone);
-                        if (isPhoneFormatValid(phone)) {
-                            tutor->phone = phone;
-                            valid = true;
-                            break;
-                        }
+            if (!isChoiceInMenuRange(option, 3)) continue;
+            if (option == 1) {
+                string phone;
+                while (true) {
+                    std::cout << "New phone number: ";
+                    std::getline(std::cin, phone);
+                    if (isPhoneFormatValid(phone)) {
+                        tutor->phone = phone;
+                        break;
                     }
-                }
-                else if (option == 2) {
-                    std::cout << "New Address: ";
-                    std::getline(std::cin, tutor->address);
-                    valid = true;
-                }
-                else if (option == 3) {
-                    string  date;
-                    while (true) {
-                        std::cout << "Terminate date: ";
-                        std::getline(std::cin, date);
-                        if (isDateValid(date)) {
-                            tutor->terminateDate = Date(date);
-                            valid = true;
-                            break;
-                        }
-                    }
-                }
-                else if (option == 0) {
-                    valid = true;
                 }
             }
+            else if (option == 2) {
+                std::cout << "New Address: ";
+                std::getline(std::cin, tutor->address);
+            }
+            else if (option == 3) {
+                string  date;
+                while (true) {
+                    std::cout << "Terminate date: ";
+                    std::getline(std::cin, date);
+                    if (isDateValid(date)) {
+                        tutor->terminateDate = Date(date);
+                        break;
+                    }
+                }
+            }
+            break;
         }
         std::cout << "Update successful\n";
         Enter();

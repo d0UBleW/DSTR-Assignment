@@ -1,6 +1,6 @@
 #pragma once
-#include "tutor.h"
-#include "tutor_node.h"
+
 #include "tutor_list.h"
 
-using namespace std;
+void DeleteTutor(TutorList &tutorL, std::string ID);
+void DeleteTerminatedTutor(TutorList &tutorL);

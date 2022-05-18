@@ -37,7 +37,7 @@ AdminList::~AdminList() {
 
 void AdminList::Add(Admin *admin) {
     AdminNode *newNode = new AdminNode(admin);
-    if (head == nullptr) {
+    if (Empty()) {
         head = newNode;
         return;
     }
@@ -48,7 +48,7 @@ void AdminList::Add(Admin *admin) {
 }
 
 void AdminList::Delete() {
-    if (head == nullptr) return;
+    if (Empty()) return;
 
     AdminNode *temp = head;
     if (head->next != nullptr) {
@@ -68,7 +68,7 @@ void AdminList::Display() {
     }
 }
 
-bool AdminList::Empty() { return (head == nullptr) ? true : false; }
+bool AdminList::Empty() { return head == nullptr; }
 
 Admin *getAdminByUsername(AdminList &adminL, std::string username) {
     AdminNode *ptr = adminL.head;

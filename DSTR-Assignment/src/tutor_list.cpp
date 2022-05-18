@@ -29,7 +29,7 @@ void TutorList::AddToLast(Tutor *tutor)
 {
     TutorNode *newNode = new TutorNode(tutor);
     size++;
-    if (head == nullptr)
+    if (Empty())
     {
         head = newNode;
         tail = newNode;
@@ -45,7 +45,7 @@ void TutorList::AddToFront(Tutor *tutor)
 {
     TutorNode *newNode = new TutorNode(tutor);
     size++;
-    if (head == nullptr)
+    if (Empty())
     {
         head = newNode;
         return;
@@ -87,7 +87,7 @@ void TutorList::Display(TutorNode *ptr, size_t count, bool isAdmin)
 
 void TutorList::DeleteBeginning()
 {
-    if (head == nullptr) return;
+    if (Empty()) return;
 
     TutorNode *nodePtr = head;
     if (head->next != nullptr)
@@ -102,6 +102,25 @@ void TutorList::DeleteBeginning()
     delete nodePtr;
 }
 
+void TutorList::DeleteNode(TutorNode *tutorNode) {
+    if (tutorNode == nullptr) return;
+    if (tutorNode == head) {
+        DeleteBeginning();
+        return;
+    }
+
+    if (tutorNode == tail) {
+        tail = tutorNode->prev;
+        tail->next = nullptr;
+        delete tutorNode;
+        return;
+    }
+
+    tutorNode->prev->next = tutorNode->next;
+    tutorNode->next->prev = tutorNode->prev;
+    delete tutorNode;
+}
+
 TutorList TutorList::Sort(int (*CompareFn)(Tutor *, Tutor *), char order)
 {
     BinaryTree bt(*this, (*CompareFn), order);
@@ -111,5 +130,5 @@ TutorList TutorList::Sort(int (*CompareFn)(Tutor *, Tutor *), char order)
 
 bool TutorList::Empty()
 {
-    return (head == nullptr) ? true : false;
+    return head == nullptr;
 }

@@ -37,7 +37,7 @@ StudentList::~StudentList() {
 
 void StudentList::Add(Student *student) {
     StudentNode *newNode = new StudentNode(student);
-    if (head == nullptr) {
+    if (Empty()) {
         head = newNode;
         return;
     }
@@ -48,7 +48,7 @@ void StudentList::Add(Student *student) {
 }
 
 void StudentList::Delete() {
-    if (head == nullptr) return;
+    if (Empty()) return;
 
     StudentNode *temp = head;
     if (head->next != nullptr) {
@@ -68,7 +68,7 @@ void StudentList::Display() {
     }
 }
 
-bool StudentList::Empty() { return (head == nullptr) ? true : false; }
+bool StudentList::Empty() { return head == nullptr; }
 
 Student *getStudentByUsername(StudentList &studentL, std::string username) {
     StudentNode *ptr = studentL.head;

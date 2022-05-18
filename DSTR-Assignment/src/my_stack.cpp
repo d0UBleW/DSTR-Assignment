@@ -25,7 +25,7 @@ StackList::~StackList() {
 
 void StackList::InsertBeginning(TutorNode *data) {
     StackNode *newStackNode = new StackNode(data);
-    if (head == nullptr) {
+    if (Empty()) {
         head = newStackNode;
         return;
     }
@@ -34,7 +34,7 @@ void StackList::InsertBeginning(TutorNode *data) {
 }
 
 void StackList::DeleteBeginning() {
-    if (head == nullptr) return;
+    if (Empty()) return;
 
     StackNode *ptr = head;
     if (head->next != nullptr) {
@@ -43,6 +43,10 @@ void StackList::DeleteBeginning() {
         head = nullptr;
     }
     delete ptr;
+}
+
+bool StackList::Empty() {
+    return head == nullptr;
 }
 
 MyStack::MyStack() {}
@@ -58,4 +62,4 @@ TutorNode *MyStack::Top() {
 
 void MyStack::Pop() { ll.DeleteBeginning(); }
 
-bool MyStack::Empty() { return (ll.head == nullptr) ? true : false; }
+bool MyStack::Empty() { return (ll.Empty()) ? true : false; }

@@ -9,12 +9,6 @@ struct Date {
     Date(std::string);
     Date(int day, int month, int year);
     ~Date();
-    Date SixMonthBack();
-    void Today();
-    bool Empty();
-    bool operator<(const Date&);
-    bool operator>(const Date&);
-    bool operator==(const Date&);
     std::string ToString();
 };
 

@@ -18,6 +18,7 @@ AdminList _ADMIN;
 StudentList _STUDENT;
 
 
+
 //registering new admin
 void registerAdmin()
 {
@@ -113,7 +114,6 @@ bool adminLogin()
 {
 	if (_ADMIN.Empty())
 	{
-		puts("empty");
 		initAdmin();
 		fileToAdmin(_ADMIN, ADMIN_FILE);
 	}

@@ -5,6 +5,7 @@
 #include "authentication.h"
 #include "display.h"
 #include "file2struct.h"
+#include "modify.h"
 #include "search.h"
 #include "sort.h"
 #include "student_menu.h"
@@ -41,10 +42,19 @@ void startMenu(TutorList &tutorL)
                 {
                     adminMainMenu(tutorL);
                 }
+                else
+                {
+                    continue;
+                }
                 break;
             case 2:
-                if (studentLogin()) {
+                if (studentLogin())
+                {
                     studentRatingMenu(tutorL);
+                }
+                else
+                {
+                    continue;
                 }
                 break;
             case 3:
@@ -57,8 +67,7 @@ void startMenu(TutorList &tutorL)
 
 void modifyMenu(TutorList &tutorL)
 {
-    return;
-    /*while (true)
+    while (true)
     {
         clearScreen();
         cout << "You are About to Modify Tutor Record, Please Becareful!\n";
@@ -69,30 +78,30 @@ void modifyMenu(TutorList &tutorL)
         if (isChoiceInMenuRange(choice, 1))
         {
             Tutor query;
-            int (*CompareFn)(Tutor&, Tutor&) = nullptr;
+            int (*CompareFn)(Tutor *, Tutor *) = nullptr;
             if (choice == 1)
             {
                 std::cout << "Enter Tutor ID (TXX): ";
                 std::getline(std::cin, query.ID);
                 CompareFn = &CompareTutorID;
-                std::vector<Tutor*> result = searchTutor(tutorV, query, (*CompareFn));
-                if (result.size() != 0)
+                TutorList result = searchTutor(tutorL, (*CompareFn), &query);
+                if (result.head != nullptr)
                 {
-                    modifyTutor(result.at(0));
-                    tutorToFile(tutorV, TUTOR_FILE);
+                    modifyTutor(result, true);
+                    tutorToFile(tutorL, TUTOR_FILE);
                 }
                 else
                 {
                     cout << "No Tutor Found please try another Tutor ID" << endl;
+                    Enter();
                 }
-
             }
             else if (choice == 0)
             {
                 return;
             }
         }
-    }*/
+    }
 }
 void adminMainMenu(TutorList &tutorL)
 {
@@ -132,7 +141,7 @@ void adminMainMenu(TutorList &tutorL)
                 searchMenu(tutorL);
                 break;
             case 5:
-                // code here
+                modifyMenu(tutorL);
                 break;
             case 6:
                 // code here

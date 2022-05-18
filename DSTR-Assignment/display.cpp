@@ -27,7 +27,7 @@ void DisplayTutor(TutorList &tutorL, bool isAdmin)
     while (true)
     {
         clearScreen();
-        tutorL.Display(ptr, step);
+        tutorL.Display(ptr, step, isAdmin);
         std::string sentence = "Prev or Next (1 to Prev 2 to Next 0 to Exit): ";
         choice = getIntInput(sentence);
         if (choice == 0)
@@ -94,32 +94,4 @@ void DisplaySubject()
 void clearScreen()
 {
     system("cls || clear");
-}
-
-void SubDisplay(TutorList& tutorL, size_t start, size_t end, bool isAdmin)
-{   
-    TutorNode* TnotePtr = tutorL.head;
-
-    for (size_t i = start; i < end && i < tutorL.size; i++)
-    {
-        cout << "Tutor ID: "  << TnotePtr ->tutor->ID << endl;
-        
-        if (!isAdmin)
-        {
-            cout << endl;
-            continue;
-
-        }
-        cout << "Pay rate: " << TnotePtr->tutor->payRate << endl; 
-        cout << "Rating: " << TnotePtr->tutor->rating << endl;
-        cout << "Phone Number: " << TnotePtr->tutor->phone << endl;
-        cout << "Address: " << TnotePtr->tutor->address << endl;
-        cout << "Joined Date: " << TnotePtr->tutor->joinDate.ToString() << endl;
-        cout << "Termination Date: " << TnotePtr->tutor->terminateDate.ToString() << endl;
-        cout << "Center ID: " << TnotePtr->center->ID << endl;
-        cout << "Center Name: " << TnotePtr->center->name << endl;
-        cout << "Subject ID: " << TnotePtr->subject->ID << endl;
-        cout << "Subject Name: " << TnotePtr->subject->name << endl;
-        cout << endl;
-    }
 }

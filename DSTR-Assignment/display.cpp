@@ -12,7 +12,7 @@ using namespace std;
 
 void DisplayTutor(TutorList &tutorL, bool isAdmin)
 {
-    if (tutorL.head == nullptr)
+    if (tutorL.Empty())
     {
         std::cout << "No tutor record to be displayed" << endl;
         Enter();

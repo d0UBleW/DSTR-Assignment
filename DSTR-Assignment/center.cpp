@@ -35,7 +35,7 @@ CenterList::~CenterList() {
 
 void CenterList::Add(Center *center) {
     CenterNode *newNode = new CenterNode(center);
-    if (head == nullptr) {
+    if (Empty()) {
         head = newNode;
         return;
     }
@@ -46,7 +46,7 @@ void CenterList::Add(Center *center) {
 }
 
 void CenterList::Delete() {
-    if (head == nullptr) return;
+    if (Empty()) return;
 
     CenterNode *temp = head;
     if (head->next != nullptr) {
@@ -66,7 +66,7 @@ void CenterList::Display() {
     }
 }
 
-bool CenterList::Empty() { return (head == nullptr) ? true : false; }
+bool CenterList::Empty() { return head == nullptr; }
 
 Center *getCenterByID(CenterList &centerL, std::string ID) {
     CenterNode *ptr = centerL.head;

@@ -18,7 +18,7 @@ BinaryTree::~BinaryTree()
 BinaryTree::BinaryTree(TutorList &ll, int (*CompareFn)(Tutor *, Tutor *), char order)
 {
     root = nullptr;
-    if (ll.head == nullptr) return;
+    if (ll.Empty()) return;
 
     TutorNode *listNodePtr = ll.head;
 

@@ -35,7 +35,7 @@ SubjectList::~SubjectList() {
 
 void SubjectList::Add(Subject *subject) {
     SubjectNode *newNode = new SubjectNode(subject);
-    if (head == nullptr) {
+    if (Empty()) {
         head = newNode;
         return;
     }
@@ -46,7 +46,7 @@ void SubjectList::Add(Subject *subject) {
 }
 
 void SubjectList::Delete() {
-    if (head == nullptr) return;
+    if (Empty()) return;
 
     SubjectNode *temp = head;
     if (head->next != nullptr) {
@@ -66,7 +66,7 @@ void SubjectList::Display() {
     }
 }
 
-bool SubjectList::Empty() { return (head == nullptr) ? true : false; }
+bool SubjectList::Empty() { return head == nullptr; }
 
 Subject *getSubjectByID(SubjectList &subjectL, std::string ID) {
     SubjectNode *ptr = subjectL.head;

@@ -17,6 +17,7 @@ struct StackList {
     ~StackList();
     void InsertBeginning(TutorNode *data);
     void DeleteBeginning();
+    bool Empty();
 };
 
 struct MyStack {

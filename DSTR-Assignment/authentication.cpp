@@ -7,8 +7,6 @@
 #include "student.h"
 #include "validation.h"
 
-
-
 using namespace std;
 
 const std::string ADMIN_FILE = "./admin.txt";
@@ -17,9 +15,7 @@ const std::string STUDENT_FILE = "./student.txt";
 AdminList _ADMIN;
 StudentList _STUDENT;
 
-
-
-//registering new admin
+// registering new admin
 void registerAdmin()
 {
 	Admin *admin = new Admin();
@@ -48,7 +44,7 @@ void registerAdmin()
 	}
 }
 
-//register new student
+// register new student
 void registerStudent()
 {
 	Student *student = new Student();
@@ -81,7 +77,7 @@ void registerStudent()
 // Student Login
 bool studentLogin()
 {
-	Student* student;
+	Student *student;
 	int chance = 3;
 	string username;
 	string password;
@@ -117,7 +113,7 @@ bool adminLogin()
 		initAdmin();
 		fileToAdmin(_ADMIN, ADMIN_FILE);
 	}
-	Admin* admin;
+	Admin *admin;
 	int chance = 3;
 	string username;
 	string password;

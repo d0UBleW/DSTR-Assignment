@@ -3,7 +3,8 @@
 
 #include "tutor_node.h"
 
-struct StackNode {
+struct StackNode
+{
     TutorNode *data;
     StackNode *next;
     StackNode();
@@ -11,7 +12,8 @@ struct StackNode {
     ~StackNode();
 };
 
-struct StackList {
+struct StackList
+{
     StackNode *head;
     StackList();
     ~StackList();
@@ -20,7 +22,8 @@ struct StackList {
     bool Empty();
 };
 
-struct MyStack {
+struct MyStack
+{
     StackList ll;
     MyStack();
     ~MyStack();

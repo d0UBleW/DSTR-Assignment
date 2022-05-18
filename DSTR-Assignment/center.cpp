@@ -2,40 +2,57 @@
 
 #include "center.h"
 
-Center::Center() {}
+Center::Center()
+{
+}
 
-Center::Center(std::string paramID, std::string paramName) {
+Center::Center(std::string paramID, std::string paramName)
+{
     ID = paramID;
     name = paramName;
 }
 
-Center::~Center() {}
+Center::~Center()
+{
+}
 
-CenterNode::CenterNode() {
+CenterNode::CenterNode()
+{
     center = nullptr;
     next = nullptr;
     prev = nullptr;
 }
 
-CenterNode::CenterNode(Center *paramCenter) {
+CenterNode::CenterNode(Center *paramCenter)
+{
     center = paramCenter;
     next = nullptr;
     prev = nullptr;
 }
 
-CenterNode::~CenterNode() { delete center; }
+CenterNode::~CenterNode()
+{
+    delete center;
+}
 
-CenterList::CenterList() { head = nullptr; }
+CenterList::CenterList()
+{
+    head = nullptr;
+}
 
-CenterList::~CenterList() {
-    while (head != nullptr) {
+CenterList::~CenterList()
+{
+    while (head != nullptr)
+    {
         Delete();
     }
 }
 
-void CenterList::Add(Center *center) {
+void CenterList::Add(Center *center)
+{
     CenterNode *newNode = new CenterNode(center);
-    if (Empty()) {
+    if (Empty())
+    {
         head = newNode;
         return;
     }
@@ -45,39 +62,52 @@ void CenterList::Add(Center *center) {
     head = newNode;
 }
 
-void CenterList::Delete() {
-    if (Empty()) return;
+void CenterList::Delete()
+{
+    if (Empty())
+        return;
 
     CenterNode *temp = head;
-    if (head->next != nullptr) {
+    if (head->next != nullptr)
+    {
         head = head->next;
         head->prev = nullptr;
-    } else {
+    }
+    else
+    {
         head = nullptr;
     }
     delete temp;
 }
 
-void CenterList::Display() {
+void CenterList::Display()
+{
     CenterNode *ptr = head;
-    while (ptr != nullptr) {
+    while (ptr != nullptr)
+    {
         std::cout << ptr->center->ID << '\n';
         ptr = ptr->next;
     }
 }
 
-bool CenterList::Empty() { return head == nullptr; }
+bool CenterList::Empty()
+{
+    return head == nullptr;
+}
 
-Center *getCenterByID(CenterList &centerL, std::string ID) {
+Center *getCenterByID(CenterList &centerL, std::string ID)
+{
     CenterNode *ptr = centerL.head;
-    while (ptr != nullptr) {
+    while (ptr != nullptr)
+    {
         Center c = *(ptr->center);
-        if (ID == c.ID) {
+        if (ID == c.ID)
+        {
             return ptr->center;
         }
-      
+
         ptr = ptr->next;
     }
-   
+
     return nullptr;
 }

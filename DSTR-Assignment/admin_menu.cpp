@@ -29,7 +29,8 @@ void startMenu(TutorList &tutorL)
         cout << "0) Exit" << endl;
         string sentence = "Enter your choice: ";
         int choice = getIntInput(sentence);
-        if (!isChoiceInMenuRange(choice, 3)) continue;
+        if (!isChoiceInMenuRange(choice, 3))
+            continue;
         switch (choice)
         {
         case 0:
@@ -73,7 +74,8 @@ void modifyMenu(TutorList &tutorL)
         cout << "0)Return to Previous Page" << endl;
         string sentence = "Enter your choice: ";
         int choice = getIntInput(sentence);
-        if (!isChoiceInMenuRange(choice, 1)) continue;
+        if (!isChoiceInMenuRange(choice, 1))
+            continue;
         Tutor query;
         int (*CompareFn)(Tutor *, Tutor *) = nullptr;
         if (choice == 1)
@@ -115,7 +117,8 @@ void adminMainMenu(TutorList &tutorL)
         cout << "0) Logout" << endl;
         string sentence = "Enter your choice: ";
         int choice = getIntInput(sentence);
-        if (!isChoiceInMenuRange(choice, 7)) continue;
+        if (!isChoiceInMenuRange(choice, 7))
+            continue;
         switch (choice)
         {
         case 0:
@@ -161,7 +164,8 @@ void addMenu(TutorList &tutorL)
         cout << "0) Previous Page" << endl;
         string sentence = "Enter your choice: ";
         int choice = getIntInput(sentence);
-        if (!isChoiceInMenuRange(choice, 2)) continue;
+        if (!isChoiceInMenuRange(choice, 2))
+            continue;
         // code here
         switch (choice)
         {
@@ -199,7 +203,8 @@ void sortMenu(TutorList &tutorL)
         cout << "0) Previous Page" << endl;
         string sentence = "Enter your choice: ";
         choice = getIntInput(sentence);
-        if (!isChoiceInMenuRange(choice, 3)) continue;
+        if (!isChoiceInMenuRange(choice, 3))
+            continue;
 
         int (*CompareFn)(Tutor *, Tutor *) = nullptr;
         switch (choice)
@@ -223,7 +228,8 @@ void sortMenu(TutorList &tutorL)
         while (true)
         {
             int option = getIntInput("Enter your choice: ");
-            if (!isChoiceInMenuRange(option, 2)) continue;
+            if (!isChoiceInMenuRange(option, 2))
+                continue;
             char order = ' ';
             if (option == 0)
             {
@@ -254,7 +260,8 @@ void searchMenu(TutorList &tutorL)
         cout << "2) Search by overall performance" << endl;
         cout << "0) Previous Page" << endl;
         int choice = getIntInput("Enter your choice: ");
-        if (!isChoiceInMenuRange(choice, 2)) continue;
+        if (!isChoiceInMenuRange(choice, 2))
+            continue;
         Tutor query;
         int (*CompareFn)(Tutor *, Tutor *) = nullptr;
         if (choice == 0)
@@ -288,20 +295,24 @@ void deleteMenu(TutorList &tutorL)
         cout << "0) Previous Page" << endl;
         string sentence = "Enter your choice: ";
         int choice = getIntInput(sentence);
-        if (!isChoiceInMenuRange(choice, 2)) continue;
-        if (choice == 1) {
+        if (!isChoiceInMenuRange(choice, 2))
+            continue;
+        if (choice == 1)
+        {
             DeleteTerminatedTutor(tutorL);
             tutorToFile(tutorL, TUTOR_FILE);
         }
 
-        else if (choice == 2) {
+        else if (choice == 2)
+        {
             string ID;
             std::cout << "Enter Tutor ID (TXX): ";
             std::getline(std::cin, ID);
             DeleteTutor(tutorL, ID);
             tutorToFile(tutorL, TUTOR_FILE);
         }
-        else if (choice == 0) {
+        else if (choice == 0)
+        {
             return;
         }
     }

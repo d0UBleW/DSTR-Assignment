@@ -1,25 +1,25 @@
 #include <iostream>
 
-#include "validation.h"
+#include "center.h"
 #include "date.h"
-#include "tutor_node.h"
+#include "subject.h"
 #include "tutor.h"
 #include "tutor_list.h"
-#include "center.h"
-#include "subject.h"
+#include "tutor_node.h"
+#include "validation.h"
 
 using namespace std;
 
 bool isTutorIDExisted(TutorList &tutorL, std::string ID)
 {
-    TutorNode* nodePtr = tutorL.head;
+    TutorNode *nodePtr = tutorL.head;
     while (nodePtr != nullptr)
     {
-        
-        if (nodePtr->tutor->ID == ID) {
+
+        if (nodePtr->tutor->ID == ID)
+        {
             cout << "Tutor ID already existed, please enter again" << endl;
             return true;
-            
         }
         nodePtr = nodePtr->next;
     }
@@ -28,8 +28,6 @@ bool isTutorIDExisted(TutorList &tutorL, std::string ID)
     if (tutor == nullptr) { return false; }
     return true;*/
 }
-
-
 
 bool isTutorIDFormatCorrect(std::string ID)
 {
@@ -41,18 +39,19 @@ bool isTutorIDFormatCorrect(std::string ID)
     return false;
 }
 
-
 bool isCenterExisted(Center *c)
 {
-    if (c != nullptr) return true;
+    if (c != nullptr)
+        return true;
     std::cout << "Center ID is not valid, please enter again\n";
     return false;
 }
 
 bool isSubjectExisted(Subject *s)
 {
-    
-    if (s != nullptr) return true;
+
+    if (s != nullptr)
+        return true;
     std::cout << "Subject ID is not valid, please enter again\n";
     return false;
 }
@@ -107,7 +106,7 @@ bool isDateValid(string d)
         }
     }
     else if (date.month == 1 || date.month == 3 || date.month == 5 || date.month == 7 || date.month == 8 ||
-        date.month == 10 || date.month == 12)
+             date.month == 10 || date.month == 12)
     {
         numOfDay = 31;
     }
@@ -176,7 +175,7 @@ int getIntInput(std::string sentence)
     {
         std::cin.clear(); // clear bad input flag
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(),
-            '\n'); // discard input
+                        '\n'); // discard input
         std::cout << "Invalid input, number only, please re-enter.\n";
     }
     clearInputBuffer();
@@ -191,7 +190,7 @@ float getFloatInput(std::string sentence)
     {
         std::cin.clear(); // clear bad input flag
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(),
-            '\n'); // discard input
+                        '\n'); // discard input
         std::cout << "Invalid input, number only, please re-enter.\n";
     }
     clearInputBuffer();
@@ -214,7 +213,8 @@ void Enter()
 
 bool isLeap(int year)
 {
-    if (year % 4 != 0 || (year % 400 != 0 && year % 100 == 0)) return false;
+    if (year % 4 != 0 || (year % 400 != 0 && year % 100 == 0))
+        return false;
     return true;
 }
 
@@ -238,9 +238,9 @@ bool isSpaceExisted(string s)
     return false;
 }
 
-bool isAdminUsernameExisted(AdminList& adminL, std::string usrname)
+bool isAdminUsernameExisted(AdminList &adminL, std::string usrname)
 {
-    AdminNode* nodePtr = adminL.head;
+    AdminNode *nodePtr = adminL.head;
     while (nodePtr != nullptr)
     {
         if (nodePtr->admin->username == usrname)
@@ -253,10 +253,9 @@ bool isAdminUsernameExisted(AdminList& adminL, std::string usrname)
     return false;
 }
 
-
-bool isStudentUsernameExisted(StudentList& studentL, std::string usrname)
+bool isStudentUsernameExisted(StudentList &studentL, std::string usrname)
 {
-    StudentNode* nodePtr = studentL.head;
+    StudentNode *nodePtr = studentL.head;
     while (nodePtr != nullptr)
     {
         if (nodePtr->student->username == usrname)

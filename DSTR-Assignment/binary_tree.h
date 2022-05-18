@@ -5,7 +5,8 @@
 #include "tutor_list.h"
 #include "tutor_node.h"
 
-struct BinaryTree {
+struct BinaryTree
+{
     TutorNode *root;
     BinaryTree();
     ~BinaryTree();

@@ -2,42 +2,57 @@
 
 #include "student.h"
 
-Student::Student() {}
+Student::Student()
+{
+}
 
-Student::Student(std::string paramUsername, std::string paramPassword) {
+Student::Student(std::string paramUsername, std::string paramPassword)
+{
     username = paramUsername;
     password = paramPassword;
 }
 
-Student::~Student() {}
+Student::~Student()
+{
+}
 
-StudentNode::StudentNode() {
+StudentNode::StudentNode()
+{
     student = nullptr;
     next = nullptr;
     prev = nullptr;
 }
 
-StudentNode::StudentNode(Student *paramStudent) {
+StudentNode::StudentNode(Student *paramStudent)
+{
     student = paramStudent;
     next = nullptr;
     prev = nullptr;
 }
 
-StudentNode::~StudentNode() {
+StudentNode::~StudentNode()
+{
     delete student;
 }
 
-StudentList::StudentList() { head = nullptr; }
+StudentList::StudentList()
+{
+    head = nullptr;
+}
 
-StudentList::~StudentList() {
-    while (head != nullptr) {
+StudentList::~StudentList()
+{
+    while (head != nullptr)
+    {
         Delete();
     }
 }
 
-void StudentList::Add(Student *student) {
+void StudentList::Add(Student *student)
+{
     StudentNode *newNode = new StudentNode(student);
-    if (Empty()) {
+    if (Empty())
+    {
         head = newNode;
         return;
     }
@@ -47,34 +62,47 @@ void StudentList::Add(Student *student) {
     head = newNode;
 }
 
-void StudentList::Delete() {
-    if (Empty()) return;
+void StudentList::Delete()
+{
+    if (Empty())
+        return;
 
     StudentNode *temp = head;
-    if (head->next != nullptr) {
+    if (head->next != nullptr)
+    {
         head = head->next;
         head->prev = nullptr;
-    } else {
+    }
+    else
+    {
         head = nullptr;
     }
     delete temp;
 }
 
-void StudentList::Display() {
+void StudentList::Display()
+{
     StudentNode *ptr = head;
-    while (ptr != nullptr) {
+    while (ptr != nullptr)
+    {
         std::cout << ptr->student->username << '\n';
         ptr = ptr->next;
     }
 }
 
-bool StudentList::Empty() { return head == nullptr; }
+bool StudentList::Empty()
+{
+    return head == nullptr;
+}
 
-Student *getStudentByUsername(StudentList &studentL, std::string username) {
+Student *getStudentByUsername(StudentList &studentL, std::string username)
+{
     StudentNode *ptr = studentL.head;
-    while (ptr != nullptr) {
+    while (ptr != nullptr)
+    {
         Student adm = *(ptr->student);
-        if (username == adm.username) {
+        if (username == adm.username)
+        {
             return ptr->student;
         }
         ptr = ptr->next;

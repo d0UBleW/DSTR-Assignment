@@ -5,7 +5,8 @@
 
 using namespace std;
 
-struct Student {
+struct Student
+{
     std::string username;
     std::string password;
     Student();
@@ -13,7 +14,8 @@ struct Student {
     ~Student();
 };
 
-struct StudentNode {
+struct StudentNode
+{
     Student *student;
     StudentNode *next;
     StudentNode *prev;
@@ -22,7 +24,8 @@ struct StudentNode {
     ~StudentNode();
 };
 
-struct StudentList {
+struct StudentList
+{
     StudentNode *head;
     StudentList();
     ~StudentList();

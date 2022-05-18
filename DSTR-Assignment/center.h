@@ -3,7 +3,8 @@
 
 #include <string>
 
-struct Center {
+struct Center
+{
     std::string ID;
     std::string name;
     Center();
@@ -11,7 +12,8 @@ struct Center {
     ~Center();
 };
 
-struct CenterNode {
+struct CenterNode
+{
     Center *center;
     CenterNode *next;
     CenterNode *prev;
@@ -20,7 +22,8 @@ struct CenterNode {
     ~CenterNode();
 };
 
-struct CenterList {
+struct CenterList
+{
     CenterNode *head;
     CenterList();
     ~CenterList();

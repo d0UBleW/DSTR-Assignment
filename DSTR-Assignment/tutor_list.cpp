@@ -20,7 +20,8 @@ TutorList::~TutorList()
     {
         TutorNode *temp = head;
         head = head->next;
-        if (!copy) delete temp->tutor;
+        if (!copy)
+            delete temp->tutor;
         delete temp;
     }
 }
@@ -87,7 +88,8 @@ void TutorList::Display(TutorNode *ptr, size_t count, bool isAdmin)
 
 void TutorList::DeleteBeginning()
 {
-    if (Empty()) return;
+    if (Empty())
+        return;
 
     TutorNode *nodePtr = head;
     if (head->next != nullptr)
@@ -102,14 +104,18 @@ void TutorList::DeleteBeginning()
     delete nodePtr;
 }
 
-void TutorList::DeleteNode(TutorNode *tutorNode) {
-    if (tutorNode == nullptr) return;
-    if (tutorNode == head) {
+void TutorList::DeleteNode(TutorNode *tutorNode)
+{
+    if (tutorNode == nullptr)
+        return;
+    if (tutorNode == head)
+    {
         DeleteBeginning();
         return;
     }
 
-    if (tutorNode == tail) {
+    if (tutorNode == tail)
+    {
         tail = tutorNode->prev;
         tail->next = nullptr;
         delete tutorNode;

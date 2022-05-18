@@ -3,7 +3,8 @@
 
 #include <string>
 
-struct Subject {
+struct Subject
+{
     std::string ID;
     std::string name;
     Subject();
@@ -11,7 +12,8 @@ struct Subject {
     ~Subject();
 };
 
-struct SubjectNode {
+struct SubjectNode
+{
     Subject *subject;
     SubjectNode *next;
     SubjectNode *prev;
@@ -20,7 +22,8 @@ struct SubjectNode {
     ~SubjectNode();
 };
 
-struct SubjectList {
+struct SubjectList
+{
     SubjectNode *head;
     SubjectList();
     ~SubjectList();

@@ -39,17 +39,17 @@ void studentRatingMenu(TutorList &TL)
     }
 }
 
-
-void studentSearchingTutorMenu(TutorList& tutorL)
+void studentSearchingTutorMenu(TutorList &tutorL)
 {
-    int (*CompareFn)(Tutor*, Tutor*) = nullptr;
+    int (*CompareFn)(Tutor *, Tutor *) = nullptr;
     Tutor *query = new Tutor();
     std::cout << "Enter Tutor ID (TXX): ";
     std::getline(std::cin, query->ID);
     CompareFn = &CompareTutorID;
 
     TutorList result = searchTutor(tutorL, (*CompareFn), query);
-    if (result.Empty()) {
+    if (result.Empty())
+    {
         std::cout << "No Tutor Found please try another Tutor ID\n";
         Enter();
         return;

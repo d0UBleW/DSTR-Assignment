@@ -1,5 +1,5 @@
 #pragma warning(push)
-#pragma warning(disable:4996)
+#pragma warning(disable : 4996)
 
 #include <ctime>
 #include <iostream>
@@ -9,25 +9,31 @@
 #include "date.h"
 #include "file2struct.h"
 
-Date::Date() {
+Date::Date()
+{
     day = 0;
     month = 0;
     year = 0;
 }
 
-Date::~Date() {}
+Date::~Date()
+{
+}
 
-Date::Date(int paramDay, int paramMonth, int paramYear) {
+Date::Date(int paramDay, int paramMonth, int paramYear)
+{
     day = paramDay;
     month = paramMonth;
     year = paramYear;
 }
 
-Date::Date(std::string strDate) {
+Date::Date(std::string strDate)
+{
     day = 0;
     month = 0;
     year = 0;
-    if (strDate == "-") {
+    if (strDate == "-")
+    {
         return;
     }
     std::vector<std::string> date = splitString(strDate, "/");
@@ -38,20 +44,23 @@ Date::Date(std::string strDate) {
 
 bool Date::Empty()
 {
-    if (day == 0 || month == 0 || year == 0) return true;
+    if (day == 0 || month == 0 || year == 0)
+        return true;
     return false;
 }
 
-std::string Date::ToString() {
+std::string Date::ToString()
+{
     std::string strDate = "-";
-    if (year != 0) {
-        strDate = std::to_string(day) + '/' + std::to_string(month) + '/' +
-                  std::to_string(year);
+    if (year != 0)
+    {
+        strDate = std::to_string(day) + '/' + std::to_string(month) + '/' + std::to_string(year);
     }
     return strDate;
 }
 
-void Date::Today() {
+void Date::Today()
+{
     time_t now = time(0);
     tm *t = localtime(&now);
     day = t->tm_mday;

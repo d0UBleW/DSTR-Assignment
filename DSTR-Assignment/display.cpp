@@ -21,7 +21,8 @@ void DisplayTutor(TutorList &tutorL, bool isAdmin)
 
     int choice = 0;
     size_t step = 5;
-    if (isAdmin) step = 3;
+    if (isAdmin)
+        step = 3;
     TutorNode *ptr = tutorL.head;
 
     while (true)
@@ -49,12 +50,14 @@ void DisplayTutor(TutorList &tutorL, bool isAdmin)
             {
                 if (choice == 1)
                 {
-                    if (ptr == tutorL.head) break;
+                    if (ptr == tutorL.head)
+                        break;
                     ptr = ptr->prev;
                 }
                 else if (choice == 2)
                 {
-                    if (ptr == nullptr) break;
+                    if (ptr == nullptr)
+                        break;
                     ptr = ptr->next;
                 }
             }
@@ -62,7 +65,8 @@ void DisplayTutor(TutorList &tutorL, bool isAdmin)
              * When we reach the very last group reset ptr to the first
              * address of the group
              */
-            if (ptr == nullptr) ptr = temp;
+            if (ptr == nullptr)
+                ptr = temp;
         }
     }
 }

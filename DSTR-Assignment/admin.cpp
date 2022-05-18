@@ -2,42 +2,57 @@
 
 #include "admin.h"
 
-Admin::Admin() {}
+Admin::Admin()
+{
+}
 
-Admin::Admin(std::string paramUsername, std::string paramPassword) {
+Admin::Admin(std::string paramUsername, std::string paramPassword)
+{
     username = paramUsername;
     password = paramPassword;
 }
 
-Admin::~Admin() {}
+Admin::~Admin()
+{
+}
 
-AdminNode::AdminNode() {
+AdminNode::AdminNode()
+{
     admin = nullptr;
     next = nullptr;
     prev = nullptr;
 }
 
-AdminNode::AdminNode(Admin *paramAdmin) {
+AdminNode::AdminNode(Admin *paramAdmin)
+{
     admin = paramAdmin;
     next = nullptr;
     prev = nullptr;
 }
 
-AdminNode::~AdminNode() {
+AdminNode::~AdminNode()
+{
     delete admin;
 }
 
-AdminList::AdminList() { head = nullptr; }
+AdminList::AdminList()
+{
+    head = nullptr;
+}
 
-AdminList::~AdminList() {
-    while (head != nullptr) {
+AdminList::~AdminList()
+{
+    while (head != nullptr)
+    {
         Delete();
     }
 }
 
-void AdminList::Add(Admin *admin) {
+void AdminList::Add(Admin *admin)
+{
     AdminNode *newNode = new AdminNode(admin);
-    if (Empty()) {
+    if (Empty())
+    {
         head = newNode;
         return;
     }
@@ -47,34 +62,47 @@ void AdminList::Add(Admin *admin) {
     head = newNode;
 }
 
-void AdminList::Delete() {
-    if (Empty()) return;
+void AdminList::Delete()
+{
+    if (Empty())
+        return;
 
     AdminNode *temp = head;
-    if (head->next != nullptr) {
+    if (head->next != nullptr)
+    {
         head = head->next;
         head->prev = nullptr;
-    } else {
+    }
+    else
+    {
         head = nullptr;
     }
     delete temp;
 }
 
-void AdminList::Display() {
+void AdminList::Display()
+{
     AdminNode *ptr = head;
-    while (ptr != nullptr) {
+    while (ptr != nullptr)
+    {
         std::cout << ptr->admin->username << '\n';
         ptr = ptr->next;
     }
 }
 
-bool AdminList::Empty() { return head == nullptr; }
+bool AdminList::Empty()
+{
+    return head == nullptr;
+}
 
-Admin *getAdminByUsername(AdminList &adminL, std::string username) {
+Admin *getAdminByUsername(AdminList &adminL, std::string username)
+{
     AdminNode *ptr = adminL.head;
-    while (ptr != nullptr) {
+    while (ptr != nullptr)
+    {
         Admin adm = *(ptr->admin);
-        if (username == adm.username) {
+        if (username == adm.username)
+        {
             return ptr->admin;
         }
         ptr = ptr->next;

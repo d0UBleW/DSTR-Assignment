@@ -5,6 +5,7 @@
 #include "display.h"
 #include "file2struct.h"
 #include "subject.h"
+#include "authentication.h"
 
 const std::string TUTOR_FILE = "./tutor.txt";
 const std::string SUBJECT_FILE = "./subject.txt";
@@ -12,8 +13,13 @@ const std::string CENTER_FILE = "./center.txt";
 SubjectList _SUBJECT;
 CenterList _CENTER;
 
+extern AdminList _ADMIN;
+extern StudentList _STUDENT;
+
 int main()
 {
+    fileToAdmin(_ADMIN, ADMIN_FILE);
+    fileToStudent(_STUDENT, STUDENT_FILE);
     fileToSubject(_SUBJECT, SUBJECT_FILE);
     fileToCenter(_CENTER, CENTER_FILE);
 

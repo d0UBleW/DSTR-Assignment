@@ -240,7 +240,7 @@ void initAdmin()
 {
     AdminList adminL;
     adminL.Add(new Admin("admin", "password"));
-    /* adminToFile(adminL, ADMIN_FILE); */
+    adminToFile(adminL, ADMIN_FILE);
 }
 
 void fileToTutor(TutorList &tutorL, const std::string filename)

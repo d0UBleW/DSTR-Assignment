@@ -13,6 +13,7 @@ extern const std::string TUTOR_FILE;
 extern const std::string SUBJECT_FILE;
 extern const std::string CENTER_FILE;
 extern const std::string ADMIN_FILE;
+extern const std::string STUDENT_FILE;
 extern CenterList _CENTER;
 extern SubjectList _SUBJECT;
 

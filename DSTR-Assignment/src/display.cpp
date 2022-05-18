@@ -27,7 +27,7 @@ void DisplayTutor(TutorList &tutorL, bool isAdmin)
     while (true)
     {
         clearScreen();
-        tutorL.Display(ptr, step);
+        tutorL.Display(ptr, step, isAdmin);
         std::string sentence = "Prev or Next (1 to Prev 2 to Next 0 to Exit): ";
         choice = getIntInput(sentence);
         if (choice == 0)

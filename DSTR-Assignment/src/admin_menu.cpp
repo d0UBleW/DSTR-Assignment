@@ -67,7 +67,6 @@ void startMenu(TutorList &tutorL)
 
 void modifyMenu(TutorList &tutorL)
 {
-    return;
     while (true)
     {
         clearScreen();
@@ -88,7 +87,7 @@ void modifyMenu(TutorList &tutorL)
                 TutorList result = searchTutor(tutorL, (*CompareFn), &query);
                 if (result.head != nullptr)
                 {
-                    modifyTutor(tutorL, true);
+                    modifyTutor(result, true);
                     tutorToFile(tutorL, TUTOR_FILE);
                 }
                 else

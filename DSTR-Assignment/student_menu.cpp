@@ -55,5 +55,5 @@ void studentSearchingTutorMenu(TutorList &tutorL)
         return;
     }
     modifyTutor(result, false);
-    fileToTutor(tutorL, TUTOR_FILE);
+    tutorToFile(tutorL, TUTOR_FILE);
 }

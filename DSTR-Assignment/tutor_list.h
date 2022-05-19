@@ -11,6 +11,10 @@ struct TutorList
     TutorNode *head;
     TutorNode *tail;
     size_t size;
+    /**
+     * Used when creating copy of list such that the Tutor data will not be
+     * deallocated
+     */
     bool copy;
     TutorList();
     ~TutorList();

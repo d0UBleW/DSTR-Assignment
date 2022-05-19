@@ -33,6 +33,8 @@ BinaryTree::BinaryTree(TutorList &ll, int (*CompareFn)(Tutor *, Tutor *), char o
         TutorNode *treeNodePtr = root;
         int result;
         TutorNode *treeNodePtrParent = nullptr;
+
+        // Traverse until end of tree
         while (treeNodePtr != nullptr)
         {
             treeNodePtrParent = treeNodePtr;
@@ -43,50 +45,49 @@ BinaryTree::BinaryTree(TutorList &ll, int (*CompareFn)(Tutor *, Tutor *), char o
             {
                 if (result > 0)
                 {
+                    // reach end of tree
+                    if (treeNodePtr->next == nullptr)
+                    {
+                        treeNodePtr->next = new TutorNode(listData);
+                        break;
+                    }
                     treeNodePtr = treeNodePtr->next;
                 }
                 else
                 {
+                    // reach end of tree
+                    if (treeNodePtr->prev == nullptr)
+                    {
+                        treeNodePtr->prev = new TutorNode(listData);
+                        break;
+                    }
                     treeNodePtr = treeNodePtr->prev;
                 }
             }
             else
             {
                 if (result > 0)
+                {
+                    // reach end of tree
+                    if (treeNodePtr->prev == nullptr)
+                    {
+                        treeNodePtr->prev = new TutorNode(listData);
+                        break;
+                    }
                     treeNodePtr = treeNodePtr->prev;
+                }
                 else
+                {
+                    // reach end of tree
+                    if (treeNodePtr->next == nullptr)
+                    {
+                        treeNodePtr->next = new TutorNode(listData);
+                        break;
+                    }
                     treeNodePtr = treeNodePtr->next;
+                }
             }
         }
-
-        if (order == 'a')
-        {
-            if (result > 0)
-            {
-                treeNodePtrParent->next = new TutorNode(listNodePtr->tutor);
-                treeNodePtr = treeNodePtrParent->next;
-            }
-            else
-            {
-                treeNodePtrParent->prev = new TutorNode(listNodePtr->tutor);
-                treeNodePtr = treeNodePtrParent->prev;
-            }
-        }
-        else
-        {
-            if (result > 0)
-            {
-                treeNodePtrParent->prev = new TutorNode(listNodePtr->tutor);
-                treeNodePtr = treeNodePtrParent->prev;
-            }
-            else
-            {
-                treeNodePtrParent->next = new TutorNode(listNodePtr->tutor);
-                treeNodePtr = treeNodePtrParent->next;
-            }
-        }
-        treeNodePtr->next = nullptr;
-        treeNodePtr->prev = nullptr;
         listNodePtr = listNodePtr->next;
     }
 }
@@ -96,7 +97,7 @@ TutorList BinaryTree::ToLinkedList()
     TutorList lst;
     lst.copy = true;
     /*
-     * Create a stack which stores a pointer to Node<T> (Node<T>*)
+     * Create a stack which stores TutorNode data type
      */
     MyStack nodeStack;
     TutorNode *treeNodePtr = root;
@@ -109,7 +110,7 @@ TutorList BinaryTree::ToLinkedList()
         if (treeNodePtr != nullptr)
         {
             /*
-             * Traverse the left sub-tree while keeping track of previous node
+             * Traverse the left sub-tree while keeping track of traversed node
              * with stack
              */
             nodeStack.Push(treeNodePtr);
@@ -119,7 +120,8 @@ TutorList BinaryTree::ToLinkedList()
         {
             /*
              * Reached end of left sub-tree, retrieve the parent (previous)
-             * node from the stack
+             * node from the stack, append the node to new sorted list,
+             * traverse the right sub-tree
              */
             treeNodePtr = nodeStack.Top();
             lst.AddToLast(treeNodePtr->tutor);

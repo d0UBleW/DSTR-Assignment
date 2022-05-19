@@ -110,6 +110,7 @@ void TutorList::DeleteNode(TutorNode *tutorNode)
         return;
     if (tutorNode == head)
     {
+        delete tutorNode->tutor;
         DeleteBeginning();
         return;
     }
@@ -118,18 +119,30 @@ void TutorList::DeleteNode(TutorNode *tutorNode)
     {
         tail = tutorNode->prev;
         tail->next = nullptr;
+        delete tutorNode->tutor;
         delete tutorNode;
         return;
     }
 
     tutorNode->prev->next = tutorNode->next;
     tutorNode->next->prev = tutorNode->prev;
+    delete tutorNode->tutor;
     delete tutorNode;
 }
 
 TutorList TutorList::Sort(int (*CompareFn)(Tutor *, Tutor *), char order)
 {
+    /**
+     * Create a binary tree where for ascending, the left sub-tree contain
+     * nodes smaller than the sub-tree root and the right sub-tree contain
+     * nodes bigger than or equal to the sub-tree root
+     */
     BinaryTree bt(*this, (*CompareFn), order);
+
+    /**
+     * Build a new sorted array by doing inorder traversal through the binary
+     * tree
+     */
     TutorList sortedLL = bt.ToLinkedList();
     return sortedLL;
 }

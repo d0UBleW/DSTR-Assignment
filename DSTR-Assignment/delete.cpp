@@ -9,18 +9,18 @@
 
 void DeleteTutor(TutorList &tutorL, std::string ID)
 {
-    if (tutorL.Empty())
-    {
-        std::cout << "No tutor record found\n";
-        Enter();
-        return;
-    }
-
     TutorNode *nodePtr = tutorL.head;
 
     while (nodePtr != nullptr && nodePtr->tutor->ID != ID)
     {
         nodePtr = nodePtr->next;
+    }
+
+    if (nodePtr == nullptr)
+    {
+        std::cout << "No tutor record found\n";
+        Enter();
+        return;
     }
 
     while (true)

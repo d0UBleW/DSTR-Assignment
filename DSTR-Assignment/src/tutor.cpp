@@ -25,7 +25,8 @@ Tutor::Tutor(string paramName, string paramID, float paramPayRate,
   rating = paramRating;
 }
 
-Tutor::~Tutor() {}
+Tutor::~Tutor() {
+}
 
 Tutor *CreateTutor(string name, string ID, float payRate, float rating) {
   Tutor *newTutor = new Tutor(name, ID, payRate, rating);

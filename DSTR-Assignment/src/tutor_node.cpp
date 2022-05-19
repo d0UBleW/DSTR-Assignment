@@ -7,7 +7,8 @@ TutorNode::TutorNode() {
   prev = nullptr;
 }
 
-TutorNode::~TutorNode() {}
+TutorNode::~TutorNode() {
+}
 
 TutorNode::TutorNode(Tutor *t) {
   tutor = t;

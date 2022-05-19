@@ -95,6 +95,7 @@ void TutorList::DeleteNode(TutorNode *tutorNode) {
   if (tutorNode == nullptr)
     return;
   if (tutorNode == head) {
+    delete tutorNode->tutor;
     DeleteBeginning();
     return;
   }
@@ -102,12 +103,14 @@ void TutorList::DeleteNode(TutorNode *tutorNode) {
   if (tutorNode == tail) {
     tail = tutorNode->prev;
     tail->next = nullptr;
+    delete tutorNode->tutor;
     delete tutorNode;
     return;
   }
 
   tutorNode->prev->next = tutorNode->next;
   tutorNode->next->prev = tutorNode->prev;
+  delete tutorNode->tutor;
   delete tutorNode;
 }
 

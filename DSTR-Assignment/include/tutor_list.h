@@ -18,6 +18,7 @@ struct TutorList {
   void Display(TutorNode *tutorN, size_t step, bool isAdmin = true);
   void DeleteBeginning();
   void DeleteNode(TutorNode *);
+  void Sort(int (*CompareFn)(Tutor *, Tutor *), char order, TutorList &result);
   bool Empty();
 };
 

@@ -48,8 +48,3 @@ int CompareTutorRating(Tutor *t1, Tutor *t2) {
   int result = CompareFloat(t1->rating, t2->rating);
   return result;
 }
-
-void SortTutorList(TutorList &tutorL, int (*CompareFn)(Tutor *, Tutor *), char order, TutorList &result) {
-  BinaryTree bt(tutorL, (*CompareFn), order);
-  bt.ToLinkedList(result);
-}

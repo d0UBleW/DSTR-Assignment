@@ -213,7 +213,7 @@ void sortMenu(TutorList &tutorL) {
       }
       TutorList sortedTutorL;
       sortedTutorL.copy = true;
-      SortTutorList(tutorL, (*CompareFn), order, sortedTutorL);
+      tutorL.Sort((*CompareFn), order, sortedTutorL);
       DisplayTutor(sortedTutorL);
       break;
     }

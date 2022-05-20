@@ -114,4 +114,10 @@ void TutorList::DeleteNode(TutorNode *tutorNode) {
   delete tutorNode;
 }
 
+
+void TutorList::Sort(int (*CompareFn)(Tutor *, Tutor *), char order, TutorList &result) {
+  BinaryTree bt(*this, (*CompareFn), order);
+  bt.ToLinkedList(result);
+}
+
 bool TutorList::Empty() { return head == nullptr; }

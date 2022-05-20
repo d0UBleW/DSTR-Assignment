@@ -16,6 +16,4 @@ int CompareTutorPay(Tutor *, Tutor *);
 
 int CompareTutorRating(Tutor *, Tutor *);
 
-void SortTutorList(TutorList &tutorL, int(*CompareFn)(Tutor *, Tutor *), char order, TutorList &result);
-
 #endif

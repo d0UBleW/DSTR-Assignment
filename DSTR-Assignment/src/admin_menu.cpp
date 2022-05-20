@@ -211,7 +211,9 @@ void sortMenu(TutorList &tutorL) {
       } else if (option == 2) {
         order = 'd';
       }
-      TutorList sortedTutorL = tutorL.Sort((*CompareFn), order);
+      TutorList sortedTutorL;
+      sortedTutorL.copy = true;
+      SortTutorList(tutorL, (*CompareFn), order, sortedTutorL);
       DisplayTutor(sortedTutorL);
       break;
     }

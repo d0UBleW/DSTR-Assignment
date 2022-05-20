@@ -10,7 +10,7 @@ struct BinaryTree {
   BinaryTree();
   ~BinaryTree();
   BinaryTree(TutorList &ll, int (*CompareFn)(Tutor *, Tutor *), char order);
-  TutorList ToLinkedList();
+  void ToLinkedList(TutorList &result);
 };
 
 #endif

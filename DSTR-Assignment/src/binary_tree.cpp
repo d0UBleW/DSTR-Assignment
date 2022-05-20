@@ -69,9 +69,8 @@ BinaryTree::BinaryTree(TutorList &ll, int (*CompareFn)(Tutor *, Tutor *),
   }
 }
 
-TutorList BinaryTree::ToLinkedList() {
-  TutorList lst;
-  lst.copy = true;
+void BinaryTree::ToLinkedList(TutorList &result) {
+  result.copy = true;
   /*
    * Create a stack which stores a pointer to Node<T> (Node<T>*)
    */
@@ -95,7 +94,7 @@ TutorList BinaryTree::ToLinkedList() {
        * node from the stack
        */
       treeNodePtr = nodeStack.Top();
-      lst.AddToLast(treeNodePtr->tutor);
+      result.AddToLast(treeNodePtr->tutor);
       nodeStack.Pop();
       /*
        * Store the unused tree node address to be deallocate
@@ -106,5 +105,4 @@ TutorList BinaryTree::ToLinkedList() {
       delete tmp;
     }
   }
-  return lst;
 }

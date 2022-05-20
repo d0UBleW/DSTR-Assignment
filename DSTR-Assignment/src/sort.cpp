@@ -3,6 +3,7 @@
 #include "sort.h"
 #include "tutor.h"
 #include "tutor_list.h"
+#include "binary_tree.h"
 
 int CompareNumeric(int a, int b) {
   if (a > b)
@@ -46,4 +47,9 @@ int CompareTutorPay(Tutor *t1, Tutor *t2) {
 int CompareTutorRating(Tutor *t1, Tutor *t2) {
   int result = CompareFloat(t1->rating, t2->rating);
   return result;
+}
+
+void SortTutorList(TutorList &tutorL, int (*CompareFn)(Tutor *, Tutor *), char order, TutorList &result) {
+  BinaryTree bt(tutorL, (*CompareFn), order);
+  bt.ToLinkedList(result);
 }

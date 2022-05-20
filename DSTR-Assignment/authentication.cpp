@@ -114,7 +114,7 @@ bool adminLogin()
 	int chance = 3;
 	string username;
 	string password;
-	while (chance> 0)
+	while (chance > 0)
 	{
 		cout << "Username: ";
 		getline(cin, username);

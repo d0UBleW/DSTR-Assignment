@@ -5,12 +5,13 @@
 #include "tutor_list.h"
 #include "tutor_node.h"
 
-struct BinaryTree {
-  TutorNode *root;
-  BinaryTree();
-  ~BinaryTree();
-  BinaryTree(TutorList &ll, int (*CompareFn)(Tutor *, Tutor *), char order);
-  void ToLinkedList(TutorList &result);
+struct BinaryTree
+{
+    TutorNode *root;
+    BinaryTree();
+    ~BinaryTree();
+    BinaryTree(TutorList &ll, int (*CompareFn)(Tutor *, Tutor *), char order);
+    void ToLinkedList(TutorList &result);
 };
 
 #endif

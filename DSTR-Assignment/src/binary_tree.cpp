@@ -8,7 +8,19 @@
 
 BinaryTree::BinaryTree() { root = nullptr; }
 
-BinaryTree::~BinaryTree() {}
+BinaryTree::~BinaryTree() {
+  while (root != nullptr) {
+    TutorNode *treeNodePtr = root;
+    if (root->prev != nullptr) {
+      root = root->prev;
+      treeNodePtr->prev = root->next;
+      root->next = treeNodePtr;
+    } else {
+      root = root->next;
+      delete treeNodePtr;
+    }
+  }
+}
 
 BinaryTree::BinaryTree(TutorList &ll, int (*CompareFn)(Tutor *, Tutor *),
                        char order) {
@@ -26,45 +38,40 @@ BinaryTree::BinaryTree(TutorList &ll, int (*CompareFn)(Tutor *, Tutor *),
   while (listNodePtr != nullptr) {
     TutorNode *treeNodePtr = root;
     int result;
-    TutorNode *treeNodePtrParent = nullptr;
     while (treeNodePtr != nullptr) {
-      treeNodePtrParent = treeNodePtr;
       Tutor *listData = listNodePtr->tutor;
       Tutor *treeData = treeNodePtr->tutor;
       result = (*CompareFn)(listData, treeData);
       if (order == 'a') {
         if (result > 0) {
+          if (treeNodePtr->next == nullptr) {
+            treeNodePtr->next = new TutorNode(listData);
+            break;
+          }
           treeNodePtr = treeNodePtr->next;
         } else {
+          if (treeNodePtr->prev == nullptr) {
+            treeNodePtr->prev = new TutorNode(listData);
+            break;
+          }
           treeNodePtr = treeNodePtr->prev;
         }
       } else {
-        if (result > 0)
+        if (result > 0) {
+          if (treeNodePtr->prev == nullptr) {
+            treeNodePtr->prev = new TutorNode(listData);
+            break;
+          }
           treeNodePtr = treeNodePtr->prev;
-        else
+        } else {
+          if (treeNodePtr->next == nullptr) {
+            treeNodePtr->next = new TutorNode(listData);
+            break;
+          }
           treeNodePtr = treeNodePtr->next;
+        }
       }
     }
-
-    if (order == 'a') {
-      if (result > 0) {
-        treeNodePtrParent->next = new TutorNode(listNodePtr->tutor);
-        treeNodePtr = treeNodePtrParent->next;
-      } else {
-        treeNodePtrParent->prev = new TutorNode(listNodePtr->tutor);
-        treeNodePtr = treeNodePtrParent->prev;
-      }
-    } else {
-      if (result > 0) {
-        treeNodePtrParent->prev = new TutorNode(listNodePtr->tutor);
-        treeNodePtr = treeNodePtrParent->prev;
-      } else {
-        treeNodePtrParent->next = new TutorNode(listNodePtr->tutor);
-        treeNodePtr = treeNodePtrParent->next;
-      }
-    }
-    treeNodePtr->next = nullptr;
-    treeNodePtr->prev = nullptr;
     listNodePtr = listNodePtr->next;
   }
 }
@@ -96,13 +103,7 @@ void BinaryTree::ToLinkedList(TutorList &result) {
       treeNodePtr = nodeStack.Top();
       result.AddToLast(treeNodePtr->tutor);
       nodeStack.Pop();
-      /*
-       * Store the unused tree node address to be deallocate
-       * before moving to the next node (right sub-tree)
-       */
-      TutorNode *tmp = treeNodePtr;
       treeNodePtr = treeNodePtr->next;
-      delete tmp;
     }
   }
 }

@@ -19,6 +19,7 @@ struct TutorList {
   void DeleteBeginning();
   void DeleteNode(TutorNode *);
   void Sort(int (*CompareFn)(Tutor *, Tutor *), char order, TutorList &result);
+  void Search(int (*CompareFn)(Tutor *, Tutor *), Tutor *query, TutorList &listResult);
   bool Empty();
 };
 

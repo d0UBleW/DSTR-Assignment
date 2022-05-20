@@ -153,7 +153,6 @@
     <ClCompile Include="src/main.cpp" />
     <ClCompile Include="src/modify.cpp" />
     <ClCompile Include="src/my_stack.cpp" />
-    <ClCompile Include="src/search.cpp" />
     <ClCompile Include="src/sort.cpp" />
     <ClCompile Include="src/student.cpp" />
     <ClCompile Include="src/student_menu.cpp" />
@@ -176,7 +175,6 @@
     <ClInclude Include="include/file2struct.h" />
     <ClInclude Include="include/modify.h" />
     <ClInclude Include="include/my_stack.h" />
-    <ClInclude Include="include/search.h" />
     <ClInclude Include="include/sort.h" />
     <ClInclude Include="include/student.h" />
     <ClInclude Include="include/student_menu.h" />

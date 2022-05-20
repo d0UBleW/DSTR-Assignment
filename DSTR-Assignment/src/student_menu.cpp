@@ -4,7 +4,6 @@
 #include "display.h"
 #include "file2struct.h"
 #include "modify.h"
-#include "search.h"
 #include "sort.h"
 #include "student_menu.h"
 #include "tutor.h"
@@ -42,7 +41,9 @@ void studentSearchingTutorMenu(TutorList &tutorL) {
   std::getline(std::cin, query->ID);
   CompareFn = &CompareTutorID;
 
-  TutorList result = searchTutor(tutorL, (*CompareFn), query);
+  TutorList result;
+  result.copy = true;
+  tutorL.Search((*CompareFn), query, result);
   if (result.Empty()) {
     std::cout << "No Tutor Found please try another Tutor ID\n";
     Enter();

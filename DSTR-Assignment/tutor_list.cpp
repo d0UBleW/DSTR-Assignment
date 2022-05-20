@@ -114,9 +114,31 @@ void TutorList::DeleteNode(TutorNode *tutorNode) {
   delete tutorNode;
 }
 
+
 void TutorList::Sort(int (*CompareFn)(Tutor *, Tutor *), char order, TutorList &result) {
   BinaryTree bt(*this, (*CompareFn), order);
   bt.ToLinkedList(result);
+}
+
+void TutorList::Search(int (*CompareFn)(Tutor *, Tutor *), Tutor *query, TutorList &listResult) {
+  BinaryTree bt = BinaryTree(*this, (*CompareFn), 'a');
+  
+  TutorNode *treeNodePtr = bt.root;
+  listResult.copy = true;
+
+  while (treeNodePtr != nullptr) {
+    int result = (*CompareFn)(query, treeNodePtr->tutor);
+    if (result == 0) {
+      listResult.AddToLast(treeNodePtr->tutor);
+      treeNodePtr = treeNodePtr->prev;
+    }
+    else if (result > 0) {
+      treeNodePtr = treeNodePtr->next;
+    }
+    else {
+      treeNodePtr = treeNodePtr->prev;
+    }
+  }
 }
 
 bool TutorList::Empty() { return head == nullptr; }

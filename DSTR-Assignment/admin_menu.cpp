@@ -7,7 +7,6 @@
 #include "display.h"
 #include "file2struct.h"
 #include "modify.h"
-#include "search.h"
 #include "sort.h"
 #include "student_menu.h"
 #include "tutor.h"
@@ -71,8 +70,10 @@ void modifyMenu(TutorList &tutorL) {
       std::cout << "Enter Tutor ID (TXX): ";
       std::getline(std::cin, query.ID);
       CompareFn = &CompareTutorID;
-      TutorList result = searchTutor(tutorL, (*CompareFn), &query);
-      if (result.head != nullptr) {
+      TutorList result;
+      result.copy = true;
+      tutorL.Search((*CompareFn), &query, result);
+      if (!result.Empty()) {
         modifyTutor(result, true);
         tutorToFile(tutorL, TUTOR_FILE);
       } else {
@@ -242,7 +243,9 @@ void searchMenu(TutorList &tutorL) {
       query.rating = getFloatInput("Enter Tutor rating: ");
       CompareFn = &CompareTutorRating;
     }
-    TutorList result = searchTutor(tutorL, (*CompareFn), &query);
+    TutorList result;
+    result.copy = true;
+    tutorL.Search((*CompareFn), &query, result);
     DisplayTutor(result);
   }
 }

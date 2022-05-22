@@ -8,14 +8,13 @@
 #include "tutor_node.h"
 #include "validation.h"
 
-using namespace std;
-
 bool isTutorIDExisted(TutorList &tutorL, std::string ID) {
   TutorNode *nodePtr = tutorL.head;
   while (nodePtr != nullptr) {
 
     if (nodePtr->tutor->ID == ID) {
-      cout << "Tutor ID already existed, please enter again" << endl;
+      std::cout << "Tutor ID already existed, please enter again"
+                      << std::endl;
       return true;
     }
     nodePtr = nodePtr->next;
@@ -50,7 +49,7 @@ bool isSubjectExisted(Subject *s) {
   return false;
 }
 
-bool isDateValid(string d) {
+bool isDateValid(std::string d) {
   // dd/mm/yyyy
   if (!(d.length() == 10)) {
     std::cout << "Invalid format please use (dd/MM/yyyy)\n";
@@ -192,8 +191,8 @@ bool isChoiceInMenuRange(int choice, int end) {
   return false;
 }
 
-bool isSpaceExisted(string s) {
-  if (s.find(' ') != string::npos) {
+bool isSpaceExisted(std::string s) {
+  if (s.find(' ') != std::string::npos) {
     return true;
   }
   return false;
@@ -203,7 +202,8 @@ bool isAdminUsernameExisted(AdminList &adminL, std::string usrname) {
   AdminNode *nodePtr = adminL.head;
   while (nodePtr != nullptr) {
     if (nodePtr->admin->username == usrname) {
-      cout << "Admin Username already Existed, Please Enter Again" << endl;
+      std::cout << "Admin Username already Existed, Please Enter Again"
+                      << std::endl;
       return true;
     }
     nodePtr = nodePtr->next;
@@ -215,7 +215,8 @@ bool isStudentUsernameExisted(StudentList &studentL, std::string usrname) {
   StudentNode *nodePtr = studentL.head;
   while (nodePtr != nullptr) {
     if (nodePtr->student->username == usrname) {
-      cout << "Student Username already Existed, Please Enter Again" << endl;
+      std::cout << "Student Username already Existed, Please Enter Again"
+                      << std::endl;
       return true;
     }
     nodePtr = nodePtr->next;

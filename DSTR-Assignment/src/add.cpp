@@ -7,17 +7,15 @@
 #include "tutor_list.h"
 #include "validation.h"
 
-using namespace std;
-
 Tutor *addingInterface(TutorList &tutorL) {
-  string date;
+  std::string date;
   Tutor *tutor = new Tutor();
 
-  cout << "Please enter information below" << endl;
+  std::cout << "Please enter information below" << std::endl;
   while (true) {
 
-    cout << "Tutor ID (TXX): ";
-    getline(cin, tutor->ID);
+    std::cout << "Tutor ID (TXX): ";
+    std::getline(std::cin, tutor->ID);
     if (!isTutorIDFormatCorrect(tutor->ID)) {
       continue;
     }
@@ -27,13 +25,13 @@ Tutor *addingInterface(TutorList &tutorL) {
     break;
   }
 
-  cout << "Tutor Name: ";
+  std::cout << "Tutor Name: ";
 
   // use getline to get name with spaces
-  getline(cin, tutor->name);
+  std::getline(std::cin, tutor->name);
 
   while (true) {
-    string setence = "Pay Rate (40 ~ 80): ";
+    std::string setence = "Pay Rate (40 ~ 80): ";
     tutor->payRate = getFloatInput(setence);
     if (!isPayRateRangeValid(tutor->payRate)) {
       continue;
@@ -45,8 +43,8 @@ Tutor *addingInterface(TutorList &tutorL) {
   tutor->countRate = 0;
 
   while (true) {
-    cout << "Phone Number(10~11 digits): ";
-    getline(cin, tutor->phone);
+    std::cout << "Phone Number (10~11 digits): ";
+    std::getline(std::cin, tutor->phone);
 
     if (!isPhoneFormatValid(tutor->phone)) {
       continue;
@@ -54,13 +52,13 @@ Tutor *addingInterface(TutorList &tutorL) {
     break;
   }
 
-  cout << "Address: ";
-  getline(cin, tutor->address);
+  std::cout << "Address: ";
+  std::getline(std::cin, tutor->address);
 
   while (true) {
 
-    cout << "Join Date (dd/MM/yyyy): ";
-    getline(cin, date);
+    std::cout << "Join Date (dd/MM/yyyy): ";
+    std::getline(std::cin, date);
 
     if (!isDateValid(date)) {
       continue;
@@ -71,11 +69,11 @@ Tutor *addingInterface(TutorList &tutorL) {
   tutor->terminateDate = Date("-");
 
   while (true) {
-    string ID;
-    cout << "Please choose Center ID from list below" << endl;
+    std::string ID;
+    std::cout << "Please choose Center ID from list below" << std::endl;
     DisplayCenter();
-    cout << "Center ID: ";
-    getline(cin, ID);
+    std::cout << "Center ID: ";
+    std::getline(std::cin, ID);
     tutor->center = getCenterByID(_CENTER, ID);
     if (!(isCenterExisted(tutor->center))) {
       continue;
@@ -84,11 +82,11 @@ Tutor *addingInterface(TutorList &tutorL) {
   }
 
   while (true) {
-    string ID;
-    cout << "Please choose Subject ID from list below " << endl;
+    std::string ID;
+    std::cout << "Please choose Subject ID from list below " << std::endl;
     DisplaySubject();
-    cout << "Subject ID: ";
-    getline(cin, ID);
+    std::cout << "Subject ID: ";
+    std::getline(std::cin, ID);
     tutor->subject = getSubjectByID(_SUBJECT, ID);
     if (!(isSubjectExisted(tutor->subject))) {
       continue;

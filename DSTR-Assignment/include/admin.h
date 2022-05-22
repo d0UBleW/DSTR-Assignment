@@ -3,8 +3,6 @@
 
 #include <string>
 
-using namespace std;
-
 struct Admin {
   std::string username;
   std::string password;

@@ -1,5 +1,3 @@
-
-
 #include "display.h"
 #include "tutor_list.h"
 #include "validation.h"

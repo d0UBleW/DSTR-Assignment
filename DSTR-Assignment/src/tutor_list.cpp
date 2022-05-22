@@ -42,6 +42,7 @@ void TutorList::AddToFront(Tutor *tutor) {
   size++;
   if (Empty()) {
     head = newNode;
+    tail = newNode;
     return;
   }
 

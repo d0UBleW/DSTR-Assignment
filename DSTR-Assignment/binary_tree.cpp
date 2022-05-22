@@ -11,6 +11,9 @@ BinaryTree::BinaryTree()
     root = nullptr;
 }
 
+/**
+ * https://stackoverflow.com/a/32733913/13161912
+ */
 BinaryTree::~BinaryTree()
 {
     while (root != nullptr)
@@ -35,6 +38,9 @@ BinaryTree::~BinaryTree()
     }
 }
 
+/**
+ * http://www.martinbroadhurst.com/sorting-a-linked-list-by-turning-it-into-a-binary-tree.html
+ */
 BinaryTree::BinaryTree(TutorList &ll, int (*CompareFn)(Tutor *, Tutor *), char order)
 {
     root = nullptr;
@@ -109,6 +115,9 @@ BinaryTree::BinaryTree(TutorList &ll, int (*CompareFn)(Tutor *, Tutor *), char o
     }
 }
 
+/**
+ * https://www.techiedelight.com/inorder-tree-traversal-iterative-recursive/
+ */
 void BinaryTree::ToLinkedList(TutorList &result)
 {
     result.copy = true;

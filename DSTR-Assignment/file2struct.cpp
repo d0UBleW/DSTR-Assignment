@@ -431,6 +431,9 @@ void adminToFile(AdminList &adminL, std::string filename)
     fileHandler.close();
 }
 
+/**
+ * https://stackoverflow.com/a/57346888/13161912
+ */
 std::vector<std::string> splitString(std::string str, std::string delim)
 {
     std::vector<std::string> data;
@@ -446,6 +449,9 @@ std::vector<std::string> splitString(std::string str, std::string delim)
     return data;
 }
 
+/**
+ * https://stackoverflow.com/a/16606128/13161912
+ */
 std::string float_to_str_prec(float f, int n)
 {
     std::ostringstream out;

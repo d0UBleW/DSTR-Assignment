@@ -10,7 +10,6 @@
 
 extern CenterList _CENTER;
 extern SubjectList _SUBJECT;
-using namespace std;
 
 /**
  * @brief Verify if supplied Tutor ID exists or not
@@ -123,7 +122,7 @@ bool isLeap(int year);
  * @brief Use to ask user to press enter after giving invalid input
  */
 void Enter();
-bool isSpaceExisted(string s);
+bool isSpaceExisted(std::string s);
 
 bool isAdminUsernameExisted(AdminList &adminL, std::string usrname);
 

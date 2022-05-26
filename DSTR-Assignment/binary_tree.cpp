@@ -11,19 +11,11 @@ BinaryTree::BinaryTree()
     root = nullptr;
 }
 
-/**
- * https://stackoverflow.com/a/32733913/13161912
- */
 BinaryTree::~BinaryTree()
 {
     while (root != nullptr)
     {
         TutorNode *treeNodePtr = root;
-        /**
-         * Make left child node as the root and make the new root right child
-         * node as the old root left child node.
-         * This essentialy tries to make root to only have right child node.
-         */
         if (root->prev != nullptr)
         {
             root = root->prev;
@@ -38,9 +30,6 @@ BinaryTree::~BinaryTree()
     }
 }
 
-/**
- * http://www.martinbroadhurst.com/sorting-a-linked-list-by-turning-it-into-a-binary-tree.html
- */
 BinaryTree::BinaryTree(TutorList &ll, int (*CompareFn)(Tutor *, Tutor *), char order)
 {
     root = nullptr;
@@ -58,7 +47,6 @@ BinaryTree::BinaryTree(TutorList &ll, int (*CompareFn)(Tutor *, Tutor *), char o
     {
         TutorNode *treeNodePtr = root;
         int result;
-        // Traverse until end of tree
         while (treeNodePtr != nullptr)
         {
             Tutor *listData = listNodePtr->tutor;
@@ -68,7 +56,6 @@ BinaryTree::BinaryTree(TutorList &ll, int (*CompareFn)(Tutor *, Tutor *), char o
             {
                 if (result > 0)
                 {
-                    // reach end of tree
                     if (treeNodePtr->next == nullptr)
                     {
                         treeNodePtr->next = new TutorNode(listData);
@@ -78,7 +65,6 @@ BinaryTree::BinaryTree(TutorList &ll, int (*CompareFn)(Tutor *, Tutor *), char o
                 }
                 else
                 {
-                    // reach end of tree
                     if (treeNodePtr->prev == nullptr)
                     {
                         treeNodePtr->prev = new TutorNode(listData);
@@ -91,7 +77,6 @@ BinaryTree::BinaryTree(TutorList &ll, int (*CompareFn)(Tutor *, Tutor *), char o
             {
                 if (result > 0)
                 {
-                    // reach end of tree
                     if (treeNodePtr->prev == nullptr)
                     {
                         treeNodePtr->prev = new TutorNode(listData);
@@ -101,7 +86,6 @@ BinaryTree::BinaryTree(TutorList &ll, int (*CompareFn)(Tutor *, Tutor *), char o
                 }
                 else
                 {
-                    // reach end of tree
                     if (treeNodePtr->next == nullptr)
                     {
                         treeNodePtr->next = new TutorNode(listData);
@@ -115,14 +99,11 @@ BinaryTree::BinaryTree(TutorList &ll, int (*CompareFn)(Tutor *, Tutor *), char o
     }
 }
 
-/**
- * https://www.techiedelight.com/inorder-tree-traversal-iterative-recursive/
- */
 void BinaryTree::ToLinkedList(TutorList &result)
 {
     result.copy = true;
     /*
-     * Create a stack which stores TutorNode data type
+     * Create a stack which stores a pointer to Node<T> (Node<T>*)
      */
     MyStack nodeStack;
     TutorNode *treeNodePtr = root;
@@ -145,8 +126,7 @@ void BinaryTree::ToLinkedList(TutorList &result)
         {
             /*
              * Reached end of left sub-tree, retrieve the parent (previous)
-             * node from the stack, append the node to new sorted list,
-             * traverse the right sub-tree
+             * node from the stack
              */
             treeNodePtr = nodeStack.Top();
             result.AddToLast(treeNodePtr->tutor);

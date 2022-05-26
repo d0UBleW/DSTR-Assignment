@@ -8,13 +8,11 @@
 #include "tutor_node.h"
 #include "validation.h"
 
-using namespace std;
-
 void DisplayTutor(TutorList &tutorL, bool isAdmin)
 {
     if (tutorL.Empty())
     {
-        std::cout << "No tutor record to be displayed" << endl;
+        std::cout << "No tutor record to be displayed" << std::endl;
         Enter();
         return;
     }
@@ -76,8 +74,8 @@ void DisplayCenter()
     CenterNode *nodePtr = _CENTER.head;
     while (nodePtr != nullptr)
     {
-        cout << "CenterID: " << nodePtr->center->ID << endl;
-        cout << "Center Name: " << nodePtr->center->name << endl << endl;
+        std::cout << "CenterID: " << nodePtr->center->ID << std::endl;
+        std::cout << "Center Name: " << nodePtr->center->name << std::endl << std::endl;
         nodePtr = nodePtr->next;
     }
     return;
@@ -88,8 +86,8 @@ void DisplaySubject()
     SubjectNode *nodePtr = _SUBJECT.head;
     while (nodePtr != nullptr)
     {
-        cout << "SubjectID: " << nodePtr->subject->ID << endl;
-        cout << "Subject Name: " << nodePtr->subject->name << endl << endl;
+        std::cout << "SubjectID: " << nodePtr->subject->ID << std::endl;
+        std::cout << "Subject Name: " << nodePtr->subject->name << std::endl << std::endl;
         nodePtr = nodePtr->next;
     }
     return;

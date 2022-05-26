@@ -1,5 +1,3 @@
-
-
 #include "display.h"
 #include "tutor_list.h"
 #include "validation.h"
@@ -61,7 +59,7 @@ void modifyTutor(TutorList &tutorL, bool isAdmin)
                 continue;
             if (option == 1)
             {
-                string phone;
+                std::string phone;
                 while (true)
                 {
                     std::cout << "New phone number: ";
@@ -80,16 +78,24 @@ void modifyTutor(TutorList &tutorL, bool isAdmin)
             }
             else if (option == 3)
             {
-                string date;
+                std::string date;
                 while (true)
                 {
                     std::cout << "Terminate date: ";
                     std::getline(std::cin, date);
-                    if (isDateValid(date))
+                    if (!isDateValid(date))
                     {
-                        tutor->terminateDate = Date(date);
-                        break;
+                        continue;
                     }
+                    Date newTermDate = Date(date);
+                    if (newTermDate < tutor->joinDate)
+                    {
+                        std::cout << "Termination date should not be earlier than join date\n";
+                        Enter();
+                        continue;
+                    }
+                    tutor->terminateDate = newTermDate;
+                    break;
                 }
             }
             break;

@@ -7,8 +7,6 @@
 #include "student.h"
 #include "validation.h"
 
-using namespace std;
-
 const std::string ADMIN_FILE = "./admin.txt";
 const std::string STUDENT_FILE = "./student.txt";
 
@@ -18,120 +16,126 @@ StudentList _STUDENT;
 // registering new admin
 void registerAdmin()
 {
-	Admin *admin = new Admin();
-	cout << "Please insert information below" << endl;
-	while (true)
-	{
-		cout << "Username: ";
-		getline(cin, admin->username);
-		if (isAdminUsernameExisted(_ADMIN, admin->username))
-		{
-			cout << "Username is already in used\n";
-			continue;
-		}
-		cout << "Password: ";
-		getline(cin, admin->password);
-		if (isSpaceExisted(admin->password))
-		{
-			cout << "Password cannot contain space(s)" << endl;
-			continue;
-		}
-		_ADMIN.Add(admin);
-		adminToFile(_ADMIN, ADMIN_FILE);
-		cout << "Register Successful" << endl;
-		Enter();
-		break;
-	}
+    Admin *admin = new Admin();
+    std::cout << "Please insert information below" << std::endl;
+    while (true)
+    {
+        std::cout << "Username: ";
+        std::getline(std::cin, admin->username);
+        if (isAdminUsernameExisted(_ADMIN, admin->username))
+        {
+            std::cout << "Username is already in used\n";
+            continue;
+        }
+        std::cout << "Password: ";
+        std::getline(std::cin, admin->password);
+        if (isSpaceExisted(admin->password))
+        {
+            std::cout << "Password cannot contain space(s)" << std::endl;
+            continue;
+        }
+        _ADMIN.Add(admin);
+        adminToFile(_ADMIN, ADMIN_FILE);
+        std::cout << "Register Successful" << std::endl;
+        Enter();
+        break;
+    }
 }
 
 // register new student
 void registerStudent()
 {
-	Student *student = new Student();
-	cout << "Please insert information below" << endl;
-	while (true)
-	{
+    Student *student = new Student();
+    std::cout << "Please insert information below" << std::endl;
+    while (true)
+    {
 
-		cout << "Username: ";
-		getline(cin, student->username);
-		if (isStudentUsernameExisted(_STUDENT, student->username))
-		{
-			cout << "Username is already in use\n";
-			continue;
-		}
-		cout << "Password: ";
-		getline(cin, student->password);
-		if (isSpaceExisted(student->password))
-		{
-			cout << "Password cannot contain space(s)" << endl;
-			continue;
-		}
-		_STUDENT.Add(student);
-		studentToFile(_STUDENT, STUDENT_FILE);
-		cout << "Register Succesful" << endl;
-		Enter();
-		break;
-	}
+        std::cout << "Username: ";
+        std::getline(std::cin, student->username);
+        if (isStudentUsernameExisted(_STUDENT, student->username))
+        {
+            std::cout << "Username is already in use\n";
+            continue;
+        }
+        std::cout << "Password: ";
+        std::getline(std::cin, student->password);
+        if (isSpaceExisted(student->password))
+        {
+            std::cout << "Password cannot contain space(s)" << std::endl;
+            continue;
+        }
+        _STUDENT.Add(student);
+        studentToFile(_STUDENT, STUDENT_FILE);
+        std::cout << "Register Succesful" << std::endl;
+        Enter();
+        break;
+    }
 }
 
 // Student Login
 bool studentLogin()
 {
-	Student *student;
-	int chance = 3;
-	string username;
-	string password;
-	while (chance > 0)
-	{
-		cout << "Username: ";
-		getline(cin, username);
+    Student *student;
+    int chance = 3;
+    std::string username;
+    std::string password;
+    while (true)
+    {
+        if (chance == 0)
+        {
+            std::cout << "Too many attempt, please try again" << std::endl;
+            Enter();
+            return false;
+        }
+        chance -= 1;
+        std::cout << "Username: ";
+        std::getline(std::cin, username);
 
-		cout << "Password: ";
-		getline(cin, password);
+        std::cout << "Password: ";
+        std::getline(std::cin, password);
 
-		student = getStudentByUsername(_STUDENT, username);
-		if (student != nullptr && password == student->password)
-		{
-			return true;
-		}
+        student = getStudentByUsername(_STUDENT, username);
+        if (student != nullptr && password == student->password)
+        {
+            return true;
+        }
 
-		cout << "Invalid credentials" << endl;
-		chance--;
-	}
-	cout << "Too many attempt, please try again" << endl;
-	Enter();
-	return false;
+        std::cout << "Invalid credentials" << std::endl;
+    }
 }
 // adminLogin
 bool adminLogin()
 {
-	if (_ADMIN.Empty())
-	{
-		initAdmin();
-		fileToAdmin(_ADMIN, ADMIN_FILE);
-	}
-	Admin *admin;
-	int chance = 3;
-	string username;
-	string password;
-	while (chance > 0)
-	{
-		cout << "Username: ";
-		getline(cin, username);
+    if (_ADMIN.Empty())
+    {
+        initAdmin();
+        fileToAdmin(_ADMIN, ADMIN_FILE);
+    }
+    Admin *admin;
+    int chance = 3;
+    std::string username;
+    std::string password;
+    while (true)
+    {
+        if (chance == 0)
+        {
+            std::cout << "Too many attempt, please try again" << std::endl;
+            Enter();
+            return false;
+        }
+        chance -= 1;
+        std::cout << "Username: ";
+        std::getline(std::cin, username);
 
-		cout << "Password: ";
-		getline(cin, password);
+        std::cout << "Password: ";
+        std::getline(std::cin, password);
 
-		admin = getAdminByUsername(_ADMIN, username);
-		if (admin != nullptr && password == admin->password)
-		{
-			return true;
-		}
+        admin = getAdminByUsername(_ADMIN, username);
+        if (admin != nullptr && password == admin->password)
+        {
+            return true;
+        }
 
-		cout << "Invalid credentials" << endl;
-		chance--;
-	}
-	cout << "Too many attempt, please try again" << endl;
-	Enter();
-	return false;
+        std::cout << "Invalid credentials" << std::endl;
+    }
 }

@@ -14,11 +14,11 @@ void studentRatingMenu(TutorList &TL)
     while (true)
     {
         clearScreen();
-        cout << "Welcome student what you want to do?" << endl;
-        cout << "1) Rate a tutor" << endl;
-        cout << "2) Display list of tutor" << endl;
-        cout << "0) Log Out" << endl;
-        string sentence = "Enter your choice: ";
+        std::cout << "Welcome student what you want to do?" << std::endl;
+        std::cout << "1) Rate a tutor" << std::endl;
+        std::cout << "2) Display list of tutor" << std::endl;
+        std::cout << "0) Log Out" << std::endl;
+        std::string sentence = "Enter your choice: ";
         int choice = getIntInput(sentence);
         if (isChoiceInMenuRange(choice, 2))
         {

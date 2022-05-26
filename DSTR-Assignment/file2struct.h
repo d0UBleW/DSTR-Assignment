@@ -28,37 +28,37 @@ void initAdmin();
 /**
  * @brief import data from text file to Tutor vector
  *
- * @param tutorL specifies the list to hold the imported data
- *
  * @param filename specifies the text file's path which will be imported to
+ *
+ * @return a vector object with Tutor data from specified text file
  */
-void fileToTutor(TutorList &tutorL, const std::string filename);
+void fileToTutor(TutorList &, const std::string filename);
 
 /**
  * @brief import data from text file to Subject vector
  *
- * @param subjectL specifies the list to hold the imported data
- *
  * @param filename specifies the text file's path which will be imported to
+ *
+ * @return a vector object with Subject data from specified text file
  */
-void fileToSubject(SubjectList &subjectL, const std::string filename);
+void fileToSubject(SubjectList &, const std::string filename);
 
 /**
  * @brief import data from text file to Center vector
  *
- * @param centerL specifies the list to hold the imported data
- *
  * @param filename specifies the text file's path which will be imported to
+ *
+ * @return a vector object with Center data from specified text file
  */
-void fileToCenter(CenterList &centerL, const std::string filename);
+void fileToCenter(CenterList &, const std::string filename);
 
 /**
  * @brief export Tutor vector object to a text file
  *
- * @note tutorL is passed as reference to avoid copying the whole Tutor list
+ * @note tutorV is passed as reference to avoid copying the whole Tutor vector
  *       object into the function
  *
- * @param tutorL specifies the object to be exported
+ * @param tutorV specifies the object to be exported
  * @param filename specifies the text file's path to write to
  */
 void tutorToFile(TutorList &tutorL, std::string filename);
@@ -66,29 +66,25 @@ void tutorToFile(TutorList &tutorL, std::string filename);
 /**
  * @brief import data from text file to Student vector
  *
- * @param studentL specifies the list to hold the imported data
- *
  * @param filename specifies the text file's path which will be imported to
  *
  * @return a vector object with Student data from specified text file
  */
-void fileToStudent(StudentList &studentL, std::string filename);
+void fileToStudent(StudentList &, std::string filename);
 
 /**
  * @brief export Tutor vector object to a text file
  *
- * @note studentL is passed as reference to avoid copying the whole object into
+ * @note studentV is passed as reference to avoid copying the whole object into
  *       the function
  *
- * @param studentL specifies the object to be exported
+ * @param studentV specifies the object to be exported
  * @param filename specifies the text file's path to write to
  */
 void studentToFile(StudentList &, std::string filename);
 
 /**
  * @brief import data from text file to Admin vector
- *
- * @param adminL specifies the list to hold the imported data
  *
  * @param filename specifies the text file's path which will be imported to
  *
@@ -99,10 +95,10 @@ void fileToAdmin(AdminList &, std::string filename);
 /**
  * @brief export Tutor vector object to a text file
  *
- * @note adminL is passed as reference to avoid copying the whole object into
+ * @note adminV is passed as reference to avoid copying the whole object into
  *       the function
  *
- * @param adminL specifies the object to be exported
+ * @param adminV specifies the object to be exported
  * @param filename specifies the text file's path to write to
  */
 void adminToFile(AdminList &, std::string filename);

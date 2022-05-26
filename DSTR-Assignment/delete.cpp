@@ -49,10 +49,6 @@ void DeleteTerminatedTutor(TutorList &tutorL)
     Date sixMonth = today.SixMonthBack();
 
     TutorNode *nodePtr = tutorL.head;
-
-    /**
-     * Create a vector to store all nodes which are eligible to be deleted
-     */
     std::vector<TutorNode *> toBeDeleted;
 
     while (nodePtr != nullptr)

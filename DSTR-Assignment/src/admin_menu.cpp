@@ -55,7 +55,7 @@ void startMenu(TutorList &tutorL) {
 void modifyMenu(TutorList &tutorL) {
   while (true) {
     clearScreen();
-    std::cout std::
+    std::cout
             << "You are about to modify Tutor Record, Please be careful!\n";
     std::cout << "1) Modify by Tutor ID" << std::endl;
     std::cout << "0) Return to Previous Page" << std::endl;

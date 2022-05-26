@@ -16,9 +16,19 @@
 void initCenter()
 {
     CenterList centerL;
-    centerL.Add(new Center("C01", "One"));
-    centerL.Add(new Center("C02", "Two"));
-    centerL.Add(new Center("C03", "Three"));
+    centerL.Add(new Center("C01", "Johor"));
+    centerL.Add(new Center("C02", "Kedah"));
+    centerL.Add(new Center("C03", "Kelantan"));
+    centerL.Add(new Center("C04", "Malacca"));
+    centerL.Add(new Center("C05", "Negeri Sembilan"));
+    centerL.Add(new Center("C06", "Pahang"));
+    centerL.Add(new Center("C07", "Penang"));
+    centerL.Add(new Center("C08", "Perak"));
+    centerL.Add(new Center("C09", "Perlis"));
+    centerL.Add(new Center("C10", "Sabah"));
+    centerL.Add(new Center("C11", "Sarawak"));
+    centerL.Add(new Center("C12", "Selangor"));
+    centerL.Add(new Center("C13", "Terengganu"));
 
     std::fstream fileHandler(CENTER_FILE, std::ios::out);
     std::string delim = "|";
@@ -40,9 +50,13 @@ void initCenter()
 void initSubject()
 {
     SubjectList subjectL;
-    subjectL.Add(new Subject("S01", "One"));
-    subjectL.Add(new Subject("S02", "Two"));
-    subjectL.Add(new Subject("S03", "Three"));
+    subjectL.Add(new Subject("S01", "Chinese"));
+    subjectL.Add(new Subject("S02", "Bahasa Malaysia"));
+    subjectL.Add(new Subject("S03", "English"));
+    subjectL.Add(new Subject("S04", "Mathematics"));
+    subjectL.Add(new Subject("S05", "Chemistry"));
+    subjectL.Add(new Subject("S06", "Biology"));
+    subjectL.Add(new Subject("S07", "Physic"));
 
     std::fstream fileHandler(SUBJECT_FILE, std::ios::out);
     std::string delim = "|";
@@ -76,6 +90,8 @@ void initTutor()
     Tutor *t10 = new Tutor();
     Tutor *t11 = new Tutor();
     Tutor *t12 = new Tutor();
+    Tutor *t13 = new Tutor();
+
     t1->ID = "T01";
     t1->name = "Andy";
     t1->payRate = 40;
@@ -121,7 +137,7 @@ void initTutor()
     t4->joinDate = Date("1/1/2020");
     t4->terminateDate = Date("-");
     t4->center = getCenterByID(_CENTER, "C01");
-    t4->subject = getSubjectByID(_SUBJECT, "S01");
+    t4->subject = getSubjectByID(_SUBJECT, "S04");
     t4->countRate = 0;
 
     t5->ID = "T05";
@@ -133,7 +149,7 @@ void initTutor()
     t5->joinDate = Date("1/1/2020");
     t5->terminateDate = Date("-");
     t5->center = getCenterByID(_CENTER, "C02");
-    t5->subject = getSubjectByID(_SUBJECT, "S02");
+    t5->subject = getSubjectByID(_SUBJECT, "S05");
     t5->countRate = 0;
 
     t6->ID = "T06";
@@ -145,7 +161,7 @@ void initTutor()
     t6->joinDate = Date("1/1/2020");
     t6->terminateDate = Date("-");
     t6->center = getCenterByID(_CENTER, "C03");
-    t6->subject = getSubjectByID(_SUBJECT, "S03");
+    t6->subject = getSubjectByID(_SUBJECT, "S06");
     t6->countRate = 0;
 
     t7->ID = "T07";
@@ -193,7 +209,7 @@ void initTutor()
     t10->joinDate = Date("1/1/2020");
     t10->terminateDate = Date("-");
     t10->center = getCenterByID(_CENTER, "C01");
-    t10->subject = getSubjectByID(_SUBJECT, "S01");
+    t10->subject = getSubjectByID(_SUBJECT, "S04");
     t10->countRate = 0;
 
     t11->ID = "T11";
@@ -205,7 +221,7 @@ void initTutor()
     t11->joinDate = Date("1/1/2020");
     t11->terminateDate = Date("-");
     t11->center = getCenterByID(_CENTER, "C01");
-    t11->subject = getSubjectByID(_SUBJECT, "S01");
+    t11->subject = getSubjectByID(_SUBJECT, "S05");
     t11->countRate = 0;
 
     t12->ID = "T12";
@@ -217,8 +233,20 @@ void initTutor()
     t12->joinDate = Date("1/1/2020");
     t12->terminateDate = Date("-");
     t12->center = getCenterByID(_CENTER, "C01");
-    t12->subject = getSubjectByID(_SUBJECT, "S01");
+    t12->subject = getSubjectByID(_SUBJECT, "S06");
     t12->countRate = 0;
+
+    t13->ID = "T13";
+    t13->name = "Loo";
+    t13->payRate = 80;
+    t13->rating = 0;
+    t13->phone = "0180902093";
+    t13->address = "TPM";
+    t13->joinDate = Date("1/1/2022");
+    t13->terminateDate = Date("-");
+    t13->center = getCenterByID(_CENTER, "C13");
+    t13->subject = getSubjectByID(_SUBJECT, "S07");
+    t13->countRate = 0;
 
     tutorL.AddToLast(t1);
     tutorL.AddToFront(t2);
@@ -232,6 +260,7 @@ void initTutor()
     tutorL.AddToLast(t10);
     tutorL.AddToLast(t11);
     tutorL.AddToLast(t12);
+    tutorL.AddToLast(t13);
 
     tutorToFile(tutorL, TUTOR_FILE);
 }

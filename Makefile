@@ -8,3 +8,4 @@ install:
 
 clean:
 	ninja -C build -t clean
+	rm -f admin.txt student.txt tutor.txt center.txt subject.txt

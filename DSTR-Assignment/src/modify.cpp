@@ -34,6 +34,7 @@ void modifyTutor(TutorList &tutorL, bool isAdmin) {
         countRate++;
         tutorRate /= countRate;
         tutor->rating = tutorRate;
+        tutor->countRate = countRate;
         std::cout << "Thank you for your rating\n";
         Enter();
         return;
